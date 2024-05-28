@@ -19,3 +19,11 @@ Route::get('/', function () {
 });
 
 Route::get('/users', [UserController::class, 'listAllUsers'])->name('listAllUsers');
+
+Route::get('/users/create', [UserController::class, 'createAUser'])->name('createAUser');
+
+Route::get('/users/listid', [UserController::class, 'listUsersByID'])->name('listUsersByID');
+
+Route::get('/users/editid', [UserController::class, 'editUserByID'])->name('editUserByID');
+
+Route::get('/users/deleteid', [UserController::class, 'deleteUserByID'])->name('deleteUserByID');
