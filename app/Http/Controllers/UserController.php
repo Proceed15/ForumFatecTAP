@@ -14,17 +14,17 @@ class UserController extends Controller
     }
 
     public function listUsersByID(){
-
+        return view('users.listUsersByID');
     }
 
-    public function createUser(){
-
+    public function createAUser(){
+        return view('users.createAUser');
     }
 
     public function editUserByID(){
-
+        return view('users.editUserByID');
     }
     public function deleteUserByID(){
-
+        return view('users.deleteUserByID');
     }
 }
