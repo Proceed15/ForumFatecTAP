@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,11 +20,16 @@ Route::get('/', function () {
 });
 
 Route::get('/users', [UserController::class, 'listAllUsers'])->name('listAllUsers');
-
 Route::get('/users/create', [UserController::class, 'createAUser'])->name('createAUser');
+Route::get('/users/{uid}', [UserController::class, 'listUsersByID'])->name('listUsersByID');
+Route::get('/users/{uid}/edit', [UserController::class, 'editUserByID'])->name('editUserByID');
+Route::get('/users/{uid}/delete', [UserController::class, 'deleteUserByID'])->name('deleteUserByID');
 
-Route::get('/users/listid', [UserController::class, 'listUsersByID'])->name('listUsersByID');
+//Uso antigo, com é uma tela de login precisa ser match para ter psot imbutido.
+//Route::get('/login', [AuthController::class, 'loginUser'])->name('loginUser');
 
-Route::get('/users/editid', [UserController::class, 'editUserByID'])->name('editUserByID');
-
-Route::get('/users/deleteid', [UserController::class, 'deleteUserByID'])->name('deleteUserByID');
+Route::match(
+    ['get', 'post'],
+    '/login',
+    [AuthController::class, 'loginUser']
+)->name('loginUser');
