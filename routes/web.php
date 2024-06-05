@@ -15,21 +15,36 @@ use App\Http\Controllers\AuthController;
 |
 */
 
+/*
 Route::get('/', function () {
     return view('welcome');
 });
+*/
 
-Route::get('/users', [UserController::class, 'listAllUsers'])->name('listAllUsers');
-Route::get('/users/create', [UserController::class, 'createAUser'])->name('createAUser');
-Route::get('/users/{uid}', [UserController::class, 'listUsersByID'])->name('listUsersByID');
-Route::get('/users/{uid}/edit', [UserController::class, 'editUserByID'])->name('editUserByID');
-Route::get('/users/{uid}/delete', [UserController::class, 'deleteUserByID'])->name('deleteUserByID');
 
-//Uso antigo, com é uma tela de login precisa ser match para ter psot imbutido.
+//Uso antigo, com é uma tela de login precisa ser match para ter post imbutido.
 //Route::get('/login', [AuthController::class, 'loginUser'])->name('loginUser');
+
+Route::get('/logout', [AuthController::class, 'logoutUser'])->name('logoutUser');
 
 Route::match(
     ['get', 'post'],
     '/login',
     [AuthController::class, 'loginUser']
 )->name('loginUser');
+
+Route::match(
+    ['get', 'post'],
+    '/register',
+    [UserController::class, 'register']
+)->name('register');
+
+
+Route::middleware('auth')->group(function() {
+    Route::get('/users', [UserController::class, 'listAllUsers'])->name('listAllUsers');
+    Route::get('/users/{uid}', [UserController::class, 'listUsersByID'])->name('listUsersByID');
+    
+    //Route::get('/users/create', [UserController::class, 'createAUser'])->name('createAUser');
+    Route::get('/users/{uid}/edit', [UserController::class, 'editUserByID'])->name('editUserByID');
+    Route::get('/users/{uid}/delete', [UserController::class, 'deleteUserByID'])->name('deleteUserByID');
+});
