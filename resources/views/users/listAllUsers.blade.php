@@ -12,10 +12,12 @@
             <td>Nome</td>
             <td>Email<td>
         </tr>
+        @foreach($users as $user)
         <tr>
-            <td>José</td>
-            <td>jose@gmail.com</td>
+            <td>{{ $user -> name }}</td>
+            <td>{{ $user -> email }}</td>
         </tr>
+        @endforeach
     </table>
 </div>
 @endsection

@@ -14,7 +14,8 @@ class UserController extends Controller
     // no_camel_case
     public function listAllUsers(){
         //Lógica pasta.nomedapagina
-        return view('users.listAllUsers');
+        $users = User:: all();
+        return view('users.listAllUsers', ['users' => $users]);
     }
 
     /*não será maois usado.
@@ -49,13 +50,34 @@ class UserController extends Controller
     }
 
     public function listUsersByID(Request $request, $uid){
-        return view('users.listUsersByID');
+        //Procurar o Usuário no Banco.
+        $user = User::where('id', $uid)->first();
+        //where --> busca 1 campo só, mas retorna um array desse campo.
+        //find --> busca vários campos.
+        //print($uid);
+        //return view('users.listUsersByID');
+        return view('users.profile', ['user' => $user]);
     }
 
+
     public function editUserByID(Request $request, $uid){
-        return view('users.editUserByID');
+        $user = User::where('id', $uid)->first();
+        //Adicionar validação de dados igual ao arquivo do register.
+        $user->name = $request->name;
+        $user->email = $request->email;
+        if($request->password != '')
+        {
+            $user->password = Hash::make($request->password);
+        }
+        $user->save();
+        return redirect()->route('listUsersByID', [$user->id])->with('message', 'Atualizado com sucesso!');
+        //return view('users.editUserByID');
     }
     public function deleteUserByID(Request $request, $uid){
-        return view('users.deleteUserByID');
+        $user = User::where('id', $uid)->first();
+        
+        $user->save();
+        //return view('users.deleteUserByID');
+        return redirect()->route('listUsersByID', [$user->id])->with('message', 'Excluído com sucesso!');
     }
 }

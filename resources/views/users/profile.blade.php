@@ -3,27 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tela de Login</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <title>Tela de Registro</title>
+    <link href="../forum.css" rel="stylesheet">
 </head>
 <body>
     <div class="login-container">
         <div class="login-form">
-            <h2>Login</h2>
-            <form action="{{ route('loginUser') }}" method="post">
-              @csrf
+            <h2>Perfil</h2>
+            <span>{{ session('message') }}</span>
+            @if($user != null)
+            <form action="{{ route('editUserByID', [$user->id]) }}" method="post">
+              @csrf <!--Tag em PHP para habilitar o Token de acesso-->
+              @method('put')
                 <div class="input-group">
-                    <label for="username">Usuário</label>
-                    <input type="email" name="email" placeholder="E-mail" value="{{ old('email') }}" required>
-                    @error('email') <span>{{ $message }}</span> @enderror
+                    <label for="name">Usuário</label>
+                    <input type="text" id="name" name="name" value="{{ $user->name }}" required>
                 </div>
+                @error('name') <span>{{ $message }}</span> @enderror
                 <div class="input-group">
-                    <label for="password">Senha</label> 
-                    <input type="password" name="password" placeholder="Password" value="{{ old('password') }}" required>
-                    @error('password') <span>{{ $message }}</span> @enderror
+                    <label for="email">email</label>
+                    <input type="email" id="email" name="email" value="{{ $user->email }}" required>
                 </div>
-                <button type="submit">Entrar</button>
+                @error('email') <span>{{ $message }}</span> @enderror
+                <div class="input-group">
+                    <label for="password">Senha</label>
+                    <input type="password" id="password" name="password">
+                </div>
+                @error('password') <span>{{ $message }}</span> @enderror
+                <div class="input-group">
+                    <label for="password">Confirmar Senha</label>
+                    <input type="password" id="password_confirmation" name="password_confirmation">
+                </div>
+                <button type="submit">Editar registro</button>
             </form>
+            <br />
+            <form action="{{ route('deleteUserByID', [$user->id]) }}" method="post">
+              @csrf <!--Tag em PHP para habilitar o Token de acesso-->
+              @method('delete')
+              <button type="submit" value="Excluir">Excluir</button>
+              <!--<input type="submit" value="Excluir">-->
+            </form>
+            @endif
         </div>
     </div>
     <style>

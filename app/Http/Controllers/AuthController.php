@@ -17,8 +17,8 @@ class AuthController extends Controller
             return view('auth.login');
         } else {
             $credentials = $request->validate([
-                'email' => 'required|string|email|max:255|unique:users',
-                'password' => 'required|string|min:8|confirmed'
+                'email' => 'required|string|email|max:255',
+                'password' => 'required|string|min:8'
             ]);
             if (Auth::attempt($credentials)) {
                 return redirect()
@@ -43,7 +43,7 @@ class AuthController extends Controller
     public function logoutUser(Request $request) {
         Auth::logout();
         return redirect()
-            ->route('login')
+            ->route('listAllUsers')
             ->with('success', 'Logout realizado com sucesso.');
     }
         
