@@ -15,11 +15,11 @@ use App\Http\Controllers\AuthController;
 |
 */
 
-/*
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
-*/
+
 
 
 //Uso antigo, com é uma tela de login precisa ser match para ter post imbutido.
