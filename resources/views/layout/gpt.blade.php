@@ -13,7 +13,7 @@
         }
 
         header {
-            background-color: #6e8efb; /* Azul gradiente */
+            background-color: #6e8efb; /* Azul Gradiente lá no Header. */
             padding: 20px;
             color: white;
             text-align: center;
@@ -25,7 +25,7 @@
             position: fixed;
             top: 0;
             left: 0;
-            background-color: #007bff; /* Azul claro */
+            background-color: #007bff; /* Azul Claro da Barra Lateral */
             padding-top: 20px;
         }
 
@@ -43,7 +43,7 @@
         }
 
         .sidebar a:hover {
-            background-color: #0056b3; /* Azul mais escuro */
+            background-color: #0056b3; /* Azul mais Escuro da Barra Lateral */
         }
 
         .content {
@@ -52,7 +52,7 @@
         }
 
         footer {
-            background-color: #007bff; /* Azul claro */
+            background-color: #007bff; /* Azul Claro do Footer */
             color: #fff;
             text-align: center;
             position: fixed;
