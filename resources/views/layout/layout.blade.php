@@ -61,6 +61,20 @@
             padding: 10px 0;
         }
 
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        td,
+        th {
+            border: 1px solid #666666;
+            text-align: left;
+            padding: 8px;
+        }
+        tr:nth-child(even) {
+            background-color: #403075;
+        }
+    }
         .container {
             background: linear-gradient(135deg, #6e8efb, #a777e3);
             padding: 40px;
@@ -133,8 +147,8 @@
             border-radius: 5px;
             margin-bottom: 10px;
         }
-    </style>
-</head>
+  </style>
+  </head>
 <body>
     <header>
         <h1>@yield('header')</h1>
@@ -144,7 +158,7 @@
         <h2>Menu</h2>
         <a href="#">Home</a>
         <a href="#">Blog</a>
-        <a href="#">Contato</a>
+        <a href="/users">Contato</a>
     </div>
  
     <div class="content">

@@ -1,4 +1,4 @@
-@extends('layout.gpt')
+@extends('layout.layout')
 <!DOCTYPE html>
 <!--
  Transit by TEMPLATED
@@ -41,7 +41,7 @@
  
  <!-- Banner -->
  <section id="banner">
- <h2>Hi. This is Transit.</h2>
+ <h2>Hi. This is Foorum.</h2>
  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
  <ul class="actions">
  <li>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tela de Registro</title>
+    <title>Tela de Perfil</title>
     <link href="../forum.css" rel="stylesheet">
 </head>
 <body>

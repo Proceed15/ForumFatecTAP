@@ -1,4 +1,4 @@
-@extends('layout.gpt')
+@extends('layout.layout')
 
 @section('title', 'Editar Usuário')
 

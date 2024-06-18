@@ -39,10 +39,12 @@ Route::match(
     [UserController::class, 'register']
 )->name('register');
 
+Route::get('/search', [UserController::class, 'listUsersByID'])->name('listUsersByID');
 
 Route::middleware('auth')->group(function() {
     Route::get('/users', [UserController::class, 'listAllUsers'])->name('listAllUsers');
     Route::get('/users/{uid}', [UserController::class, 'listUsersByID'])->name('listUsersByID');
+    Route::get('/users/profile', [UserController::class, 'editUserByID'])->name('editUserByID');
     
     Route::put('/users/{uid}/edit', [UserController::class, 'editUserByID'])->name('editUserByID');
     Route::delete('/users/{uid}/delete', [UserController::class, 'deleteUserByID'])->name('deleteUserByID');
