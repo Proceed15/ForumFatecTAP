@@ -65,16 +65,16 @@
             font-family: arial, sans-serif;
             border-collapse: collapse;
             width: 100%;
-        td,
-        th {
-            border: 1px solid #666666;
-            text-align: left;
-            padding: 8px;
+            td,
+            th {
+                border: 1px solid #666666;
+                text-align: left;
+                padding: 8px;
+            }
+            tr:nth-child(even) {
+                background-color: #403075;
+            }
         }
-        tr:nth-child(even) {
-            background-color: #403075;
-        }
-    }
         .container {
             background: linear-gradient(135deg, #6e8efb, #a777e3);
             padding: 40px;
@@ -157,8 +157,8 @@
     <div class="sidebar">
         <h2>Menu</h2>
         <a href="/#">Home</a>
-        <a href="/topics">Posts</a>
-        <a href="/users">Contatos</a>
+        <a href="/topics">Tópicos</a>
+        <a href="/users">Usuários</a>
     </div>
  
     <div class="content">

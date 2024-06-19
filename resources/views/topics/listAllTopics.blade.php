@@ -18,7 +18,6 @@
             <td> {{ $topic -> title }} </td>
             <td> {{ $topic -> description }} </td>
             <td> {{ $topic -> status }} </td>
-            <br></br>
         </tr>
         @endforeach
     </table>

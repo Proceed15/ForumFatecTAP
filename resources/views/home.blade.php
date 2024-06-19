@@ -15,19 +15,32 @@
  <!-- Header -->
  <header id="header">
  <h1><a href="/#">Fórum</a></h1>
- <nav id="nav">
- <ul>
  <li><a href="/#">Bem vindo a Home Page de nosso site!</a></li>
- <li><a href="/users/profile">Veja seu Perfil</a></li>
+ <li><a href="{{ route('listUsersByID', $authUser) }}">Veja seu Perfil</a></li>
  <li><a href="/topics">Veja uma Publicação Aleatória</a></li>
  <li><a href="/login">Logue-se</a></li>
  <li><a href="/register" class="button special">Registre-se</a></li>
- </ul>
- </nav>
  </header>
 
+ @section('content')
  <!-- Body -->
  <body id="body">
+<div class="container">
+    <h3>Tópicos recentes</h3>
+    <table border="10">
+        <tr>
+            <td> Nome </td>
+            <td> Descrição </td>
+            <td> Status </td>
+        </tr>
+        <tr>
+            <td> PHP? Atualmente </td>
+            <td> Por que Usar PHP em 2024? Beneficios Principais </td>
+            <td> 1 </td>
+        </tr>
+    </table>
+</div>
+</body>
+@endsection
 
- </body>
 </html>

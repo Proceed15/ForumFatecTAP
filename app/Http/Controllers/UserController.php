@@ -10,6 +10,13 @@ use App\Models\User;
 
 class UserController extends Controller
 {
+
+    public function home() {
+        //Essa função seria um Controller próprio para gerenciar o ID do usuário logado.
+        $user_id = Auth::id();
+        return view('home', ['authUser' => $user_id]);
+
+    }
     // camelCase
     // no_camel_case
     //Lógicas para programar
@@ -57,7 +64,8 @@ class UserController extends Controller
         //find --> busca vários campos.
         //print($uid);
         //return view('users.listUsersByID');
-        return view('users.profile', ['user' => $user]);
+        $user_id = Auth::id();
+        return view('users.profile', ['user' => $user, 'authUser' => $user_id]);
     }
 
 

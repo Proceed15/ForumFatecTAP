@@ -10,6 +10,13 @@ use App\Models\Topic;
 
 class TopicController extends Controller
 {
+    public function home() {
+        //Essa função seria um Controller próprio para gerenciar o ID do usuário logado.
+        $user_id = Auth::id();
+        return view('home', ['authUser' => $user_id]);
+
+    }
+
     // camelCase
     // no_camel_case
     //Lógicas para programar

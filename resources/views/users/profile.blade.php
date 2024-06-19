@@ -1,14 +1,19 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
+@extends('layout.layout')
+
+@section('title', 'Perfil Usuário')
+
+@section('header', 'Perfil Usuário')
+
+@section('content')
+<!--
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tela de Perfil</title>
     <link href="../forum.css" rel="stylesheet">
 </head>
-<body>
-    <div class="login-container">
-        <div class="login-form">
+-->
+    <div class="container">
             <h2>Perfil</h2>
             <span>{{ session('message') }}</span>
             @if($user != null)
@@ -44,8 +49,9 @@
               <!--<input type="submit" value="Excluir">-->
             </form>
             @endif
-        </div>
     </div>
+    @endsection
+    <!--
     <style>
         body {
             display: flex;
@@ -114,5 +120,4 @@
             background-color: #0056b3;
         }
     </style>
-</body>
-</html>
+    -->

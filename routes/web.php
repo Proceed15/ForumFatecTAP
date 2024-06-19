@@ -17,16 +17,12 @@ use App\Http\Controllers\AuthController;
 */
 
 
-Route::get('/', function () {
-    return view('home');
-    //Retorna o Home.
-});
+Route::get('/', [TopicController::class, 'home'])->name('listAllTopics');
 
 
 
 //Uso antigo, com é uma tela de login precisa ser match para ter post imbutido.
 //Route::get('/login', [AuthController::class, 'loginUser'])->name('loginUser');
-
 
 
 Route::match(
