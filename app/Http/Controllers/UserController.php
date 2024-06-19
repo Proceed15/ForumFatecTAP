@@ -12,9 +12,10 @@ class UserController extends Controller
 {
     // camelCase
     // no_camel_case
+    //Lógicas para programar
     public function listAllUsers(){
-        //Lógica pasta.nomedapagina
         $users = User:: all();
+        //Lógica pasta.nomedapagina
         return view('users.listAllUsers', ['users' => $users]);
     }
 

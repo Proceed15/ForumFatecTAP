@@ -20,6 +20,7 @@ class AuthController extends Controller
                 'email' => 'required|string|email|max:255',
                 'password' => 'required|string|min:8'
             ]);
+            //Auth:attemp -->Vai precisar de dados armazenados para serem recuperados.
             if (Auth::attempt($credentials)) {
                 return redirect()
                     ->intended('/users')
@@ -37,7 +38,6 @@ class AuthController extends Controller
             print_r($credentials);
             */
 
-            //Auth:attemp -->Vai precisar de dados armazenados para serem recuperados.
         }
     }
     public function logoutUser(Request $request) {

@@ -156,9 +156,9 @@
  
     <div class="sidebar">
         <h2>Menu</h2>
-        <a href="#">Home</a>
-        <a href="#">Blog</a>
-        <a href="/users">Contato</a>
+        <a href="/#">Home</a>
+        <a href="/topics">Posts</a>
+        <a href="/users">Contatos</a>
     </div>
  
     <div class="content">
