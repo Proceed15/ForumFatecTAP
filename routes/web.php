@@ -38,7 +38,7 @@ Route::match(
 )->name('register');
 
 Route::get('/topics', [TopicController::class, 'listAllTopics'])->name('listAllTopics');
-Route::get('/search', [UserController::class, 'listUsersByID'])->name('listUsersByID');
+/*Route::get('/search', [UserController::class, 'listUsersByID'])->name('listUsersByID');*/
 
 Route::match(
     ['get', 'post'],
@@ -49,6 +49,7 @@ Route::match(
 Route::middleware('auth')->group(function() {
     Route::get('/users', [UserController::class, 'listAllUsers'])->name('listAllUsers');
     Route::get('/users/{uid}', [UserController::class, 'listUsersByID'])->name('listUsersByID');
+    /*Route::get('/users/edit', [UserController::class, 'editUserByID'])->name('editUserByID'););*/
     Route::get('/users/profile', [UserController::class, 'editUserByID'])->name('editUserByID');
     
     Route::get('/logout', [AuthController::class, 'logoutUser'])->name('logoutUser');

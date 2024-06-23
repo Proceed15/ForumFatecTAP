@@ -58,7 +58,7 @@
             position: fixed;
             width: 100%;
             bottom: 0;
-            padding: 10px 0;
+            padding: 1px 0;
         }
 
         table {
@@ -91,6 +91,29 @@
             font-weight: 500;
         }
 
+        .pdiv{
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        .pdiv label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .pdiv input {
+            width: calc(100% - 20px);
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            margin-left: 10px;
+            box-sizing: border-box;
+        }
+
+        .pdiv input:focus {
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        }
         .input-group {
             margin-bottom: 15px;
             text-align: left;
@@ -156,9 +179,13 @@
  
     <div class="sidebar">
         <h2>Menu</h2>
-        <a href="/#">Home</a>
+        <a href="/">Home</a>
         <a href="/topics">Tópicos</a>
         <a href="/users">Usuários</a>
+        @if(Auth::check())
+        <a href="{{ route('listUsersByID', $authUser) }}">Bem vindo, {{Auth::user()->name}}!</a>
+        <a href="/logout">Deseja Sair? Clique Aqui.</a>
+        @endif
     </div>
  
     <div class="content">

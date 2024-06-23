@@ -71,7 +71,12 @@ class UserController extends Controller
 
     public function editUserByID(Request $request, $uid){
         $user = User::where('id', $uid)->first();
-        //Adicionar validação de dados igual ao arquivo do register.
+        //Adicionar validação de dados igual a função do register.
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255',
+            'password' => 'required|string|min:8|confirmed'
+        ]);
         $user->name = $request->name;
         $user->email = $request->email;
         if($request->password != '')
@@ -79,7 +84,7 @@ class UserController extends Controller
             $user->password = Hash::make($request->password);
         }
         $user->save();
-        return redirect()->route('listUsersByID', [$user->id])->with('message', 'Atualizado com sucesso!');
+        return redirect()->route('listAllUsers', [$user->id])->with('message', 'Atualizado com sucesso!');
         //return view('users.editUserByID');
     }
     public function deleteUserByID(Request $request, $uid){

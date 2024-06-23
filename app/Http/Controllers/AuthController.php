@@ -43,7 +43,7 @@ class AuthController extends Controller
     public function logoutUser(Request $request) {
         Auth::logout();
         return redirect()
-            ->route('listAllUsers')
+            ->route('listAllTopics')
             ->with('success', 'Logout realizado com sucesso.');
     }
         

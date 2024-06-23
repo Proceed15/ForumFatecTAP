@@ -1,8 +1,8 @@
 @extends('layout.layout')
 
-@section('title', 'Perfil Usuário')
+@section('title', 'Perfil de Usuário')
 
-@section('header', 'Perfil Usuário')
+@section('header', 'Perfil de  Usuário')
 
 @section('content')
 <!--
@@ -14,7 +14,7 @@
 </head>
 -->
     <div class="container">
-            <h2>Perfil</h2>
+            <h2>Perfil de Usuário</h2>
             <span>{{ session('message') }}</span>
             @if($user != null)
             <form action="{{ route('editUserByID', [$user->id]) }}" method="post">
