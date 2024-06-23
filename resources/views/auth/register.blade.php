@@ -18,7 +18,7 @@
                 </div>
                 @error('name') <span>{{ $message }}</span> @enderror
                 <div class="input-group">
-                    <label for="email">email</label>
+                    <label for="email">Email</label>
                     <input type="email" id="email" name="email" value="{{ old('email') }}" required>
                 </div>
                 @error('email') <span>{{ $message }}</span> @enderror

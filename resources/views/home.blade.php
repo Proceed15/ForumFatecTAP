@@ -14,7 +14,13 @@
  
  <!-- Header -->
  <header id="header">
- <h1><a href="/">Fórum</a></h1>
+ </header>
+
+ @section('content')
+ <!-- Body -->
+ <body id="body">
+<div class="header">
+<h2><a href="/">Fórum</a></h2>
  <li><a href="/">Bem vindo a Home Page de nosso site!</a></li>
  @if(Auth::check())
  <li><a href="{{ route('listUsersByID', $authUser) }}">Veja seu Perfil</a></li>
@@ -22,13 +28,9 @@
  <li><a href="/topics">Veja uma Publicação Aleatória</a></li>
  <li><a href="/login">Logue-se</a></li>
  <li><a href="/register" class="button special">Registre-se</a></li>
- </header>
-
- @section('content')
- <!-- Body -->
- <body id="body">
+</div>
 <div class="container">
-    <h3>Tópicos recentes</h3>
+    <h2>Tópicos recentes</h2>
     <table border="10">
         <tr>
             <td> Nome </td>

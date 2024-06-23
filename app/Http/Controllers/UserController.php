@@ -15,7 +15,11 @@ class UserController extends Controller
         //Essa função seria um Controller próprio para gerenciar o ID do usuário logado.
         $user_id = Auth::id();
         return view('home', ['authUser' => $user_id]);
-
+    }
+    public function layout() {
+        //Essa função seria um Controller próprio para gerenciar o ID do usuário logado.
+        $user_id = Auth::id();
+        return view('layout', ['authUser' => $user_id]);
     }
     // camelCase
     // no_camel_case

@@ -1,56 +1,87 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title')</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <title>Forum Layout</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
             margin: 0;
             font-family: 'Roboto', sans-serif;
             background-color: #f0f0f0;
         }
-
         header {
-            background-color: #6e8efb; /* Azul Gradiente lá no Header. */
-            padding: 20px;
+            background-color: #6e8efb;
             color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             text-align: center;
         }
-
-        .sidebar {
-            height: 100%;
-            width: 250px;
-            position: fixed;
-            top: 0;
-            left: 0;
-            background-color: #007bff; /* Azul Claro da Barra Lateral */
-            padding-top: 20px;
+        header nav {
+            display: flex;
+            gap: 40px;
         }
-
-        .sidebar h2 {
-            color: #fff;
-            text-align: center;
-        }
-
-        .sidebar a {
-            padding: 10px;
+        header nav a {
+            color: white;
             text-decoration: none;
-            font-size: 18px;
+            padding: 1px;
+            font-weight: 500;
+        }
+        .container {
+            background: linear-gradient(135deg, #6e8efb, #a777e3);
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
             color: #fff;
-            display: block;
+            display: flex;
+            flex: 1;
         }
-
-        .sidebar a:hover {
-            background-color: #0056b3; /* Azul mais Escuro da Barra Lateral */
+        .container h2 {
+            /*line-height:0px;*/
+            margin-bottom: 20px;
         }
-
+        .sidebar {
+            width: 200px;
+            color: white;
+            padding: 1rem;
+            height: 100%;
+            width: 150px;
+            background-color: #007bff; /* Azul Claro das Barras Laterais */
+            padding-top: 600px;
+        }
+        /* Não estou usando por enquanto.
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            margin: 0.5rem 0;
+        }
+        .sidebar ul li a {
+            text-decoration: none;
+            color: white;
+        }
+        */
+        .right-sidebar {
+            width: 200px;
+            color: white;
+            padding: 1rem;
+            height: 100%;
+            width: 150px;
+            background-color: #007bff; /* Azul Claro das Barras Laterais */
+            padding-top: 600px;
+        }
         .content {
-            margin-left: 250px;
+            flex: 1;
+            background-color: #edf2f7;
             padding: 20px;
         }
-
         footer {
             background-color: #007bff; /* Azul Claro do Footer */
             color: #fff;
@@ -58,39 +89,8 @@
             position: fixed;
             width: 100%;
             bottom: 0;
-            padding: 1px 0;
+            padding: 40px;;
         }
-
-        table {
-            font-family: arial, sans-serif;
-            border-collapse: collapse;
-            width: 100%;
-            td,
-            th {
-                border: 1px solid #666666;
-                text-align: left;
-                padding: 8px;
-            }
-            tr:nth-child(even) {
-                background-color: #403075;
-            }
-        }
-        .container {
-            background: linear-gradient(135deg, #6e8efb, #a777e3);
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            max-width: 800px;
-            text-align: center;
-            color: #fff;
-            margin: 0 auto;
-        }
-
-        .container h2 {
-            margin-bottom: 20px;
-            font-weight: 500;
-        }
-
         .pdiv{
             margin-bottom: 15px;
             text-align: left;
@@ -155,6 +155,22 @@
             background-color: #0056b3;
         }
 
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+            margin: 0;
+            td,
+            th {
+                border: 1px solid #666666;
+                text-align: left;
+                padding: 8px;
+            }
+            tr:nth-child(even) {
+                background-color: #403075;
+            }
+        }
+
         .user-list {
             text-align: left;
         }
@@ -170,30 +186,32 @@
             border-radius: 5px;
             margin-bottom: 10px;
         }
-  </style>
-  </head>
+    </style>
+</head>
 <body>
     <header>
-        <h1>@yield('header')</h1>
+        <H1>Fórum</H1>
+        <nav>
+            <a href="/">Página Inicial</a>
+            <a href="/topics">Tópicos</a>
+            <a href="/users">Usuários</a>
+            <a href="/login">Logar</a>
+            <a href="/register">Registrar-se</a>
+        </nav>
     </header>
- 
-    <div class="sidebar">
-        <h2>Menu</h2>
-        <a href="/">Home</a>
-        <a href="/topics">Tópicos</a>
-        <a href="/users">Usuários</a>
-        @if(Auth::check())
-        <a href="{{ route('listUsersByID', $authUser) }}">Bem vindo, {{Auth::user()->name}}!</a>
-        <a href="/logout">Deseja Sair? Clique Aqui.</a>
-        @endif
+    <div class="container">
+        <aside class="sidebar">
+        </aside>
+        <main class="content">
+            <!-- Forum discussions go here -->
+            @yield('content')
+        </main>
+        <aside class="right-sidebar">
+            <!-- Additional widgets or information -->
+        </aside>
     </div>
- 
-    <div class="content">
-        @yield('content')
-    </div>
- 
     <footer>
-        <p>Fórum PHP Laravel - © 2024</p>
+        Fórum PHP Laravel - © 2024
     </footer>
 </body>
 </html>
