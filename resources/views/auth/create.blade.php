@@ -1,3 +1,10 @@
+@extends('layout.layout')
+
+@section('title', 'Perfil de Usuário')
+
+@section('header', 'Perfil de  Usuário')
+
+@section('content')
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -32,24 +39,15 @@
             <button><a href="/topics">Cancelar</a></button>
         </div>
     </div>
+    @endsection
     <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f0f0f0;
-            margin: 0;
-            font-family: 'Roboto', sans-serif;
-        }
-
         .login-container {
             background: linear-gradient(135deg, #6e8efb, #a777e3);
             padding: 40px;
             border-radius: 15px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             width: 100%;
-            max-width: 400px;
+            max-width: 777px;
             text-align: center;
             color: #fff;
         }
