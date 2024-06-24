@@ -13,8 +13,8 @@
     <link href="../forum.css" rel="stylesheet">
 </head>
 -->
-    <div class="container">
-            <h2>Perfil de Usuário</h2>
+    <div class="login-container">
+    <h1>Perfil de Usuário</h1>
             <span>{{ session('message') }}</span>
             @if($user != null)
             <form action="{{ route('editUserByID', [$user->id]) }}" method="post">
@@ -26,7 +26,7 @@
                 </div>
                 @error('name') <span>{{ $message }}</span> @enderror
                 <div class="input-group">
-                    <label for="email">email</label>
+                    <label for="email">Email</label>
                     <input type="email" id="email" name="email" value="{{ $user->email }}" required>
                 </div>
                 @error('email') <span>{{ $message }}</span> @enderror
@@ -39,37 +39,25 @@
                     <label for="password">Confirmar Senha</label>
                     <input type="password" id="password_confirmation" name="password_confirmation">
                 </div>
-                <button type="submit">Editar registro</button>
+                <button type="submit">Editar Perfil</button>
             </form>
-            <br />
             <form action="{{ route('deleteUserByID', [$user->id]) }}" method="post">
               @csrf <!--Tag em PHP para habilitar o Token de acesso-->
               @method('delete')
-              <button type="submit" value="Excluir">Excluir</button>
+              <button type="submit" value="Excluir">Excluir Perfil</button>
               <!--<input type="submit" value="Excluir">-->
             </form>
             @endif
     </div>
     @endsection
-    <!--
     <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f0f0f0;
-            margin: 0;
-            font-family: 'Roboto', sans-serif;
-        }
-
         .login-container {
             background: linear-gradient(135deg, #6e8efb, #a777e3);
-            padding: 40px;
+            padding: 20px;
             border-radius: 15px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             width: 100%;
-            max-width: 400px;
+            max-width: 900px;
             text-align: center;
             color: #fff;
         }
@@ -120,4 +108,3 @@
             background-color: #0056b3;
         }
     </style>
-    -->

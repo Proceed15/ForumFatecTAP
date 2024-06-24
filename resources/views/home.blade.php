@@ -11,23 +11,24 @@
  <meta name="description" content="" />
  <meta name="keywords" content="" />
  </head>
- 
- <!-- Header -->
- <header id="header">
- </header>
 
  @section('content')
  <!-- Body -->
  <body id="body">
 <div class="header">
-<h2><a href="/">Fórum</a></h2>
- <li><a href="/">Bem vindo a Home Page de nosso site!</a></li>
+<h1>O Fórum</h1>
+ <a href="/">Bem vindo a Home Page de nosso site!</a>
+ <br></br>
+ <a href="/topics">Veja uma Publicação</a>
+ <br></br>
  @if(Auth::check())
- <li><a href="{{ route('listUsersByID', $authUser) }}">Veja seu Perfil</a></li>
+ <a href="{{ route('listUsersByID', Auth::user()->id) }}">Veja seu Perfil</a>
+ @else
+ <a href="/login">Logue-se</a></li>
+ <br></br>
+ <a href="/register" class="button special">Registre-se</a>
  @endif
- <li><a href="/topics">Veja uma Publicação Aleatória</a></li>
- <li><a href="/login">Logue-se</a></li>
- <li><a href="/register" class="button special">Registre-se</a></li>
+ <br></br>
 </div>
 <div class="container">
     <h2>Tópicos recentes</h2>
@@ -36,7 +37,6 @@
             <td> Nome </td>
             <td> Descrição </td>
             <td> Status </td>
-        </tr>
         <tr>
             <td> PHP? Atualmente? </td>
             <td> Por que Usar PHP em 2024? Beneficios Principais </td>
@@ -46,6 +46,7 @@
             <td> Inteligências Artificiais Inovadoras</td>
             <td> Como as novas formas de se utilizar IA's para criação de conteúdo digital vêm inovando </td>
             <td> 1 </td>
+        </tr>
         </tr>
     </table>
 </div>

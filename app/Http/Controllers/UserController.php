@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use App\Models\User;
+use App\Http\Controllers\UserController;
 
 class UserController extends Controller
 {
@@ -15,11 +16,6 @@ class UserController extends Controller
         //Essa função seria um Controller próprio para gerenciar o ID do usuário logado.
         $user_id = Auth::id();
         return view('home', ['authUser' => $user_id]);
-    }
-    public function layout() {
-        //Essa função seria um Controller próprio para gerenciar o ID do usuário logado.
-        $user_id = Auth::id();
-        return view('layout', ['authUser' => $user_id]);
     }
     // camelCase
     // no_camel_case
@@ -79,7 +75,7 @@ class UserController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255',
-            'password' => 'required|string|min:8|confirmed'
+            'password' => 'confirmed'
         ]);
         $user->name = $request->name;
         $user->email = $request->email;
@@ -88,6 +84,7 @@ class UserController extends Controller
             $user->password = Hash::make($request->password);
         }
         $user->save();
+        $user_id = Auth::id();
         return redirect()->route('listAllUsers', [$user->id])->with('message', 'Atualizado com sucesso!');
         //return view('users.editUserByID');
     }
@@ -96,6 +93,6 @@ class UserController extends Controller
         
         $user->save();
         //return view('users.deleteUserByID');
-        return redirect()->route('listUsersByID', [$user->id])->with('message', 'Excluído com sucesso!');
+        return redirect()->route('listAllUsers', [$user->id])->with('message', 'Excluído com sucesso!');
     }
 }

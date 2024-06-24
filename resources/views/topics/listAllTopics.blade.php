@@ -6,13 +6,15 @@
 
 @section('content')
 <div class="container">
-    <h2>Listar Todos os Tópicos</h2>
+    <h1>Listar Todos os Tópicos
+    <br></br>
+    <a href="create">Crie um Tópico</a>
+    </h1>
     <table border="10">
         <tr>
             <td> Nome </td>
             <td> Descrição </td>
             <td> Status </td>
-        </tr>
         @foreach($topics as $topic)
         <tr>
             <td> {{ $topic -> title }} </td>
@@ -20,6 +22,7 @@
             <td> {{ $topic -> status }} </td>
         </tr>
         @endforeach
+        </tr>
     </table>
 </div>
 @endsection

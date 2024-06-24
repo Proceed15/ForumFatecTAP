@@ -9,7 +9,7 @@
 <body>
     <div class="login-container">
         <div class="login-form">
-            <h2>Crie</h2>
+            <h2>Criar Tópico</h2>
             <form action="{{ route('create') }}" method="post">
               @csrf <!--Tag em PHP para habilitar o Token de acesso-->
                 <div class="input-group">
@@ -29,6 +29,7 @@
                 @error('status') <span>{{ $message }}</span> @enderror
                 <button type="submit">Postar</button>
             </form>
+            <button><a href="/topics">Cancelar</a></button>
         </div>
     </div>
     <style>

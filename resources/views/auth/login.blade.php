@@ -1,3 +1,10 @@
+@extends('layout.layout')
+
+@section('title', 'Perfil de Usuário')
+
+@section('header', 'Perfil de  Usuário')
+
+@section('content')
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -9,7 +16,7 @@
 <body>
     <div class="login-container">
         <div class="login-form">
-            <h2>Login</h2>
+            <h1>Login</h1>
             <form action="{{ route('loginUser') }}" method="post">
               @csrf
                 <div class="input-group">
@@ -25,25 +32,17 @@
                 <button type="submit">Entrar</button>
             </form>
         </div>
+        <a href="/register">Não possui uma conta? Criar Conta</a>
     </div>
+    @endsection
     <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f0f0f0;
-            margin: 0;
-            font-family: 'Roboto', sans-serif;
-        }
-
         .login-container {
             background: linear-gradient(135deg, #6e8efb, #a777e3);
-            padding: 40px;
+            padding: 20px;
             border-radius: 15px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             width: 100%;
-            max-width: 400px;
+            max-width: 900px;
             text-align: center;
             color: #fff;
         }
@@ -94,5 +93,3 @@
             background-color: #0056b3;
         }
     </style>
-</body>
-</html>

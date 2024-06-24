@@ -6,19 +6,19 @@
 
 @section('content')
 <div class="container">
-    <h2>Editar Usuário</h2>
-    <form action="edit_user" method="post">
+    <h2>Editar Tópico</h2>
+    <form action="edit_topic" method="post">
         <div class="input-group">
-            <label for="username">Nome</label>
-            <input type="text" id="username" name="username" value="" required>
+            <label for="title">Título</label>
+            <input type="text" id="title" name="title" value="">
         </div>
         <div class="input-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" value="" required>
+            <label for="description">Descrição</label>
+            <input type="text" id="description" name="description" value="">
         </div>
         <div class="input-group">
-            <label for="password">Senha</label>
-            <input type="password" id="password" name="password" required>
+            <label for="status">Status</label>
+            <input type="boolean" id="status" name="status">
         </div>
         <button type="submit">Salvar</button>
     </form>

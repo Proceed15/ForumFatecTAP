@@ -16,12 +16,18 @@
         }
         header {
             background-color: #6e8efb;
-            color: white;
             padding: 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             text-align: center;
+            color: blue;
+        }   
+        header H1 a {
+            color: white;
+            text-decoration: none;
+            padding: 1px;
+            font-weight: 500;
         }
         header nav {
             display: flex;
@@ -79,7 +85,7 @@
         }
         .content {
             flex: 1;
-            background-color: #edf2f7;
+            background-color: #adf;
             padding: 20px;
         }
         footer {
@@ -89,7 +95,7 @@
             position: fixed;
             width: 100%;
             bottom: 0;
-            padding: 40px;;
+            padding: 17px;;
         }
         .pdiv{
             margin-bottom: 15px;
@@ -156,18 +162,23 @@
         }
 
         table {
-            font-family: arial, sans-serif;
-            border-collapse: collapse;
+            font-family: Verdana, sans-serif;
+            border: dotted dashed double;
+            border-radius:6px;
+            border-color: #316587;
             width: 100%;
             margin: 0;
             td,
             th {
-                border: 1px solid #666666;
+                border: 8px groove #666666;
                 text-align: left;
                 padding: 8px;
             }
-            tr:nth-child(even) {
-                background-color: #403075;
+            tbody tr:nth-child(even):not(thead) {
+                background-color: #403055;
+            }
+            tbody tr:nth-child(odd):not(thead) {
+                background-color: #403399;
             }
         }
 
@@ -190,13 +201,18 @@
 </head>
 <body>
     <header>
-        <H1>Fórum</H1>
+        <H1><a href="/">Fórum</a></H1>
         <nav>
             <a href="/">Página Inicial</a>
             <a href="/topics">Tópicos</a>
             <a href="/users">Usuários</a>
-            <a href="/login">Logar</a>
-            <a href="/register">Registrar-se</a>
+            @if(Auth::check())
+                <a href="{{ route('listUsersByID', Auth::user()->id) }}">Bem vindo {{Auth::user()->name}}!</a>
+                <a href="/logout">Sair</a>
+            @else
+                <a href="/login">Logar</a>
+                <a href="/register">Registrar-se</a>
+            @endif
         </nav>
     </header>
     <div class="container">
@@ -211,7 +227,7 @@
         </aside>
     </div>
     <footer>
-        Fórum PHP Laravel - © 2024
+    Fórum PHP Laravel - © 2024
     </footer>
 </body>
 </html>

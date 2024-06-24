@@ -14,7 +14,6 @@ class TopicController extends Controller
         //Essa função seria um Controller próprio para gerenciar o ID do usuário logado.
         $user_id = Auth::id();
         return view('home', ['authUser' => $user_id]);
-
     }
 
     // camelCase
@@ -40,7 +39,7 @@ class TopicController extends Controller
             $request->validate([
                 'title' => 'required|string|max:255|unique:topics',
                 'description' => 'required|string|max:255',
-                'status' => 'required|int|max:1'
+                'status' => 'required|boolean|max:1'
             ]);
 
             $topic = Topic::create([
@@ -70,16 +69,20 @@ class TopicController extends Controller
 
     public function editTopicByID(Request $request, $uid){
         $topic = Topic::where('id', $uid)->first();
-        //Adicionar validação de dados igual ao arquivo do register.
+        //Adicionar validação de dados igual a função do register.
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'required|string|max:255',
+            'status' => 'required|boolean|max:1'
+        ]);
         $topic->title = $request->title;
         $topic->description = $request->description;
-        if($request->status != '')
-        {
-            $topic->status = $request->status;
-        }
+        $topic->status = $request->status;
+
         $topic->save();
-        return redirect()->route('listTopicsByID', [$topic->id])->with('message', 'Atualizado com sucesso!');
-        //return view('users.editUserByID');
+        $topic_id = Auth::id();
+        return redirect()->route('listAllUsers', [$topic->id])->with('message', 'Atualizado com sucesso!');
+        //return view('topics.editTopicByID');
     }
     public function deleteTopicByID(Request $request, $uid){
         $topic = Topic::where('id', $uid)->first();

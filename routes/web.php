@@ -17,7 +17,7 @@ use App\Http\Controllers\AuthController;
 */
 
 
-Route::get('/', [TopicController::class, 'home'])->name('listAllTopics');
+Route::get('/', [TopicController::class, 'home'])->name('home');
 
 
 
@@ -51,9 +51,13 @@ Route::middleware('auth')->group(function() {
     Route::get('/users/{uid}', [UserController::class, 'listUsersByID'])->name('listUsersByID');
     /*Route::get('/users/edit', [UserController::class, 'editUserByID'])->name('editUserByID'););*/
     Route::get('/users/profile', [UserController::class, 'editUserByID'])->name('editUserByID');
+
+    Route::get('/topics/{uid}', [TopicController::class, 'listTopicsByID'])->name('listTopicsByID');
     
     Route::get('/logout', [AuthController::class, 'logoutUser'])->name('logoutUser');
-    Route::put('/users/{uid}/edit', [UserController::class, 'editUserByID'])->name('editUserByID');
+    Route::match(
+        ['put', 'get', 'post'],'/users/{uid}/edit', 
+        [UserController::class, 'editUserByID'])->name('editUserByID');
     Route::delete('/users/{uid}/delete', [UserController::class, 'deleteUserByID'])->name('deleteUserByID');
     
 });
