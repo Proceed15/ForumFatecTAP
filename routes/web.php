@@ -59,5 +59,4 @@ Route::middleware('auth')->group(function() {
         ['put', 'get', 'post'],'/users/{uid}/edit', 
         [UserController::class, 'editUserByID'])->name('editUserByID');
     Route::delete('/users/{uid}/delete', [UserController::class, 'deleteUserByID'])->name('deleteUserByID');
-    
 });

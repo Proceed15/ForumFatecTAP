@@ -7,8 +7,10 @@
 @section('content')
 <div class="container">
     <h1>Listar Todos os Tópicos
+    @if(Auth::check())
     <br></br>
     <a href="create">Crie um Tópico</a>
+    @endif
     </h1>
     <table border="10">
         <tr>

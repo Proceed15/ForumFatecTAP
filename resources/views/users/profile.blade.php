@@ -39,14 +39,29 @@
                     <label for="password">Confirmar Senha</label>
                     <input type="password" id="password_confirmation" name="password_confirmation">
                 </div>
-                <button type="submit">Editar Perfil</button>
+                <button type="submit">Editar Perfil &nbsp;
+                <i class="fa-solid fa-pen-to-square"></i>
+                </button>
             </form>
+            <form action="{{route('deleteUserByID', [$user->id])}}" method="post">
+                <!-- Área de excluir usuário -->
+                    @csrf <!--tag em php para o token funcionar-->
+                    @method('delete')
+
+                    <button class="delete" type="submit">Excluir Usuário &nbsp;
+                    <i class="fa-solid fa-delete-left"></i>
+                    </button>
+            </form>
+            {{--
             <form action="{{ route('deleteUserByID', [$user->id]) }}" method="post">
               @csrf <!--Tag em PHP para habilitar o Token de acesso-->
               @method('delete')
-              <button type="submit" value="Excluir">Excluir Perfil</button>
+              <input type="submit" value="Excluir">
               <!--<input type="submit" value="Excluir">-->
             </form>
+            --}}
+            @else
+            <div>Esse usuário não foi encontrado!</div>
             @endif
     </div>
     @endsection
@@ -57,7 +72,7 @@
             border-radius: 15px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             width: 100%;
-            max-width: 900px;
+            max-width: 777px;
             text-align: center;
             color: #fff;
         }

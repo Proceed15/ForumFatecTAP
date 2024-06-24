@@ -47,10 +47,11 @@
     <style>
         .login-container {
             background: linear-gradient(135deg, #6e8efb, #a777e3);
+            padding: 10px;
             border-radius: 15px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             width: 100%;
-            max-width: 960px;
+            max-width: 777px;
             text-align: center;
             color: #fff;
         }

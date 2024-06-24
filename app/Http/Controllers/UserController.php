@@ -89,10 +89,12 @@ class UserController extends Controller
         //return view('users.editUserByID');
     }
     public function deleteUserByID(Request $request, $uid){
-        $user = User::where('id', $uid)->first();
+        $user = User::where('id', $uid)->delete();;
         
-        $user->save();
+        //$user->save();
         //return view('users.deleteUserByID');
-        return redirect()->route('listAllUsers', [$user->id])->with('message', 'Excluído com sucesso!');
+        return redirect()
+        ->route('home')
+        ->with('message', 'Excluído com sucesso!');
     }
 }

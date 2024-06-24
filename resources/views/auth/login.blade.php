@@ -42,7 +42,7 @@
             border-radius: 15px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             width: 100%;
-            max-width: 900px;
+            max-width: 777px;
             text-align: center;
             color: #fff;
         }
