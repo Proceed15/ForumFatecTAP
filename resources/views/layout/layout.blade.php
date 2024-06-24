@@ -16,7 +16,7 @@
         }
         header {
             background-color: #6e8efb;
-            padding: 20px;
+            padding: 10px;
             display: flex;
             justify-content: space-between;
             align-items: center;
