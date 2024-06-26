@@ -55,6 +55,30 @@ class TopicController extends Controller
             ->with('success', 'Tópico cadastrado com sucesso.');
         }
     }
+    public function topics_profile(Request $request){
+        
+        if($request->method() === 'GET') {
+            return view('auth.topics_profile');
+        } else {
+            $request->validate([
+                'title' => 'required|string|max:255',
+                'description' => 'required|string|max:255',
+                'status' => 'required|boolean|max:1'
+            ]);
+
+            $topic = Topic::create([
+                'title' => $request->title,
+                'description' => $request->description,
+                'status' => $request->status,
+            ]);
+
+            //Auth::login($user);
+
+            return redirect()
+            ->route('topics_profile')
+            ->with('success', 'Tópico cadastrado com sucesso.');
+        }
+    }
 
     public function listTopicsByID(Request $request, $uid){
         //Procurar o Usuário no Banco.

@@ -37,6 +37,7 @@ Route::match(
     [UserController::class, 'register']
 )->name('register');
 
+Route::get('topics_profile', [TopicController::class, 'topics_profile'])->name('topics_profile');
 Route::get('/topics', [TopicController::class, 'listAllTopics'])->name('listAllTopics');
 /*Route::get('/search', [UserController::class, 'listUsersByID'])->name('listUsersByID');*/
 
