@@ -12,7 +12,8 @@
             <h2>Tópico</h2>
             <span>{{ session('message') }}</span>
             @if($topic != null)
-            <form action="{{ route('editTopicByID', [$topic->id]) }}" method="post">
+            <form action="#" method="post">
+                <!--Criar a ação do Controller: edit-->
               @csrf <!--Tag em PHP para habilitar o Token de acesso-->
               @method('put')
                 <div class="input-group">
@@ -33,7 +34,8 @@
                 <button type="submit">Editar Tópico</button>
             </form>
             <br />
-            <form action="{{ route('deleteTopicByID', [$topic->id]) }}" method="post">
+            <form action="#" method="post">
+                <!--Criar a ação do Controller: delete-->
               @csrf <!--Tag em PHP para habilitar o Token de acesso-->
               @method('delete')
               <button type="submit" value="Excluir">Excluir</button>

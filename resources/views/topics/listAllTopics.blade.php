@@ -11,7 +11,7 @@
     <br></br>
     <a href="create">Crie um Tópico</a>
     <br></br>
-    <a href="topics_profile">Edite um Tópico</a>
+    
     @endif
     </h1>
     <table border="10">
@@ -19,11 +19,13 @@
             <td> Nome </td>
             <td> Descrição </td>
             <td> Status </td>
+            <td> Editar </td>
         @foreach($topics as $topic)
         <tr>
             <td> {{ $topic -> title }} </td>
             <td> {{ $topic -> description }} </td>
             <td> {{ $topic -> status }} </td>
+            <td> <a href={{ route('edit_topic', [$topic -> id]) }}>Edite um Tópico</a></td>
         </tr>
         @endforeach
         </tr>
