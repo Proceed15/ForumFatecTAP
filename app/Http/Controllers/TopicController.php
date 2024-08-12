@@ -58,7 +58,7 @@ class TopicController extends Controller
     public function topics_profile(Request $request){
         
         if($request->method() === 'GET') {
-            return view('auth.topics_profile');
+            return view('topics_profile');
         } else {
             $request->validate([
                 'title' => 'required|string|max:255',

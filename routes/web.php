@@ -39,7 +39,7 @@ Route::match(
 
 Route::get('topics_profile', [TopicController::class, 'topics_profile'])->name('topics_profile');
 Route::get('/topics', [TopicController::class, 'listAllTopics'])->name('listAllTopics');
-Route::get('/topics/{uid}', [TopicController::class, 'listTopicsByID'])->name('edit_topic');
+Route::get('/topics/{uid}', [TopicController::class, 'listTopicsByID'])->name('edit_topic');//Aqui
 /*Route::get('/search', [UserController::class, 'listUsersByID'])->name('listUsersByID');*/
 
 Route::match(

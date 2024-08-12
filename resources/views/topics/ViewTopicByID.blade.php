@@ -1,3 +1,10 @@
+@extends('layout.layout')
+
+@section('title', 'Perfil de Usuário')
+
+@section('header', 'Perfil de  Usuário')
+
+@section('content')
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -13,7 +20,7 @@
             <span>{{ session('message') }}</span>
             @if($topic != null)
             <form action="#" method="post">
-                <!--Criar a ação do Controller: edit-->
+                <!-- Criar a ação do Controller: edit-->
               @csrf <!--Tag em PHP para habilitar o Token de acesso-->
               @method('put')
                 <div class="input-group">
@@ -31,37 +38,34 @@
                     <input type="boolean" id="status" name="status">
                 </div>
                 @error('status') <span>{{ $message }}</span> @enderror
-                <button type="submit">Editar Tópico</button>
+                <!--<button type="submit">Editar Tópico</button>$_COOKIE-->
+                <button type="submit">Editar Tópico &nbsp;
+                <i class="fa-solid fa-pen-to-square"></i>
+                </button>
             </form>
             <br />
             <form action="#" method="post">
                 <!--Criar a ação do Controller: delete-->
               @csrf <!--Tag em PHP para habilitar o Token de acesso-->
               @method('delete')
-              <button type="submit" value="Excluir">Excluir</button>
+              <button class="delete" type="submit">Excluir Tópico &nbsp;
+                    <i class="fa-solid fa-delete-left"></i>
+            </button>
+              <!--<button type="submit" value="Excluir">Excluir</button>-->
               <!--<input type="submit" value="Excluir">-->
             </form>
             @endif
         </div>
     </div>
+    @endsection
     <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f0f0f0;
-            margin: 0;
-            font-family: 'Roboto', sans-serif;
-        }
-
         .login-container {
             background: linear-gradient(135deg, #6e8efb, #a777e3);
-            padding: 40px;
+            padding: 20px;
             border-radius: 15px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             width: 100%;
-            max-width: 400px;
+            max-width: 777px;
             text-align: center;
             color: #fff;
         }
