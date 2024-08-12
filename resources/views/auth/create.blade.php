@@ -1,8 +1,8 @@
 @extends('layout.layout')
 
-@section('title', 'Perfil de Usuário')
+@section('title', 'Perfil de Tópico')
 
-@section('header', 'Perfil de  Usuário')
+@section('header', 'Perfil de  Tópico')
 
 @section('content')
 <!DOCTYPE html>

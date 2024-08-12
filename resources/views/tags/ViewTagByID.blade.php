@@ -1,45 +1,61 @@
 @extends('layout.layout')
 
-@section('title', 'Perfil de Tópico')
+@section('tagtitle', 'Perfil de Tag')
 
-@section('header', 'Perfil de  Tópico')
+@section('header', 'Perfil de  Tag')
 
 @section('content')
-<!--
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tela de Perfil</title>
+    <tagtitle>Tela de Tag</tagtitle>
     <link href="../forum.css" rel="stylesheet">
 </head>
--->
+<body>
     <div class="login-container">
-    <h1>Editar Tópico</h1>
-            <form action="." method="post">
+        <div class="login-form">
+            <h2>Tag</h2>
+            <span>{{ session('message') }}</span>
+            @if($tag != null)
+            <form action="#" method="post">
+                <!-- Criar a ação do Controller: edit-->
               @csrf <!--Tag em PHP para habilitar o Token de acesso-->
-              @method('get')
+              @method('put')
                 <div class="input-group">
-                    <label for="title">Título</label>
-                    <input type="text" id="title" name="title" value="Título do seu tópico para edição" required>
+                    <label for="tagtitle">Título</label>
+                    <input type="text" id="tagtitle" name="tagtitle" value="{{ $tag->tagtitle }}" required>
                 </div>
-                @error('title') <span>{{ $message }}</span> @enderror
+                @error('tagtitle') <span>{{ $message }}</span> @enderror
                 <div class="input-group">
-                    <label for="description">Descrição</label>
-                    <input type="text" id="email" name="email" value="Descrição do seu tópico: Tela de Edição de Tópico não funcional." required>
+                    <label for="tagdescription">Descrição</label>
+                    <input type="text" id="tagdescription" name="tagdescription" value="{{ $tag->tagdescription }}" required>
                 </div>
-                @error('description') <span>{{ $message }}</span> @enderror
+                @error('tagdescription') <span>{{ $message }}</span> @enderror
                 <div class="input-group">
-                    <label for="status">Status</label>
-                    <input type="boolean" id="status" name="status" value="1" required>
+                    <label for="tagstatus">Status</label>
+                    <input type="boolean" id="tagstatus" name="tagstatus">
                 </div>
-                @error('status') <span>{{ $message }}</span> @enderror
-
-                <button type="submit">Editar Tópico &nbsp;
+                @error('tagstatus') <span>{{ $message }}</span> @enderror
+                <!--<button type="submit">Editar Tag</button>$_COOKIE-->
+                <button type="submit">Editar Tag &nbsp;
                 <i class="fa-solid fa-pen-to-square"></i>
                 </button>
-                <button class="delete" type="submit">Excluir Tópico &nbsp;
+            </form>
+            <br />
+            <form action="#" method="post">
+                <!--Criar a ação do Controller: delete-->
+              @csrf <!--Tag em PHP para habilitar o Token de acesso-->
+              @method('delete')
+              <button class="delete" type="submit">Excluir Tag &nbsp;
                     <i class="fa-solid fa-delete-left"></i>
-                </button>
+            </button>
+              <!--<button type="submit" value="Excluir">Excluir</button>-->
+              <!--<input type="submit" value="Excluir">-->
+            </form>
+            @endif
+        </div>
     </div>
     @endsection
     <style>
@@ -100,3 +116,5 @@
             background-color: #0056b3;
         }
     </style>
+</body>
+</html>

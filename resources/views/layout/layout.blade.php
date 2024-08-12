@@ -204,8 +204,9 @@
         <H1><a href="/">Fórum</a></H1>
         <nav>
             <a href="/">Página Inicial</a>
-            <a href="/topics">Tópicos</a>
             <a href="/users">Usuários</a>
+            <a href="/topics">Tópicos</a>
+            <a href="/tags">Tags</a>
             @if(Auth::check())
                 <a href="{{ route('listUsersByID', Auth::user()->id) }}">Bem vindo {{Auth::user()->name}}!</a>
                 <a href="/logout">Sair</a>

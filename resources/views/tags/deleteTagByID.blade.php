@@ -6,7 +6,7 @@
 
 @section('content')
 <div class="container">
-    <h2>Deletar Tópico</h2>
+    <h2>Deletar Tag</h2>
     <div class="topic-details">
         <p><strong>ID:</strong> 1</p>
         <p><strong>Nome:</strong> Usuário Exemplo</p>

@@ -1,51 +1,49 @@
 @extends('layout.layout')
 
-@section('title', 'Perfil de Tópico')
+@section('title', 'Perfil de Tag')
 
-@section('header', 'Perfil de  Tópico')
+@section('header', 'Perfil de  Tag')
 
 @section('content')
-<!--
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tela de Perfil</title>
-    <link href="../forum.css" rel="stylesheet">
+    <title>Tela de Criação de Tag</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 </head>
--->
+<body>
     <div class="login-container">
-    <h1>Editar Tópico</h1>
-            <form action="." method="post">
+        <div class="login-form">
+            <h2>Criar Tag</h2>
+            <form action="{{ route('createtag') }}" method="post">
               @csrf <!--Tag em PHP para habilitar o Token de acesso-->
-              @method('get')
                 <div class="input-group">
-                    <label for="title">Título</label>
-                    <input type="text" id="title" name="title" value="Título do seu tópico para edição" required>
+                    <label for="name">Tag</label>
+                    <input type="text" id="tagtitle" name="tagtitle" value="{{ old('tagtitle') }}" required>
                 </div>
-                @error('title') <span>{{ $message }}</span> @enderror
+                @error('tagtitle') <span>{{ $message }}</span> @enderror
                 <div class="input-group">
                     <label for="description">Descrição</label>
-                    <input type="text" id="email" name="email" value="Descrição do seu tópico: Tela de Edição de Tópico não funcional." required>
+                    <input type="text" id="tagdescripton" name="tagdescription" value="{{ old('tagdescription') }}" required>
                 </div>
-                @error('description') <span>{{ $message }}</span> @enderror
+                @error('tagdescription') <span>{{ $message }}</span> @enderror
                 <div class="input-group">
-                    <label for="status">Status</label>
-                    <input type="boolean" id="status" name="status" value="1" required>
+                    <label for="tagstatus">Status</label>
+                    <input type="int" id="tagstatus" name="tagstatus" required>
                 </div>
-                @error('status') <span>{{ $message }}</span> @enderror
-
-                <button type="submit">Editar Tópico &nbsp;
-                <i class="fa-solid fa-pen-to-square"></i>
-                </button>
-                <button class="delete" type="submit">Excluir Tópico &nbsp;
-                    <i class="fa-solid fa-delete-left"></i>
-                </button>
+                @error('tagstatus') <span>{{ $message }}</span> @enderror
+                <button type="submit">Postar</button>
+            </form>
+            <button><a href="/tags">Cancelar</a></button>
+        </div>
     </div>
     @endsection
     <style>
         .login-container {
             background: linear-gradient(135deg, #6e8efb, #a777e3);
-            padding: 20px;
+            padding: 40px;
             border-radius: 15px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             width: 100%;
@@ -100,3 +98,5 @@
             background-color: #0056b3;
         }
     </style>
+</body>
+</html>

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\TopicController;
+use App\Http\Controllers\TagController;
 use App\Http\Controllers\AuthController;
 
 /*
@@ -39,7 +40,9 @@ Route::match(
 
 Route::get('topics_profile', [TopicController::class, 'topics_profile'])->name('topics_profile');
 Route::get('/topics', [TopicController::class, 'listAllTopics'])->name('listAllTopics');
+Route::get('/tags', [TagController::class, 'listAllTags'])->name('listAllTags');
 Route::get('/topics/{uid}', [TopicController::class, 'listTopicsByID'])->name('edit_topic');//Aqui
+Route::get('/tags/{uid}', [TagController::class, 'listTagsByID'])->name('edit_tag');//Aqui
 /*Route::get('/search', [UserController::class, 'listUsersByID'])->name('listUsersByID');*/
 
 Route::match(
@@ -47,6 +50,12 @@ Route::match(
     '/create',
     [TopicController::class, 'create']
 )->name('create');
+
+Route::match(
+    ['get', 'post'],
+    '/createtag',
+    [TagController::class, 'createtag']
+)->name('createtag');
 
 Route::middleware('auth')->group(function() {
     Route::get('/users', [UserController::class, 'listAllUsers'])->name('listAllUsers');

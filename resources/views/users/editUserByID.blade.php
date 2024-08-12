@@ -17,7 +17,7 @@
             <h2>Edição de Dados Cadastrais</h2>
             <span>{{ session('message') }}</span>
             @if($user != null)
-            <form action="{{ route('editUserByID', [$user->id]) }}" method="post">
+            <form action="{{ route('editTopicByID', [$topic->id]) }}" method="post">
               @csrf <!--Tag em PHP para habilitar o Token de acesso-->
               @method('put')
                 <div class="input-group">
@@ -42,7 +42,7 @@
                 <button type="submit">Editar registro</button>
             </form>
             <br />
-            <form action="{{ route('deleteUserByID', [$user->id]) }}" method="post">
+            <form action="{{ route('deleteTopicByID', [$topic->id]) }}" method="post">
               @csrf <!--Tag em PHP para habilitar o Token de acesso-->
               @method('delete')
               <button type="submit" value="Excluir">Excluir</button>

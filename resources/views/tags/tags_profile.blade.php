@@ -1,8 +1,8 @@
 @extends('layout.layout')
 
-@section('title', 'Perfil de Tópico')
+@section('title', 'Perfil de Tag')
 
-@section('header', 'Perfil de  Tópico')
+@section('header', 'Perfil de  Tag')
 
 @section('content')
 <!--
@@ -14,18 +14,18 @@
 </head>
 -->
     <div class="login-container">
-    <h1>Editar Tópico</h1>
+    <h1>Editar Tag</h1>
             <form action="." method="post">
               @csrf <!--Tag em PHP para habilitar o Token de acesso-->
               @method('get')
                 <div class="input-group">
                     <label for="title">Título</label>
-                    <input type="text" id="title" name="title" value="Título do seu tópico para edição" required>
+                    <input type="text" id="title" name="title" value="Título do seu Tag para edição" required>
                 </div>
                 @error('title') <span>{{ $message }}</span> @enderror
                 <div class="input-group">
                     <label for="description">Descrição</label>
-                    <input type="text" id="email" name="email" value="Descrição do seu tópico: Tela de Edição de Tópico não funcional." required>
+                    <input type="text" id="email" name="email" value="Descrição do seu Tag: Tela de Edição de Tag não funcional." required>
                 </div>
                 @error('description') <span>{{ $message }}</span> @enderror
                 <div class="input-group">
@@ -34,10 +34,10 @@
                 </div>
                 @error('status') <span>{{ $message }}</span> @enderror
 
-                <button type="submit">Editar Tópico &nbsp;
+                <button type="submit">Editar Tag &nbsp;
                 <i class="fa-solid fa-pen-to-square"></i>
                 </button>
-                <button class="delete" type="submit">Excluir Tópico &nbsp;
+                <button class="delete" type="submit">Excluir Tag &nbsp;
                     <i class="fa-solid fa-delete-left"></i>
                 </button>
     </div>
