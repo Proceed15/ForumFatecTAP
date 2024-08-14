@@ -42,6 +42,7 @@ Route::get('topics_profile', [TopicController::class, 'topics_profile'])->name('
 Route::get('/topics', [TopicController::class, 'listAllTopics'])->name('listAllTopics');
 Route::get('/tags', [TagController::class, 'listAllTags'])->name('listAllTags');
 Route::get('/topics/{uid}', [TopicController::class, 'listTopicsByID'])->name('edit_topic');//Aqui
+//Criar uma nova rota com PUT para pegar o ID e direcionar a função de edição.
 Route::get('/tags/{uid}', [TagController::class, 'listTagsByID'])->name('edit_tag');//Aqui
 /*Route::get('/search', [UserController::class, 'listUsersByID'])->name('listUsersByID');*/
 
