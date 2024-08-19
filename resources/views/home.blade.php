@@ -47,6 +47,11 @@
             <td> Como as novas formas de se utilizar IA's para criação de conteúdo digital vêm inovando </td>
             <td> 1 </td>
         </tr>
+        <tr>
+            <td> React vs Laravel</td>
+            <td> Qual a melhor ferramenta </td>
+            <td> 1 </td>
+        </tr>
         </tr>
     </table>
 </div>

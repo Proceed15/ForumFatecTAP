@@ -10,8 +10,7 @@
     @if(Auth::check())
     <br></br>
     <a href="create">Crie um Tópico</a>
-    <br></br>
-    
+    <br></br>  
     @endif
     </h1>
     <table border="10">

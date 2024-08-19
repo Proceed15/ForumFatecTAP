@@ -1,8 +1,8 @@
 @extends('layout.layout')
 
-@section('title', 'Perfil de Usuário')
+@section('title', 'Perfil de Tópico')
 
-@section('header', 'Perfil de  Usuário')
+@section('header', 'Perfil de  Tópico')
 
 @section('content')
 <!DOCTYPE html>
@@ -20,7 +20,7 @@
             <span>{{ session('message') }}</span>
             @if($topic != null)
             <form action="#" method="post">
-                <!-- Criar a ação do Controller: edit-->
+                <!-- Criar a ação do Controller: edit -->
               @csrf <!--Tag em PHP para habilitar o Token de acesso-->
               @method('put')
                 <div class="input-group">
