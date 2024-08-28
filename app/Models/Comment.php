@@ -12,4 +12,8 @@ class Comment extends Post
     protected $fillable = [
       'content',
     ];
+
+    public function topics(){
+      return $this->belongsTo(Topic::class);
+    }
 }

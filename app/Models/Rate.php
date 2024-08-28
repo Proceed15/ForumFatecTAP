@@ -10,7 +10,7 @@ class Rate extends Model
     use HasFactory;
 
     protected $fillable = [
-        'rate',
+        'vote',
         
       ];
 
@@ -18,5 +18,9 @@ class Rate extends Model
     public function User()
     {
         return $this->hasMany(User::class);
+    }
+
+    public function post(){
+        return $this->belongsTo(Post::class);
     }
 }
