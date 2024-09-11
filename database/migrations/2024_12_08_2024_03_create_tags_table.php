@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('tagtitle');
             $table->string('tagdescription');
-            $table->boolean('tagstatus');
+            $table->boolean('tagstatus')->default(true);
             $table->timestamps();
         });
     }
