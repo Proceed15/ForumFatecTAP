@@ -20,7 +20,7 @@ class TagController extends Controller
     // no_camel_case
     //Lógicas para programar
     public function listAllTags(){
-        $tags = Tag:: all();
+        $tags = Tag::all();
         //Lógica pasta.nomedapagina
         return view('tags.listAllTags', ['tags' => $tags]);
     }

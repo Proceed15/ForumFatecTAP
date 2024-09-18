@@ -13,12 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('topics', function (Blueprint $table) {
-            $table->id();
-            $table->string('title');
-            $table->string('description');
-            $table->boolean('status')->default(true);
-            $table->foreign('category_id')->references('id')->on('categories');
+        Schema::create('comments', function (Blueprint $table) {
+            $table->unsignedBigInteger('id')->primary();
+            $table->unsignedBigInteger('topic_id');
+            $table->text('content');
+            $table->foreign('id')->references('id')->on('posts');
+            $table->foreign('topic_id')->references('id')->on('topics');
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('topics');
+        Schema::dropIfExists('comments');
     }
 };
