@@ -1,8 +1,8 @@
 @extends('layout.layout')
 
-@section('title', 'Perfil de Tag')
+@section('title', 'Perfil de Categoria')
 
-@section('header', 'Perfil de  Tag')
+@section('header', 'Perfil de  Categoria')
 
 @section('content')
 <!DOCTYPE html>
@@ -10,15 +10,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tela de Criação de Tag</title>
+    <title>Tela de Criação de Categoria</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="login-container">
         <div class="login-form">
-            <h2>Criar Tag</h2>
-            <form action="{{ route('createtag') }}" method="post">
-            @csrf <!--Tag em PHP para habilitar o Token de acesso-->
+            <h2>Criar Categoria</h2>
+            <form action="{{ route('createCategory') }}" method="post">
+              @csrf <!--Tag em PHP para habilitar o Token de acesso-->
                 <div class="input-group">
                     <label for="name">Categoria</label>
                     <input type="text" id="title" name="title" value="{{ old('title') }}" required>
@@ -36,7 +36,7 @@
                 @error('status') <span>{{ $message }}</span> @enderror
                 <button type="submit">Postar</button>
             </form>
-            <button><a href="/tags">Cancelar</a></button>
+            <button><a href="/categories">Cancelar</a></button>
         </div>
     </div>
     @endsection

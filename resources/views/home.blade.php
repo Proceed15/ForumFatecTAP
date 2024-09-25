@@ -17,7 +17,7 @@
  <body id="body">
 <div class="header">
 <h1>O Fórum</h1>
- <a href="/">Bem vindo a Home Page de nosso site!</a>
+ <a href="/">Bem vindo a Home Page do meu Site!</a>
  <br></br>
  <a href="/topics">Veja uma Publicação</a>
  <br></br>

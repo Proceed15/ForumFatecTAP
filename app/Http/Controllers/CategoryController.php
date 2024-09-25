@@ -6,9 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-use App\Models\Tag;
+use App\Models\Category;
 
-class TagController extends Controller
+class CategoryController extends Controller
 {
     public function home() {
         //Essa função seria um Controller próprio para gerenciar o ID do usuário logado.
@@ -19,10 +19,10 @@ class TagController extends Controller
     // camelCase
     // no_camel_case
     //Lógicas para programar
-    public function listAllTags(){
-        $tags = Tag::all();
+    public function listAllCategories(){
+        $categories = Category::all();
         //Lógica pasta.nomedapagina
-        return view('tags.listAllTags', ['tags' => $tags]);
+        return view('categories.listAllCategories', ['Categories' => $categories]);
     }
 
     /*não será mais utilizado.
@@ -31,18 +31,18 @@ class TagController extends Controller
     }
     */
 
-    public function createtag(Request $request){
+    public function createcategory(Request $request){
         
         if($request->method() === 'GET') {
-            return view('auth.createtag');
+            return view('auth.createcategory');
         } else {
             $request->validate([
-                'title' => 'required|string|max:255|unique:tags',
+                'title' => 'required|string|max:255|unique:categories',
                 'description' => 'required|string|max:255',
                 'status' => 'required|boolean|max:1'
             ]);
 
-            $tag = Tag::create([
+            $category = category::create([
                 'title' => $request->title,
                 'description' => $request->description,
                 'status' => $request->status,
@@ -51,14 +51,14 @@ class TagController extends Controller
             //Auth::login($user);
 
             return redirect()
-            ->route('listAllTags')
-            ->with('success', 'Tag cadastrada com sucesso.');
+            ->route('listAllcategories')
+            ->with('success', 'categoria cadastrada com sucesso.');
         }
     }
-    public function tags_profile(Request $request){
+    public function categories_profile(Request $request){
         
         if($request->method() === 'GET') {
-            return view('tags_profile');
+            return view('categories_profile');
         } else {
             $request->validate([
                 'title' => 'required|string|max:255',
@@ -66,7 +66,7 @@ class TagController extends Controller
                 'status' => 'required|boolean|max:1'
             ]);
 
-            $tag = Tag::create([
+            $category = category::create([
                 'title' => $request->title,
                 'description' => $request->description,
                 'status' => $request->status,
@@ -75,44 +75,44 @@ class TagController extends Controller
             //Auth::login($user);
 
             return redirect()
-            ->route('tags_profile')
+            ->route('categories_profile')
             ->with('success', 'Tópico cadastrado com sucesso.');
         }
     }
 
-    public function listTagsByID(Request $request, $uid){
+    public function listcategoriesByID(Request $request, $uid){
         //Procurar o Usuário no Banco.
-        $tag = Tag::where('id', $uid)->first();
+        $category = category::where('id', $uid)->first();
         //where --> busca 1 campo só, mas retorna um array desse campo.
         //find --> busca vários campos.
         //print($uid);
         //return view('users.listUsersByID');
-        return view('tags.ViewtagByID', ['tag' => $tag]);
+        return view('categories.ViewcategoryByID', ['category' => $category]);
     }
 
 
-    public function editTagByID(Request $request, $uid){
-        $tag = Tag::where('id', $uid)->first();
+    public function editcategoryByID(Request $request, $uid){
+        $category = category::where('id', $uid)->first();
         //Adicionar validação de dados igual a função do register.
         $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required|string|max:255',
             'status' => 'required|boolean|max:1'
         ]);
-        $tag->title = $request->title;
-        $tag->description = $request->description;
-        $tag->status = $request->status;
+        $category->title = $request->title;
+        $category->description = $request->description;
+        $category->status = $request->status;
 
-        $tag->save();
-        $tag_id = Auth::id();
-        return redirect()->route('listAllTags', [$tag->id])->with('message', 'Atualizado com sucesso!');
-        //return view('tags.editTagByID');
+        $category->save();
+        $category_id = Auth::id();
+        return redirect()->route('listAllcategories', [$category->id])->with('message', 'Atualizado com sucesso!');
+        //return view('categories.editcategoryByID');
     }
-    public function deletetagByID(Request $request, $uid){
-        $tag = Tag::where('id', $uid)->first();
+    public function deletecategoryByID(Request $request, $uid){
+        $category = category::where('id', $uid)->first();
         
         $user->save();
         //return view('users.deleteUserByID');
-        return redirect()->route('listTagsByID', [$tag->id])->with('message', 'Excluído com sucesso!');
+        return redirect()->route('listcategoriesByID', [$category->id])->with('message', 'Excluído com sucesso!');
     }
 }

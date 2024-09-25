@@ -40,6 +40,7 @@ Route::match(
 
 Route::get('/topics', [TopicController::class, 'listAllTopics'])->name('listAllTopics');
 Route::get('/tags', [TagController::class, 'listAllTags'])->name('listAllTags');
+Route::get('/categories', [CategoryController::class, 'listAllCategories'])->name('listAllCategories');
 
 
 Route::match(

@@ -30,9 +30,9 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `tags`;
 CREATE TABLE IF NOT EXISTS `tags` (
   `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `tagtitle` varchar(255) NOT NULL,
-  `tagdescription` varchar(255) NOT NULL,
-  `tagstatus` tinyint(1) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `description` varchar(255) NOT NULL,
+  `status` tinyint(1) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS `tags` (
 -- Despejando dados para a tabela `tags`
 --
 
-INSERT INTO `tags` (`id`, `tagtitle`, `tagdescription`, `tagstatus`, `created_at`, `updated_at`) VALUES
+INSERT INTO `tags` (`id`, `title`, `description`, `status`, `created_at`, `updated_at`) VALUES
 (1, 'Informática', 'Redes, Sistemas de Software e Componentes de Hardware para Operações Informacionais', 1, '2024-08-12 23:54:18', '2024-08-12 23:54:18'),
 (2, 'Redes', 'Redes de Computadores', 1, '2024-08-13 00:01:15', '2024-08-13 00:01:15');
 
