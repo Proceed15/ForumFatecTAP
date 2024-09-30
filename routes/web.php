@@ -76,6 +76,9 @@ Route::middleware('auth')->group(function() {
     Route::get('/tags/{uid}', [TagController::class, 'listTagsByID'])->name('edit_tag');//Aqui
     /*Route::get('/search', [UserController::class, 'listUsersByID'])->name('listUsersByID');*/
     Route::get('/category/{uid}', [CategoryController::class, 'listCategoryByID'])->name('edit_category');//Aqui
+    Route::put('/category/{uid}', [CategoryController::class, 'editCategoryByID'])->name('editCategoryByID');//Aqui
+
+
 
     Route::get('/logout', [AuthController::class, 'logoutUser'])->name('logoutUser');
     Route::match(

@@ -76,7 +76,7 @@ class CategoryController extends Controller
         }
     }
 
-    public function listcategoriesByID(Request $request, $uid){
+    public function listCategoryByID(Request $request, $uid){
         //Procurar o Usuário no Banco.
         $category = category::where('id', $uid)->first();
         //where --> busca 1 campo só, mas retorna um array desse campo.
@@ -96,11 +96,10 @@ class CategoryController extends Controller
         ]);
         $category->title = $request->title;
         $category->description = $request->description;
-        $category->status = $request->status;
 
         $category->save();
         $category_id = Auth::id();
-        return redirect()->route('listAllcategories', [$category->id])->with('message', 'Atualizado com sucesso!');
+        return redirect()->route('listAllCategories', [$category->id])->with('message', 'Atualizado com sucesso!');
         //return view('categories.editcategoryByID');
     }
     public function deletecategoryByID(Request $request, $uid){
