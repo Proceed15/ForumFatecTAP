@@ -11,8 +11,8 @@ class Tag extends Model
 
     protected $fillable = [
         'title',
-        'tagdescription',
-        'tagstatus'
+        'description',
+        'status'
     ];
 
     public function topics()

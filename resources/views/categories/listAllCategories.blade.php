@@ -9,7 +9,7 @@
     <h1>Listar Todas as Categorias
     @if(Auth::check())
     <br></br>
-    <a href="createtag">Crie uma Categoria</a>
+    <a href="createCategory">Crie uma Categoria</a>
     <br></br>
     
     @endif

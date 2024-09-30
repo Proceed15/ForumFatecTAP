@@ -22,7 +22,7 @@ class CategoryController extends Controller
     public function listAllCategories(){
         $categories = Category::all();
         //Lógica pasta.nomedapagina
-        return view('categories.listAllCategories', ['Categories' => $categories]);
+        return view('categories.listAllCategories', ['categories' => $categories]);
     }
 
     /*não será mais utilizado.
@@ -39,19 +39,17 @@ class CategoryController extends Controller
             $request->validate([
                 'title' => 'required|string|max:255|unique:categories',
                 'description' => 'required|string|max:255',
-                'status' => 'required|boolean|max:1'
             ]);
 
             $category = category::create([
                 'title' => $request->title,
                 'description' => $request->description,
-                'status' => $request->status,
             ]);
 
             //Auth::login($user);
 
             return redirect()
-            ->route('listAllcategories')
+            ->route('listAllCategories')
             ->with('success', 'categoria cadastrada com sucesso.');
         }
     }
@@ -63,13 +61,11 @@ class CategoryController extends Controller
             $request->validate([
                 'title' => 'required|string|max:255',
                 'description' => 'required|string|max:255',
-                'status' => 'required|boolean|max:1'
             ]);
 
             $category = category::create([
                 'title' => $request->title,
                 'description' => $request->description,
-                'status' => $request->status,
             ]);
 
             //Auth::login($user);
@@ -96,8 +92,7 @@ class CategoryController extends Controller
         //Adicionar validação de dados igual a função do register.
         $request->validate([
             'title' => 'required|string|max:255',
-            'description' => 'required|string|max:255',
-            'status' => 'required|boolean|max:1'
+            'description' => 'required|string|max:255'
         ]);
         $category->title = $request->title;
         $category->description = $request->description;

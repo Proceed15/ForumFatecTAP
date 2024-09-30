@@ -29,15 +29,15 @@
                 </div>
                 @error('title') <span>{{ $message }}</span> @enderror
                 <div class="input-group">
-                    <label for="tagdescription">Descrição</label>
-                    <input type="text" id="tagdescription" name="tagdescription" value="{{ $tag->tagdescription }}" required>
+                    <label for="description">Descrição</label>
+                    <input type="text" id="description" name="description" value="{{ $tag->description }}" required>
                 </div>
-                @error('tagdescription') <span>{{ $message }}</span> @enderror
+                @error('description') <span>{{ $message }}</span> @enderror
                 <div class="input-group">
-                    <label for="tagstatus">Status</label>
-                    <input type="boolean" id="tagstatus" name="tagstatus">
+                    <label for="status">Status</label>
+                    <input type="boolean" id="status" name="status">
                 </div>
-                @error('tagstatus') <span>{{ $message }}</span> @enderror
+                @error('status') <span>{{ $message }}</span> @enderror
                 <!--<button type="submit">Editar Tag</button>$_COOKIE-->
                 <button type="submit">Editar Tag &nbsp;
                 <i class="fa-solid fa-pen-to-square"></i>

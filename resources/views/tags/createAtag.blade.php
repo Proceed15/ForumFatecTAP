@@ -13,12 +13,12 @@
             <input type="text" id="title" name="title" required>
         </div>
         <div class="input-group">
-            <label for="tagdescription">Descrição</label>
-            <input type="text" id="tagdescription" name="tagdescription" required>
+            <label for="description">Descrição</label>
+            <input type="text" id="description" name="description" required>
         </div>
         <div class="input-group">
-            <label for="tagstatus">Status</label>
-            <input type="int" id="tagstatus" name="tagstatus" required>
+            <label for="status">Status</label>
+            <input type="int" id="status" name="status" required>
         </div>
         <button type="submit">Criar</button>
     </form>

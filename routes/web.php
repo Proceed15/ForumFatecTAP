@@ -58,9 +58,9 @@ Route::match(
 
 Route::match(
     ['get', 'post'],
-    '/createcategory',
-    [CategoryController::class, 'createcategory']
-)->name('createcategory');
+    '/createCategory',
+    [CategoryController::class, 'createCategory']
+)->name('createCategory');
 
 Route::middleware('auth')->group(function() {
     Route::get('/users', [UserController::class, 'listAllUsers'])->name('listAllUsers');
