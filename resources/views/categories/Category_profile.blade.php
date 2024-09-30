@@ -1,8 +1,8 @@
 @extends('layout.layout')
 
-@section('title', 'Perfil de Tag')
+@section('title', 'Perfil de Categoria')
 
-@section('header', 'Perfil de  Tag')
+@section('header', 'Perfil de  Categoria')
 
 @section('content')
 <!--
@@ -14,30 +14,26 @@
 </head>
 -->
     <div class="login-container">
-    <h1>Editar Tag</h1>
+    <h1>Editar Categoria</h1>
             <form action="." method="post">
-              @csrf <!--Tag em PHP para habilitar o Token de acesso-->
+              @csrf <!--Categoria em PHP para habilitar o Token de acesso-->
               @method('get')
                 <div class="input-group">
                     <label for="title">Título</label>
-                    <input type="text" id="title" name="title" value="Título do seu Tag para edição" required>
+                    <input type="text" id="title" name="title" value="Título do seu Categoria para edição" required>
                 </div>
                 @error('title') <span>{{ $message }}</span> @enderror
                 <div class="input-group">
                     <label for="description">Descrição</label>
-                    <input type="text" id="email" name="email" value="Descrição do seu Tag: Tela de Edição de Tag não funcional." required>
+                    <input type="text" id="email" name="email" value="Descrição do seu Categoria: Tela de Edição de Categoria não funcional." required>
                 </div>
                 @error('description') <span>{{ $message }}</span> @enderror
                 <div class="input-group">
-                    <label for="status">Status</label>
-                    <input type="boolean" id="status" name="status" value="1" required>
-                </div>
-                @error('status') <span>{{ $message }}</span> @enderror
 
-                <button type="submit">Editar Tag &nbsp;
+                <button type="submit">Editar Categoria &nbsp;
                 <i class="fa-solid fa-pen-to-square"></i>
                 </button>
-                <button class="delete" type="submit">Excluir Tag &nbsp;
+                <button class="delete" type="submit">Excluir Categoria &nbsp;
                     <i class="fa-solid fa-delete-left"></i>
                 </button>
     </div>

@@ -1,15 +1,15 @@
 @extends('layout.layout')
 
-@section('title', 'Listar Todos as Tags')
+@section('title', 'Listar Todos as Categorias')
 
-@section('header', 'Listar Todos as Tags')
+@section('header', 'Listar Todos as Categorias')
 
 @section('content')
 <div class="container">
-    <h1>Listar Todas as Tags
+    <h1>Listar Todas as Categorias
     @if(Auth::check())
     <br></br>
-    <a href="createtag">Crie uma Tag</a>
+    <a href="createtag">Crie uma Categoria</a>
     <br></br>
     
     @endif
@@ -18,14 +18,12 @@
         <tr>
             <td> Nome </td>
             <td> Descrição </td>
-            <td> Status </td>
             <td> Editar </td>
-        @foreach($tags as $tag)
+        @foreach($categories as $category)
         <tr>
-            <td> {{ $tag -> tagtitle }} </td>
-            <td> {{ $tag -> tagdescription }} </td>
-            <td> {{ $tag -> tagstatus }} </td>
-            <td> <a href={{ route('edit_tag', [$tag -> id]) }}>Edite uma Tag</a></td>
+            <td> {{ $category -> title }} </td>
+            <td> {{ $category -> description }} </td>
+            <td> <a href={{ route('edit_category', [$category -> id]) }}>Edite uma Categoria</a></td>
         </tr>
         @endforeach
         </tr>

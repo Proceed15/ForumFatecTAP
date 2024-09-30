@@ -1,16 +1,16 @@
 @extends('layout.layout')
 
-@section('title', 'Listar Tag por ID')
+@section('title', 'Listar Categoria por ID')
 
-@section('header', 'Listar Tag por ID')
+@section('header', 'Listar Categoria por ID')
 
 @section('content')
 <div class="container">
-    <h2>Listar Tag por ID</h2>
+    <h2>Listar Categoria por ID</h2>
     <form action="" method="get">
         <div class="input-group">
-            <label for="user_id">ID da Tag</label>
-            <input type="text" id="user_id" name="user_id" required>
+            <label for="category_id">ID da Categoria</label>
+            <input type="text" id="category_id" name="category_id" required>
         </div>
         <button type="submit">Buscar</button>
     </form>

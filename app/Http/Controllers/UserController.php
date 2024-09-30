@@ -7,7 +7,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use App\Models\User;
-use App\Http\Controllers\UserController;
+//use App\Http\Controllers\UserController;
+use TopicController;
 
 class UserController extends Controller
 {

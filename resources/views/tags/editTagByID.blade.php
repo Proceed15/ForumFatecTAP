@@ -1,6 +1,6 @@
 @extends('layout.layout')
 
-@section('tagtitle', 'Editar Tag')
+@section('title', 'Editar Tag')
 
 @section('header', 'Editar Tag')
 
@@ -9,8 +9,8 @@
     <h2>Editar Tag</h2>
     <form action="edit_tag" method="post">
         <div class="input-group">
-            <label for="tagtitle">Título</label>
-            <input type="text" id="tagtitle" name="tagtitle" value="">
+            <label for="title">Título</label>
+            <input type="text" id="title" name="title" value="">
         </div>
         <div class="input-group">
             <label for="tagdescription">Descrição</label>

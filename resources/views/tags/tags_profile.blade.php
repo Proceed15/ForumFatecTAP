@@ -24,15 +24,15 @@
                 </div>
                 @error('title') <span>{{ $message }}</span> @enderror
                 <div class="input-group">
-                    <label for="description">Descrição</label>
+                    <label for="tagdescription">Descrição</label>
                     <input type="text" id="email" name="email" value="Descrição do seu Tag: Tela de Edição de Tag não funcional." required>
                 </div>
-                @error('description') <span>{{ $message }}</span> @enderror
+                @error('tagdescription') <span>{{ $message }}</span> @enderror
                 <div class="input-group">
-                    <label for="status">Status</label>
-                    <input type="boolean" id="status" name="status" value="1" required>
+                    <label for="tagstatus">Status</label>
+                    <input type="boolean" id="tagstatus" name="tagstatus" value="1" required>
                 </div>
-                @error('status') <span>{{ $message }}</span> @enderror
+                @error('tagstatus') <span>{{ $message }}</span> @enderror
 
                 <button type="submit">Editar Tag &nbsp;
                 <i class="fa-solid fa-pen-to-square"></i>

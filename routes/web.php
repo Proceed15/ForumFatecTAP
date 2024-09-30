@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\TopicController;
 use App\Http\Controllers\TagController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\AuthController;
 
 /*
@@ -55,11 +56,17 @@ Route::match(
     [TagController::class, 'createtag']
 )->name('createtag');
 
+Route::match(
+    ['get', 'post'],
+    '/createcategory',
+    [CategoryController::class, 'createcategory']
+)->name('createcategory');
+
 Route::middleware('auth')->group(function() {
     Route::get('/users', [UserController::class, 'listAllUsers'])->name('listAllUsers');
     Route::get('/users/{uid}', [UserController::class, 'listUsersByID'])->name('listUsersByID');
     /*Route::get('/users/edit', [UserController::class, 'editUserByID'])->name('editUserByID'););*/
-    Route::get('/users/profile', [UserController::class, 'editUserByID'])->name('editUserByID');
+    Route::get('/users/profile', [UserController::class, 'editUserByID'])->name('editUserByID');//Edição é aqui
 
     // Route::get('/topics/{uid}', [TopicController::class, 'listTopicsByID'])->name('listTopicsByID');
     Route::get('/topics/{uid}', [TopicController::class, 'listTopicsByID'])->name('edit_topic');//Aqui
@@ -68,6 +75,7 @@ Route::middleware('auth')->group(function() {
     
     Route::get('/tags/{uid}', [TagController::class, 'listTagsByID'])->name('edit_tag');//Aqui
     /*Route::get('/search', [UserController::class, 'listUsersByID'])->name('listUsersByID');*/
+    Route::get('/category/{uid}', [CategoryController::class, 'listCategoryByID'])->name('edit_category');//Aqui
 
     Route::get('/logout', [AuthController::class, 'logoutUser'])->name('logoutUser');
     Route::match(

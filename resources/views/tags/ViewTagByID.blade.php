@@ -1,6 +1,6 @@
 @extends('layout.layout')
 
-@section('tagtitle', 'Perfil de Tag')
+@section('title', 'Perfil de Tag')
 
 @section('header', 'Perfil de  Tag')
 
@@ -10,7 +10,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <tagtitle>Tela de Tag</tagtitle>
+    <title>Tela de Tag</title>
     <link href="../forum.css" rel="stylesheet">
 </head>
 <body>
@@ -24,10 +24,10 @@
               @csrf <!--Tag em PHP para habilitar o Token de acesso-->
               @method('put')
                 <div class="input-group">
-                    <label for="tagtitle">Título</label>
-                    <input type="text" id="tagtitle" name="tagtitle" value="{{ $tag->tagtitle }}" required>
+                    <label for="title">Título</label>
+                    <input type="text" id="title" name="title" value="{{ $tag->title }}" required>
                 </div>
-                @error('tagtitle') <span>{{ $message }}</span> @enderror
+                @error('title') <span>{{ $message }}</span> @enderror
                 <div class="input-group">
                     <label for="tagdescription">Descrição</label>
                     <input type="text" id="tagdescription" name="tagdescription" value="{{ $tag->tagdescription }}" required>

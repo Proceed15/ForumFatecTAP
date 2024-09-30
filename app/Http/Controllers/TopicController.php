@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Topic;
+//use App\Http\Controllers\UserController;
+use UserController;
 
 class TopicController extends Controller
 {
@@ -111,7 +113,8 @@ class TopicController extends Controller
     public function deleteTopicByID(Request $request, $uid){
         $topic = Topic::where('id', $uid)->first();
         
-        $user->save();
+        //$user->save();
+        $topic->save();
         //return view('users.deleteUserByID');
         return redirect()->route('listTopicsByID', [$topic->id])->with('message', 'Excluído com sucesso!');
     }

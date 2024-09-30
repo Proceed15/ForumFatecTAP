@@ -22,7 +22,7 @@
             <td> Editar </td>
         @foreach($tags as $tag)
         <tr>
-            <td> {{ $tag -> tagtitle }} </td>
+            <td> {{ $tag -> title }} </td>
             <td> {{ $tag -> tagdescription }} </td>
             <td> {{ $tag -> tagstatus }} </td>
             <td> <a href={{ route('edit_tag', [$tag -> id]) }}>Edite uma Tag</a></td>
