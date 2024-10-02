@@ -18,13 +18,11 @@
         <tr>
             <td> Nome </td>
             <td> Descrição </td>
-            <td> Status </td>
             <td> Editar </td>
         @foreach($tags as $tag)
         <tr>
             <td> {{ $tag -> title }} </td>
             <td> {{ $tag -> description }} </td>
-            <td> {{ $tag -> status }} </td>
             <td> <a href={{ route('edit_tag', [$tag -> id]) }}>Edite uma Tag</a></td>
         </tr>
         @endforeach

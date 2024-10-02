@@ -38,14 +38,12 @@ class TagController extends Controller
         } else {
             $request->validate([
                 'title' => 'required|string|max:255|unique:tags',
-                'description' => 'required|string|max:255',
-                'status' => 'required|boolean|max:1'
+                'description' => 'required|string|max:255'
             ]);
 
             $tag = Tag::create([
                 'title' => $request->title,
-                'description' => $request->description,
-                'status' => $request->status,
+                'description' => $request->description
             ]);
 
             //Auth::login($user);
@@ -62,14 +60,12 @@ class TagController extends Controller
         } else {
             $request->validate([
                 'title' => 'required|string|max:255',
-                'description' => 'required|string|max:255',
-                'status' => 'required|boolean|max:1'
+                'description' => 'required|string|max:255'
             ]);
 
             $tag = Tag::create([
                 'title' => $request->title,
-                'description' => $request->description,
-                'status' => $request->status,
+                'description' => $request->description
             ]);
 
             //Auth::login($user);
@@ -96,12 +92,10 @@ class TagController extends Controller
         //Adicionar validação de dados igual a função do register.
         $request->validate([
             'title' => 'required|string|max:255',
-            'description' => 'required|string|max:255',
-            'status' => 'required|boolean|max:1'
+            'description' => 'required|string|max:255'
         ]);
         $tag->title = $request->title;
         $tag->description = $request->description;
-        $tag->status = $request->status;
 
         $tag->save();
         $tag_id = Auth::id();
@@ -111,8 +105,8 @@ class TagController extends Controller
     public function deletetagByID(Request $request, $uid){
         $tag = Tag::where('id', $uid)->first();
         
-        $user->save();
+        $tag->save();
         //return view('users.deleteUserByID');
-        return redirect()->route('listTagsByID', [$tag->id])->with('message', 'Excluído com sucesso!');
+        return redirect()->route('listAllTags', [$tag->id])->with('message', 'Excluído com sucesso!');
     }
 }

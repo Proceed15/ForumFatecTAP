@@ -33,18 +33,13 @@
                     <input type="text" id="description" name="description" value="{{ $tag->description }}" required>
                 </div>
                 @error('description') <span>{{ $message }}</span> @enderror
-                <div class="input-group">
-                    <label for="status">Status</label>
-                    <input type="boolean" id="status" name="status">
-                </div>
-                @error('status') <span>{{ $message }}</span> @enderror
                 <!--<button type="submit">Editar Tag</button>$_COOKIE-->
                 <button type="submit">Editar Tag &nbsp;
                 <i class="fa-solid fa-pen-to-square"></i>
                 </button>
             </form>
             <br />
-            <form action="#" method="post">
+            <form action="{{route('deleteTagByID', [$tag->id])}}" method="post">
                 <!--Criar a ação do Controller: delete-->
               @csrf <!--Tag em PHP para habilitar o Token de acesso-->
               @method('delete')

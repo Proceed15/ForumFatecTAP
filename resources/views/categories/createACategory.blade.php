@@ -6,7 +6,7 @@
 
 @section('content')
 <div class="container">
-    <h2>Criar category</h2>
+    <h2>Criar categoria</h2>
     <form action="create" method="post">
         <div class="input-group">
             <label for="title">Nome</label>

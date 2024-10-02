@@ -74,6 +74,7 @@ Route::middleware('auth')->group(function() {
     Route::get('topics_profile', [TopicController::class, 'topics_profile'])->name('topics_profile');
     
     Route::get('/tags/{uid}', [TagController::class, 'listTagsByID'])->name('edit_tag');//Aqui
+    Route::put('/tags/{uid}', [TagController::class, 'editTagByID'])->name('edit_tag');//Aqui
     /*Route::get('/search', [UserController::class, 'listUsersByID'])->name('listUsersByID');*/
     Route::get('/category/{uid}', [CategoryController::class, 'listCategoryByID'])->name('edit_category');//Aqui
     Route::put('/category/{uid}', [CategoryController::class, 'editCategoryByID'])->name('editCategoryByID');//Aqui
@@ -85,4 +86,8 @@ Route::middleware('auth')->group(function() {
         ['put', 'get', 'post'],'/users/{uid}/edit', 
         [UserController::class, 'editUserByID'])->name('editUserByID');
     Route::delete('/users/{uid}/delete', [UserController::class, 'deleteUserByID'])->name('deleteUserByID');
+
+    Route::delete('/tags/{uid}/delete', [TagController::class, 'deleteTagByID'])->name('deleteTagByID');
+
+    Route::delete('/categories/{uid}/delete', [CategoryController::class, 'deleteCategoryByID'])->name('deleteCategoryByID');  
 });

@@ -39,7 +39,7 @@
                 </button>
             </form>
             <br />
-            <form action="#" method="post">
+            <form action="{{route('deleteCategoryByID', [$category->id])}}" method="post">
                 <!--Criar a ação do Controller: delete-->
               @csrf <!--category em PHP para habilitar o Token de acesso-->
               @method('delete')

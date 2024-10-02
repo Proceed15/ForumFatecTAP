@@ -20,7 +20,7 @@
             <form action="{{ route('createtag') }}" method="post">
             @csrf <!--Tag em PHP para habilitar o Token de acesso-->
                 <div class="input-group">
-                    <label for="name">Categoria</label>
+                    <label for="name">Nome da Tag</label>
                     <input type="text" id="title" name="title" value="{{ old('title') }}" required>
                 </div>
                 @error('title') <span>{{ $message }}</span> @enderror
@@ -29,11 +29,6 @@
                     <input type="text" id="descripton" name="description" value="{{ old('description') }}" required>
                 </div>
                 @error('description') <span>{{ $message }}</span> @enderror
-                <div class="input-group">
-                    <label for="status">Status</label>
-                    <input type="int" id="status" name="status" required>
-                </div>
-                @error('status') <span>{{ $message }}</span> @enderror
                 <button type="submit">Postar</button>
             </form>
             <button><a href="/tags">Cancelar</a></button>

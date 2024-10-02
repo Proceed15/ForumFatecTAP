@@ -117,5 +117,6 @@ class TopicController extends Controller
         $topic->save();
         //return view('users.deleteUserByID');
         return redirect()->route('listTopicsByID', [$topic->id])->with('message', 'Excluído com sucesso!');
+        
     }
 }

@@ -29,11 +29,6 @@
                     <input type="text" id="descripton" name="description" value="{{ old('description') }}" required>
                 </div>
                 @error('description') <span>{{ $message }}</span> @enderror
-                <div class="input-group">
-                    <label for="status">Status</label>
-                    <input type="int" id="status" name="status" required>
-                </div>
-                @error('status') <span>{{ $message }}</span> @enderror
                 <button type="submit">Postar</button>
             </form>
             <button><a href="/categories">Cancelar</a></button>

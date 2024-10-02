@@ -72,7 +72,7 @@ class CategoryController extends Controller
 
             return redirect()
             ->route('categories_profile')
-            ->with('success', 'Tópico cadastrado com sucesso.');
+            ->with('success', 'Categoria cadastrada com sucesso.');
         }
     }
 
@@ -105,8 +105,8 @@ class CategoryController extends Controller
     public function deletecategoryByID(Request $request, $uid){
         $category = category::where('id', $uid)->first();
         
-        $user->save();
+        $category->save();
         //return view('users.deleteUserByID');
-        return redirect()->route('listcategoriesByID', [$category->id])->with('message', 'Excluído com sucesso!');
+        return redirect()->route('listAllCategories', [$category->id])->with('message', 'Excluído com sucesso!');
     }
 }

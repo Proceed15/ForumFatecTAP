@@ -28,11 +28,6 @@
                     <input type="text" id="email" name="email" value="Descrição do seu Tag: Tela de Edição de Tag não funcional." required>
                 </div>
                 @error('description') <span>{{ $message }}</span> @enderror
-                <div class="input-group">
-                    <label for="status">Status</label>
-                    <input type="boolean" id="status" name="status" value="1" required>
-                </div>
-                @error('status') <span>{{ $message }}</span> @enderror
 
                 <button type="submit">Editar Tag &nbsp;
                 <i class="fa-solid fa-pen-to-square"></i>

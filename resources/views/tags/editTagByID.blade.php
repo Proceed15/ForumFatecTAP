@@ -16,10 +16,6 @@
             <label for="description">Descrição</label>
             <input type="text" id="description" name="description" value="">
         </div>
-        <div class="input-group">
-            <label for="status">Status</label>
-            <input type="boolean" id="status" name="status">
-        </div>
         <button type="submit">Salvar</button>
     </form>
 </div>
