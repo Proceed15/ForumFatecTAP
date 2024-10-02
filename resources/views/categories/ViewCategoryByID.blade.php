@@ -16,7 +16,7 @@
 <body>
     <div class="login-container">
         <div class="login-form">
-            <h2>category</h2>
+            <h2>Categoria</h2>
             <span>{{ session('message') }}</span>
             @if($category != null)
             <form action="#" method="post">

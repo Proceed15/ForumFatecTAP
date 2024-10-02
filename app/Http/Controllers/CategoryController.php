@@ -102,11 +102,11 @@ class CategoryController extends Controller
         return redirect()->route('listAllCategories', [$category->id])->with('message', 'Atualizado com sucesso!');
         //return view('categories.editcategoryByID');
     }
-    public function deletecategoryByID(Request $request, $uid){
+    public function deleteCategoryByID(Request $request, $uid){
         $category = category::where('id', $uid)->first();
         
-        $category->save();
-        //return view('users.deleteUserByID');
+        $category->delete();
+        //return view('users.deleteUserByID'); 
         return redirect()->route('listAllCategories', [$category->id])->with('message', 'Excluído com sucesso!');
     }
 }

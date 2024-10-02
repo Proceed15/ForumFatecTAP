@@ -102,10 +102,10 @@ class TagController extends Controller
         return redirect()->route('listAllTags', [$tag->id])->with('message', 'Atualizado com sucesso!');
         //return view('tags.editTagByID');
     }
-    public function deletetagByID(Request $request, $uid){
+    public function deleteTagByID(Request $request, $uid){
         $tag = Tag::where('id', $uid)->first();
         
-        $tag->save();
+        $tag->delete();
         //return view('users.deleteUserByID');
         return redirect()->route('listAllTags', [$tag->id])->with('message', 'Excluído com sucesso!');
     }
