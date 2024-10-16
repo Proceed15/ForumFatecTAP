@@ -16,7 +16,12 @@ class Topic extends Post
         
     ];
 
-    public function category  ()
+    public function topic()
+    {
+        return $this->hsOne(Topic::class, 'idPost');
+    }
+
+    public function category()
     {
         return $this->belongsTo(Category::class);
     }
