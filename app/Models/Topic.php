@@ -20,7 +20,10 @@ class Topic extends Post
     {
         return $this->hsOne(Topic::class, 'idPost');
     }
-
+    public function post()
+    {
+        return $this->belongsTo(Post::class);
+    }
     public function category()
     {
         return $this->belongsTo(Category::class);
