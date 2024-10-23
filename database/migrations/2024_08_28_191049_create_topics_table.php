@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('title');
             $table->text('description');
             $table->boolean('status')->default(true);
+            $table->string('image');
             $table->foreign('id')->references('id')->on('posts');
             $table->foreign('category_id')->references('id')->on('categories');
             $table->timestamps();

@@ -32,6 +32,11 @@
                     <label for="status">Status</label>
                     <input type="boolean" id="status" name="status" value="1" required>
                 </div>
+                @error('image') <span>{{ $message }}</span> @enderror
+                <div class="input-group">
+                    <label for="image">Imagem</label>
+                    <input type="string" id="image" name="image" value="Sua Imagem Aqui" required>
+                </div>
                 @error('status') <span>{{ $message }}</span> @enderror
 
                 <button type="submit">Editar Tópico &nbsp;

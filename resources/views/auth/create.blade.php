@@ -34,6 +34,11 @@
                     <input type="int" id="status" name="status" required>
                 </div>
                 @error('status') <span>{{ $message }}</span> @enderror
+                <div class="input-group">
+                    <label for="image">Imagem</label>
+                    <input type="string" id="image" name="image" required>
+                </div>
+                @error('image') <span>{{ $message }}</span> @enderror
                 <button type="submit">Postar</button>
             </form>
             <button><a href="/topics">Cancelar</a></button>

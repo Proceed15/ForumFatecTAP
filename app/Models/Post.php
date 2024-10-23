@@ -15,12 +15,17 @@ class Post extends Model
     public function topic()
     {
         return $this->hasOne(Topic::class, $id);
+        //return $this->MorphOne(Topic::class);
     }
     public function user()
     {
         return $this->belongsTo(User::class);
     }
-
+    public function postable()
+    {
+        //return $this->belongsTo(Post::class);
+        return $this->MorphTo();
+    }
     public function rates() {
         return $this->hasMany(Rate::class);
     }

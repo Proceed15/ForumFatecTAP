@@ -20,6 +20,10 @@
             <label for="status">Status</label>
             <input type="int" id="status" name="status" required>
         </div>
+        <div class="input-group">
+            <label for="image">Imagem</label>
+            <input type="string" id="image" name="image" required>
+        </div>
         <button type="submit">Criar</button>
     </form>
 </div>

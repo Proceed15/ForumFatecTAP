@@ -12,7 +12,11 @@ class Comment extends Post
     protected $fillable = [
       'content',
     ];
-
+    public function post()
+    {
+        //return $this->belongsTo(Post::class);
+        return $this->MorphOne(Post::class, 'portable');
+    }
     public function topics(){
       return $this->belongsTo(Topic::class);
     }

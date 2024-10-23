@@ -38,6 +38,11 @@
                     <input type="boolean" id="status" name="status">
                 </div>
                 @error('status') <span>{{ $message }}</span> @enderror
+                <div class="input-group">
+                    <label for="image">Imagem</label>
+                    <input type="string" id="image" name="image" required>
+                </div>
+                @error('image') <span>{{ $message }}</span> @enderror
                 <!--<button type="submit">Editar Tópico</button>$_COOKIE-->
                 <button type="submit">Editar Tópico &nbsp;
                 <i class="fa-solid fa-pen-to-square"></i>

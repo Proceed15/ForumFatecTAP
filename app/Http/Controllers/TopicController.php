@@ -41,13 +41,15 @@ class TopicController extends Controller
             $request->validate([
                 'title' => 'required|string|max:255|unique:topics',
                 'description' => 'required|string|max:255',
-                'status' => 'required|boolean|max:1'
+                'status' => 'required|boolean|max:1',
+                'image' => 'required|string|max:255'
             ]);
 
             $topic = Topic::create([
                 'title' => $request->title,
                 'description' => $request->description,
                 'status' => $request->status,
+                'image' => $request->image,
             ]);
 
             //Auth::login($user);
@@ -65,13 +67,17 @@ class TopicController extends Controller
             $request->validate([
                 'title' => 'required|string|max:255',
                 'description' => 'required|string|max:255',
-                'status' => 'required|boolean|max:1'
+                'status' => 'required|boolean|max:1',
+                'image' => 'required|string|max:255',
+                'category' => 'required'
             ]);
 
             $topic = Topic::create([
                 'title' => $request->title,
                 'description' => $request->description,
                 'status' => $request->status,
+                'image' => $request->image,
+                'category_id' => $request->category_id,
             ]);
 
             //Auth::login($user);
@@ -99,11 +105,13 @@ class TopicController extends Controller
         $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required|string|max:255',
-            'status' => 'required|boolean|max:1'
+            'status' => 'required|boolean|max:1',
+            'image' => 'required|string|max:255'
         ]);
         $topic->title = $request->title;
         $topic->description = $request->description;
         $topic->status = $request->status;
+        $topic->image = $request->image;
 
         $topic->save();
         $topic_id = Auth::id();

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->string('image');
+            $table->morphs('postable');
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users');
         });

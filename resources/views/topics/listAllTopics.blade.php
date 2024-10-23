@@ -18,12 +18,14 @@
             <td> Nome </td>
             <td> Descrição </td>
             <td> Status </td>
+            <td> Imagem </td>
             <td> Editar </td>
         @foreach($topics as $topic)
         <tr>
             <td> {{ $topic -> title }} </td>
             <td> {{ $topic -> description }} </td>
             <td> {{ $topic -> status }} </td>
+            <td> {{ $topic -> image }} </td>
             <td> <a href={{ route('edit_topic', [$topic -> id]) }}>Edite um Tópico</a></td>
         </tr>
         @endforeach

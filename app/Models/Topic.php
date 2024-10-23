@@ -13,6 +13,7 @@ class Topic extends Post
         'title',
         'description',
         'status',
+        'image',
         
     ];
 
@@ -22,7 +23,8 @@ class Topic extends Post
     }
     public function post()
     {
-        return $this->belongsTo(Post::class);
+        //return $this->belongsTo(Post::class);
+        return $this->MorphOne(Post::class, 'portable');
     }
     public function category()
     {
