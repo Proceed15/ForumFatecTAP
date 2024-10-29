@@ -2,111 +2,111 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
 use App\Models\Category;
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
-    public function home() {
-        //Essa função seria um Controller próprio para gerenciar o ID do usuário logado.
-        $user_id = Auth::id();
-        return view('home', ['authUser' => $user_id]);
-    }
-
-    // camelCase
-    // no_camel_case
-    //Lógicas para programar
-    public function listAllCategories(){
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
         $categories = Category::all();
-        //Lógica pasta.nomedapagina
-        return view('categories.listAllCategories', ['categories' => $categories]);
+        return view('category.index', compact('categories'));
     }
 
-    /*não será mais utilizado.
-    public function createAUser(Request $request){
-        return view('users.createAUser');
-    }
-    */
-
-    public function createcategory(Request $request){
-        
-        if($request->method() === 'GET') {
-            return view('auth.createcategory');
-        } else {
-            $request->validate([
-                'title' => 'required|string|max:255|unique:categories',
-                'description' => 'required|string|max:255',
-            ]);
-
-            $category = category::create([
-                'title' => $request->title,
-                'description' => $request->description,
-            ]);
-
-            //Auth::login($user);
-
-            return redirect()
-            ->route('listAllCategories')
-            ->with('success', 'categoria cadastrada com sucesso.');
-        }
-    }
-    public function categories_profile(Request $request){
-        
-        if($request->method() === 'GET') {
-            return view('categories_profile');
-        } else {
-            $request->validate([
-                'title' => 'required|string|max:255',
-                'description' => 'required|string|max:255',
-            ]);
-
-            $category = category::create([
-                'title' => $request->title,
-                'description' => $request->description,
-            ]);
-
-            //Auth::login($user);
-
-            return redirect()
-            ->route('categories_profile')
-            ->with('success', 'Categoria cadastrada com sucesso.');
-        }
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        return view('category.create');
     }
 
-    public function listCategoryByID(Request $request, $uid){
-        //Procurar o Usuário no Banco.
-        $category = category::where('id', $uid)->first();
-        //where --> busca 1 campo só, mas retorna um array desse campo.
-        //find --> busca vários campos.
-        //print($uid);
-        //return view('users.listUsersByID');
-        return view('categories.ViewcategoryByID', ['category' => $category]);
-    }
-
-
-    public function editcategoryByID(Request $request, $uid){
-        $category = category::where('id', $uid)->first();
-        //Adicionar validação de dados igual a função do register.
-        $request->validate([
-            'title' => 'required|string|max:255',
-            'description' => 'required|string|max:255'
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        $validated = $request->validate([
+            'title' => 'required|string',
+            'description' => 'required|string',
         ]);
-        $category->title = $request->title;
-        $category->description = $request->description;
 
-        $category->save();
-        $category_id = Auth::id();
-        return redirect()->route('listAllCategories', [$category->id])->with('message', 'Atualizado com sucesso!');
-        //return view('categories.editcategoryByID');
+        $category = Category::create($validated);
+
+
+        return redirect()->route('categories.index');
     }
-    public function deleteCategoryByID(Request $request, $uid){
-        $category = category::where('id', $uid)->first();
-        
-        $category->delete();
-        //return view('users.deleteUserByID'); 
-        return redirect()->route('listAllCategories', [$category->id])->with('message', 'Excluído com sucesso!');
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        $category = Category::findOrFail($id);
+        return view('category.show', compact('category'));
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        $category = Category::findOrFail($id);
+        return view('category.edit', compact('category'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        $category = Category::findOrFail($id);
+        if ($category) {
+            $request->validate([
+                'title' => 'required|string',
+                'description' => 'required|string',
+            ]);
+    
+            $category->title = $request->title;
+            $category->description = $request->description;
+            $category->save();
+
+        }
+
+        return redirect()->route('categories.index');
+
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        Category::findOrFail($id)->delete();
+        return redirect()->route('categories.index');
     }
 }

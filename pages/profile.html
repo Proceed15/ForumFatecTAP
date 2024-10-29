@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil do Usuário</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Perfil de João Silva</h1>
+        <nav>
+            <a href="index.html">Início</a>
+            <a href="logout.html">Sair</a>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Informações do Usuário</h2>
+            <p><strong>Nome de usuário:</strong> João Silva</p>
+            <p><strong>Email:</strong> joao.silva@example.com</p>
+            <p><strong>Data de Registro:</strong> 15/09/2024</p>
+        </section>
+
+        <section>
+            <h2>Editar Perfil</h2>
+            <form action="submit_profile_edit.html" method="POST">
+                <label for="photo">Foto de Perfil:</label>
+                <input type="file" id="photo" name="photo">
+
+                <label for="username">Nome de Usuário:</label>
+                <input type="text" id="username" name="username" value="João Silva">
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" value="joao.silva@example.com">
+
+                <button type="submit">Salvar Alterações</button>
+            </form>
+        </section>
+    </main>
+
+ 

@@ -11,11 +11,12 @@ class Category extends Model
 
     protected $fillable = [
         'title',
-        'description',
-      ];
+        'description'
+    ];
 
-      public function topics()
-      {
-          return $this->hasMany(Topic::class);
-      }
+    public function topics()
+    {
+        return $this->hasMany(Topic::class);
+    }
+
 }

@@ -13,22 +13,28 @@ class Topic extends Post
         'title',
         'description',
         'status',
-        'image',
-        
+        'category_id'
     ];
 
-    public function topic()
-    {
-        return $this->hsOne(Topic::class, 'idPost');
-    }
+    // Relacionamento Polimórfico
     public function post()
     {
-        //return $this->belongsTo(Post::class);
-        return $this->MorphOne(Post::class, 'portable');
+        return $this->morphOne(Post::class, 'postable');
     }
+
+    // public function post()
+    // {
+    //     return $this->belongsTo(Post::class);
+    // }
+
     public function category()
     {
         return $this->belongsTo(Category::class);
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
     }
 
     public function tags()

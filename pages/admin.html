@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administração do Fórum</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Administração do Fórum</h1>
+        <nav>
+            <a href="index.html">Início</a>
+            <a href="profile.html">Perfil</a>
+            <a href="logout.html">Sair</a>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Gerenciar Usuários</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome de Usuário</th>
+                        <th>Email</th>
+                        <th>Papel</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>João Silva</td>
+                        <td>joao.silva@example.com</td>
+                        <td>Usuário</td>
+                        <td>
+                            <a href="edit_user.html?user=1" class="btn">Editar</a>
+                            <a href="ban_user.html?user=1" class="btn">Banir</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Ana Maria</td>
+                        <td>ana.maria@example.com</td>
+                        <td>Moderador</td>
+                        <td>
+                            <a href="edit_user.html?user=2" class="btn">Editar</a>
+                            <a href="ban_user.html?user=2" class="btn">Banir</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Fórum Didático. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>

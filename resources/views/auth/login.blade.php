@@ -1,95 +1,65 @@
-@extends('layout.layout')
-
-@section('title', 'Login de Usuário')
-
-@section('header', 'Login de  Usuário')
-
-@section('content')
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tela de Login</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  .login-container {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+    padding: 40px;
+    width: 300px;
+  }
+  h2 {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  input[type="email"], input[type="password"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  input[type="submit"]:hover {
+    background-color: #45a049;
+  }
+</style>
 </head>
 <body>
-    <div class="login-container">
-        <div class="login-form">
-            <h1>Login</h1>
-            <form action="{{ route('loginUser') }}" method="post">
-              @csrf
-                <div class="input-group">
-                    <label for="username">Usuário</label>
-                    <input type="email" name="email" placeholder="E-mail" value="{{ old('email') }}" required>
-                    @error('email') <span>{{ $message }}</span> @enderror
-                </div>
-                <div class="input-group">
-                    <label for="password">Senha</label> 
-                    <input type="password" name="password" placeholder="Password" value="{{ old('password') }}" required>
-                    @error('password') <span>{{ $message }}</span> @enderror
-                </div>
-                <button type="submit">Entrar</button>
-            </form>
-        </div>
-        <a href="/register">Não possui uma conta? Criar Conta</a>
-    </div>
-    @endsection
-    <style>
-        .login-container {
-            background: linear-gradient(135deg, #6e8efb, #a777e3);
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 777px;
-            text-align: center;
-            color: #fff;
-        }
-
-        .login-form h2 {
-            margin-bottom: 20px;
-            font-weight: 500;
-        }
-
-        .input-group {
-            margin-bottom: 15px;
-            text-align: left;
-        }
-
-        .input-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: 500;
-        }
-
-        .input-group input {
-            width: calc(100% - 20px);
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            margin-left: 10px;
-            box-sizing: border-box;
-        }
-
-        .input-group input:focus {
-            outline: none;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-        }
-
-        button {
-            width: 100%;
-            padding: 12px 0;
-            border: none;
-            border-radius: 5px;
-            background-color: #007BFF;
-            color: #fff;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        button:hover {
-            background-color: #0056b3;
-        }
-    </style>
+  <div class="login-container">
+    <h2>Login</h2>
+    <form action="{{ route('login') }}" method="post">
+      @csrf
+      <input type="email" id="email" name="email" placeholder="E-mail" 
+                    value="{{ old('email') }}" required>
+      @error('email') <span>{{ $message }}</span> @enderror
+      <input type="password" id="password" name="password" placeholder="Senha" 
+                    required>
+      @error('password') <span>{{ $message }}</span> @enderror
+      <input type="submit" value="Logar">
+    </form>
+  </div>
+</body>
+</html>
