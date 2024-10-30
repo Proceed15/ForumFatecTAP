@@ -1,8 +1,8 @@
-<h1>Forum-GameDev</h1>
+<h1>Forum-Tech</h1>
 
-> Status: Developing ⚠️
+> Status: Developing
 
-<h3>Welcome to the GameDev Forum project! This platform is designed to bring together game developers, enthusiasts, and industry professionals to share knowledge, discuss trends, and collaborate on game development projects.</h3>
+<h3>Welcome to the Tech Forum project! This platform is designed to bring together tech developers, enthusiasts, and industry professionals to share knowledge, discuss trends, and collaborate on Tech development projects.</h3>
 
 <h2>Features</h2>
 + Login
@@ -11,6 +11,18 @@
 + Edit User
 <h2>Project Overview</h2>
     <p>This project is a discussion forum developed using the Laravel framework. The goal is to provide a platform where users can register, create topics, make posts, and interact with other users.</p>
+
+<h2>Technologies Used</h2>
+    <ul>
+        <li><strong>Framework:</strong> Laravel</li>
+        <li><strong>Language:</strong> PHP</li>
+        <li><strong>Database:</strong> MySQL</li>
+        <li><strong>Authentication:</strong> Laravel's standard authentication package</li>
+    </ul>
+<h2>Members:</h2>
+<ul>
+<li>José Roberto Lisboa da Silva Filho</li>
+</ul>
 
 <h2>Functional Pages</h2>
     <ol>
@@ -124,16 +136,3 @@
             </ul>
         </li>
     </ul>
-
-<h2>Technologies Used</h2>
-    <ul>
-        <li><strong>Framework:</strong> Laravel</li>
-        <li><strong>Language:</strong> PHP</li>
-        <li><strong>Database:</strong> MySQL</li>
-        <li><strong>Authentication:</strong> Laravel's standard authentication package</li>
-    </ul>
-<h2>Members:</h2>
-<ul>
-<li>Gabriel Sales Dorea</li>
-<li>João Vitor Perez Saraiva</li> 
-</ul>
