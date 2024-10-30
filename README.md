@@ -7,8 +7,9 @@
 <h2>Features</h2>
 + Login
 + Register
-+ Delete User
++ Add User
 + Edit User
++ Delete User
 <h2>Project Overview</h2>
     <p>This project is a discussion forum developed using the Laravel framework. The goal is to provide a platform where users can register, create topics, make posts, and interact with other users.</p>
 
