@@ -12,13 +12,13 @@ abstract class Post extends Model
     protected $fillable = [
         'image'
     ];
-
     // Relacionamento Polimórfico
     public function postable()
     {
         return $this->morphTo();
     }
 
+    // Relacionamento Tradicional
     // public function topic()
     // {
     //     return $this->hasOne(Topic::class, 'id');

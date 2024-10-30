@@ -1,69 +1,139 @@
-# Fórum Laravel Blade PHP
-Fórum desenvolvido por José Roberto Lisboa da Silva Filho durante as aulas de Técnicas Avançadas de Programação (TAP) com Laravel, PHP Blade e o Visual Studio Code para a Fatec Sorocaba.
+<h1>Forum-GameDev</h1>
 
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+> Status: Developing ⚠️
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+<h3>Welcome to the GameDev Forum project! This platform is designed to bring together game developers, enthusiasts, and industry professionals to share knowledge, discuss trends, and collaborate on game development projects.</h3>
 
-## About Laravel
+<h2>Features</h2>
++ Login
++ Register
++ Delete User
++ Edit User
+<h2>Project Overview</h2>
+    <p>This project is a discussion forum developed using the Laravel framework. The goal is to provide a platform where users can register, create topics, make posts, and interact with other users.</p>
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+<h2>Functional Pages</h2>
+    <ol>
+        <li><strong>Home Page</strong>
+            <ul>
+                <li>A simple welcome page with links for login and registration.</li>
+            </ul>
+        </li>
+        <li><strong>Users</strong>
+            <ul>
+                <li>Registration form for new users to sign up with their name, email, and password.</li>
+            </ul>
+        </li>
+        <li><strong>Profile</strong>
+            <ul>
+                <li>Allows users to edit their information and delete their accounts.</li>
+            </ul>
+        </li>
+        <li><strong>Login System</strong>
+            <ul>
+                <li>Login form for users to access restricted features.</li>
+            </ul>
+        </li>
+        <li><strong>Logout</strong>
+            <ul>
+                <li>Function to end the user's session.</li>
+            </ul>
+        </li>
+        <li><strong>Readme (GitHub)</strong>
+            <ul>
+                <li>Explanation of the project and team members (if in a pair).</li>
+            </ul>
+        </li>
+    </ol>
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+<h2>Non-Functional Pages (Route -> Controller -> View)</h2>
+    <ol>
+        <li><strong>Home Page</strong>
+            <ul>
+                <li>Reserved areas for topics, posts, etc.</li>
+            </ul>
+        </li>
+        <li><strong>Topic</strong>
+            <ul>
+                <li>Features to create, edit, view, and delete topics.</li>
+            </ul>
+        </li>
+        <li><strong>Posts</strong>
+            <ul>
+                <li>Features to create, edit, view, and delete posts.</li>
+            </ul>
+        </li>
+        <li><strong>Tags</strong>
+            <ul>
+                <li>Features to create, edit, view, and delete tags.</li>
+            </ul>
+        </li>
+        <li><strong>Users (Moderation)</strong>
+            <ul>
+                <li>Features to suspend and ban users.</li>
+            </ul>
+        </li>
+    </ol>
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+<h2>Functional Requirements</h2>
+    <h3>1. User Registration</h3>
+    <ul>
+        <li>Registration form with fields for name, email, and password.</li>
+        <li>Field validation (name required, valid email, and password with a minimum of 8 characters).</li>
+        <li>Secure storage of passwords using hashing.</li>
+        <li>User feedback in case of validation errors.</li>
+    </ul>
 
-## Learning Laravel
+<h3>2. User Login</h3>
+    <ul>
+        <li>Login form with fields for email and password.</li>
+        <li>Field validation (email required, password required).</li>
+        <li>Verification of login credentials.</li>
+        <li>Redirect authenticated users to the home page.</li>
+        <li>User feedback in case of authentication failure.</li>
+    </ul>
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+<h3>3. Home Page</h3>
+    <ul>
+        <li>Accessible to all users (authenticated and non-authenticated).</li>
+        <li>Display a personalized welcome message with the user's name.</li>
+    </ul>
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+<h3>4. Logout</h3>
+    <ul>
+        <li>Function to end the user's session.</li>
+        <li>Redirect to the home page after logout.</li>
+    </ul>
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+<h2>Project Structure</h2>
+    <p>The project follows the MVC (Model-View-Controller) pattern:</p>
+    <ul>
+        <li><strong>Models</strong>
+            <ul>
+                <li>Definition of classes responsible for database interaction, such as the User model.</li>
+            </ul>
+        </li>
+        <li><strong>Views</strong>
+            <ul>
+                <li>Blade files for rendering the registration, login, and dashboard pages.</li>
+            </ul>
+        </li>
+        <li><strong>Controllers</strong>
+            <ul>
+                <li>Classes that manage business logic, including user authentication and registration.</li>
+            </ul>
+        </li>
+    </ul>
 
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+<h2>Technologies Used</h2>
+    <ul>
+        <li><strong>Framework:</strong> Laravel</li>
+        <li><strong>Language:</strong> PHP</li>
+        <li><strong>Database:</strong> MySQL</li>
+        <li><strong>Authentication:</strong> Laravel's standard authentication package</li>
+    </ul>
+<h2>Members:</h2>
+<ul>
+<li>Gabriel Sales Dorea</li>
+<li>João Vitor Perez Saraiva</li> 
+</ul>
