@@ -13,7 +13,9 @@ class Topic extends Post
         'title',
         'description',
         'status',
+        'category_id'
     ];
+
     // Relacionamento Polimórfico
     public function post()
     {

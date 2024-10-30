@@ -1,1 +1,0 @@
-@extends('category.createcat.create_category')

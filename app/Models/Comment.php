@@ -12,14 +12,15 @@ class Comment extends Post
     protected $fillable = [
         'content'
     ];
+
     // Relacionamento Polimórfico
     public function post()
     {
         return $this->morphOne(Post::class, 'postable');
     }
 
-    // public function topic()
-    // {
-    //     return $this->belongsTo(Topic::class);
-    // }
+    public function topic()
+    {
+        return $this->belongsTo(Topic::class);
+    }
 }

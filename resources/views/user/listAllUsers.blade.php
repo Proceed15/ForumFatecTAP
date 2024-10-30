@@ -8,10 +8,14 @@
         <tr>
             <th>Nome</th>
             <th>Email</th>
+            <th>Photo</th>
+            <th>Role</th>
         </tr>
         <tr>
-            <td>Fulano</td>
-            <td>fulano@email.com</td>
+            <td>Exemplo</td>
+            <td>exemplo@email.com</td>
+            <td>Foto Exemplo</td>
+            <td>Função</td>
         </tr>
     </table>
 

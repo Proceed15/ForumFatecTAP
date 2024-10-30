@@ -11,7 +11,6 @@ class Tag extends Model
 
     protected $fillable = [
         'title'
-        
     ];
 
     public function topics()
