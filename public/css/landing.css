@@ -1,0 +1,223 @@
+.landing {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr; 
+    grid-gap: 20px;
+}
+
+.center {
+    width: 100%;
+}
+
+.sidebar {
+    width: 100%;
+}
+
+.sidebar-menu {
+    margin-bottom: 40px;
+}
+
+.sidebar .sidebar-menu,
+.sidebar .sidebar-personalnav {
+    display: flex;
+    flex-direction: column;
+    width: 80%; 
+}
+
+.sidebar-menu > h2,
+.sidebar-personalnav > h2 {
+    font-size: 20px;
+    font-weight: 300;
+    color: #594545;
+    margin-bottom: 20px;
+    margin-left: 60px;
+}
+
+.sidebar-menu p,
+.sidebar-personalnav p {
+    transition: background-color 0.6s;
+    width: 100%; 
+    display: flex;
+    padding-left: 60px;
+    cursor: pointer;
+    height: 50px;
+    box-sizing: border-box;
+    align-items: center;
+    font-weight: 500;
+}
+
+.sidebar-menu p:hover,
+.sidebar-personalnav p:hover {
+    background-color: #9a12cb2d;
+}
+
+.sidebar-menu p i,
+.sidebar-personalnav p i {
+    margin-right: 10px;
+    background: none;
+    color: #594545;
+    font-size: 18px;
+}
+
+.center {
+    width: 100%;
+}
+
+.filters {
+    display: flex;
+    justify-content: space-around;
+    width: 400px;
+    margin: auto;
+}
+
+.filter {
+    background: #e8e8e8;
+    display: flex;
+    align-items: center;
+    padding: 13px;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.filter p,
+.filter i {
+    color: #808080;
+    background: none;
+    margin: 0;
+}
+
+.filter > p > i {
+    margin-right: 8px;
+}
+
+/* Estilos para os cards de conteúdo */
+.card-content {
+    width: 100%;
+    height: 200px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.question > .question-top > .question-title {
+    font-size: 20px;
+    width: 400px;
+}
+
+.question-top {
+    margin-bottom: 30px;
+}
+
+.question-view {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 500px;
+}
+
+.votes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.votes > i, .votes > span{
+    font-size: 20px;
+    margin: 0px 50px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    width: 900px;
+    background: #fff;
+    height: 200px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.23);
+    margin: auto;
+    margin-top: 20px;
+}
+
+
+.red-text {
+    color: red;
+}
+
+.red-icon {
+    color: red;
+}
+
+.green-text {
+    color: green;
+}
+
+.green-icon {
+    color: green;
+}
+
+.views {
+    display: flex;
+    padding: 5px;
+    background: none;
+    margin-right: 40px;
+}
+
+.views > p {
+    margin-left: 10px;
+    color: #808080;
+}
+
+.views > p > i {
+    margin-right: 2px;
+}
+
+.topics > button {
+    padding: 15px;
+    border: none;
+    background: #9B12CB;
+    color: white;
+    border-radius: 5px;
+    width: 200px;
+}
+
+.topics > button > i {
+    margin-right: 10px;
+}
+
+.suggestions > h3 {
+    font-size: 20px;
+    color: #808080;
+    font-weight: 300;
+    
+}
+
+.suggestions {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.suggestions-users {
+    margin-top: 30px;
+}
+
+.suggestions-users > .user{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 200px;
+}
+
+.suggestions-users > .user > button {
+    width: 70px;
+    border: none;
+    padding: 7px;
+    background: #9B12CB;
+    color: white;
+    border-radius: 5px;
+}
+
+.suggestions-users > .user > button > i {
+    margin-right: 5px;
+}

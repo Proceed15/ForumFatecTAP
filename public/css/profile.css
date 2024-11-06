@@ -1,0 +1,107 @@
+.settings-container {
+    display: grid;
+    grid-template-columns: 400px 1fr; 
+    grid-gap: 20px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+}
+
+.content > h1 {
+    margin-bottom: 15px;
+    color: #9B12CB;
+}
+
+.settings-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-top: 2px solid #9B12CB;
+    margin-right: 40px;
+}
+
+.settings-content > .left > form, .right {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+}
+
+.settings-content > .left > form > label {
+    margin-bottom: 10px;
+    color: #9B12CB;
+    font-weight: bold;
+}
+
+.settings-content > .left > form  > input, select {
+    width: 400px;
+    padding: 15px;
+    border: none;
+    background: #E3E3E3;
+    outline: none;
+    margin-bottom: 30px;
+    color: #767676;
+}
+
+.settings-content > .left > form  > .btns {
+    display: flex;
+}
+
+.settings-content > .left > .profile-btn, 
+.settings-content > .left > form > .profile-btn {
+    padding: 8px;
+    border: none;
+    color: white;
+    margin-right: 50px;
+    border-radius: 5px;
+    width: 50px;
+    background: #9B12CB;
+}
+
+.delete {
+    background: red;
+    width: 50px;
+    padding: 8px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.right > p {
+    color: #9B12CB;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.right > .user-wrapper {
+    position: relative;
+}
+
+.right > .user-wrapper .user {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: rgb(0, 0, 0);
+}
+
+.right > .user-wrapper > .edit {
+    width: 70px;
+    height: 40px;
+    background: #f0f0f0;
+    border: 1px solid #9B12CB;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 50px;
+}
+
+.right > .user-wrapper > .edit > i {
+    margin-right: 5px;
+}
+
+.right > .user-wrapper > .edit > i, 
+.right > .user-wrapper > .edit > p {
+    color: #9B12CB;
+}

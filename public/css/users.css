@@ -1,0 +1,11 @@
+body {
+    background: #f0f0f0 !important;
+}
+
+.users-list > h2 {
+    text-align: center;
+}
+
+.users-list > table {
+    text-align: center;
+}
