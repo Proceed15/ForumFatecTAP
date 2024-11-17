@@ -59,7 +59,7 @@
                     </form>
                 </div>
             @else
-                <p><a href="{{ route('login') }}">Sign In</a> or <a href="{{ route('register') }}">Sign Up</a></p>
+                <p><a href="#">Logar</a> ou <a href="#">\Cadastrar</a></p>
             @endauth
         </div>
     </div>
@@ -68,6 +68,6 @@
     </main>
 
 </body>
-<script src="{{ mix('js/app.js') }}"></script>
+
 </html>
 
