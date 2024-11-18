@@ -20,7 +20,7 @@ use App\Http\Controllers\HomeController;
 |
 */
 
-Route::get('/', [HomeController::class, 'HomeForum'])->name('forum');
+Route::match(['get', 'post'], '/', [HomeController::class, 'HomeForum'])->name('forum');
 
 Route::resource('categories', CategoryController::class);
 

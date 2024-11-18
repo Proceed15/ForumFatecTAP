@@ -20,15 +20,19 @@
     </div>
     <div class="center">
         <div class="filters">
-            <div class="filters-new filter">
-                <p><i class="fa-regular fa-clock"></i>New</p>
-            </div>
+            <a href="../#">
+                <div class="filters-new filter">
+                    <p><i class="fa-regular fa-clock"></i>Nova</p>
+                </div>
+            </a>
             <div class="filters-trending filter ">
                 <p><i class="fa-solid fa-turn-up"></i>Trending</p>
             </div>
-            <div class="filters-category filter">
-                <p><i class="fa-solid fa-sliders"></i>Category</p>
-            </div>
+            <a href="../categories">
+                <div class="filters-category filter">
+                    <p><i class="fa-solid fa-sliders"></i>Categorias</p>
+                </div>
+            </a>
         </div>
         <div class="content">
             

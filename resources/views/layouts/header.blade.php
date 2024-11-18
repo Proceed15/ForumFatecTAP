@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <link rel="shortcut icon" href="img/Logo nav.png" type="image/x-icon">
+    <link rel="shortcut icon" href="img/PurLogo.png" type="image/x-icon">
 </head>
 
 <link rel="stylesheet" href="css/form.css">
@@ -30,7 +30,7 @@
     <header>
         <div class="nav-logo">
             <a href="../">
-                <img src="../../../img/Logo nav.png" alt="" href="register">
+                <img src="../../../img/PurLogo.png" alt="" href="register">
             </a>
         </div>
         <div class="nav-search">
@@ -59,7 +59,7 @@
                     </form>
                 </div>
             @else
-                <p><a href="#">Logar</a> ou <a href="#">\Cadastrar</a></p>
+                <p><a href="#">Logar</a> ou <a href="#">Cadastrar</a></p>
             @endauth
         </div>
     </div>

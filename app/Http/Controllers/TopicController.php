@@ -20,7 +20,7 @@ class TopicController extends Controller
      */
     public function index()
     {
-        $topics = Topic::all();
+        $topics = Topic::with('post')->get();
         return $topics;
     }
 
@@ -43,11 +43,6 @@ class TopicController extends Controller
      */
     public function store(Request $request)
     {
-
-        if (!Auth::user())
-            return ("Unauthorized");
-
-            
         $userId = Auth::id();
 
         $request->validate([
@@ -65,7 +60,7 @@ class TopicController extends Controller
             'category_id' => $request->category
         ]);
 
-        Auth::user()->$topic->post()->create([
+        $topic->post()->create([
             'user_id' => Auth::id(),
             'image' => $request->image,
             // 'image' => $request->file('image')->store('images', 'public')

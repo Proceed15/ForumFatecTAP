@@ -15,9 +15,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('category.index');
-        //$categories = Category::all();
-        //return view('category.index', compact('categories'));
+        $categories = Category::all();
+        return view('category.index', compact('categories'));
     }
 
     /**
@@ -27,7 +26,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('category.create');
+        return "Não implementado. O formulário esta em um modal";
     }
 
     /**
@@ -105,9 +104,11 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        Category::findOrFail($id)->delete();
+    public function destroy(Request $request, $id)
+    {  
+        Category::find($id)->delete();
         return redirect()->route('categories.index');
     }
 }
+
+

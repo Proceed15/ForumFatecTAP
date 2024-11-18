@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <link rel="shortcut icon" href="img/Logo nav.png" type="image/x-icon">
+    <link rel="shortcut icon" href="img/PurLogo.png" type="image/x-icon">
 </head>
 
 <link rel="stylesheet" href="/css/form.css">
@@ -28,7 +28,7 @@
     <header>
         <div class="nav-logo">
             <a href="../">
-                <img src="../../../img/Logo nav.png" alt="" href="register">
+                <img src="../../../img/PurLogo.png" alt="" href="register">
             </a>
         </div>
         <div class="nav-search">
@@ -57,7 +57,7 @@
                     </form>
                 </div>
             @else
-                <p><a href="#">Sign In</a> or <a href="#">Sign Up</a></p>
+                <p><a href="#">Logar</a> or <a href="#">Cadastrar</a></p>
             @endauth
         </div>
     </div>
@@ -81,15 +81,19 @@
             </div>
             <div class="center">
                 <div class="filters">
-                    <div class="filters-new filter">
-                        <p><i class="fa-regular fa-clock"></i>New</p>
-                    </div>
+                    <a href="../#">
+                        <div class="filters-new filter">
+                           <p><i class="fa-regular fa-clock"></i>Nova</p>
+                        </div>
+                    </a>
                     <div class="filters-trending filter ">
                         <p><i class="fa-solid fa-turn-up"></i>Trending</p>
                     </div>
-                    <div class="filters-category filter">
-                        <p><i class="fa-solid fa-sliders"></i>Category</p>
-                    </div>
+                    <a href="../categories">
+                        <div class="filters-category filter">
+                            <p><i class="fa-solid fa-sliders"></i>Categorias</p>
+                        </div>
+                    </a>
                 </div>
                 <div class="content">
                     
