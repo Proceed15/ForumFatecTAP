@@ -1,8 +1,8 @@
 @extends('layout.layout')
 
-@section('title', 'Perfil de Usuário')
+@section('title', 'Perfil de Tópico')
 
-@section('header', 'Perfil de  Usuário')
+@section('header', 'Perfil de  Tópico')
 
 @section('content')
 <!--
@@ -14,55 +14,37 @@
 </head>
 -->
     <div class="login-container">
-    <h1>Perfil de Usuário</h1>
-            <span>{{ session('message') }}</span>
-            @if($user != null)
-            <form action="{{ route('editUserByID', [$user->id]) }}" method="post">
+    <h1>Editar Tópico</h1>
+            <form action="." method="post">
               @csrf <!--Tag em PHP para habilitar o Token de acesso-->
-              @method('put')
+              @method('get')
                 <div class="input-group">
-                    <label for="name">Usuário</label>
-                    <input type="text" id="name" name="name" value="{{ $user->name }}" required>
+                    <label for="title">Título</label>
+                    <input type="text" id="title" name="title" value="Título do seu tópico para edição" required>
                 </div>
-                @error('name') <span>{{ $message }}</span> @enderror
+                @error('title') <span>{{ $message }}</span> @enderror
                 <div class="input-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" value="{{ $user->email }}" required>
+                    <label for="description">Descrição</label>
+                    <input type="text" id="email" name="email" value="Descrição do seu tópico: Tela de Edição de Tópico não funcional." required>
                 </div>
-                @error('email') <span>{{ $message }}</span> @enderror
+                @error('description') <span>{{ $message }}</span> @enderror
                 <div class="input-group">
-                    <label for="password">Senha</label>
-                    <input type="password" id="password" name="password">
+                    <label for="status">Status</label>
+                    <input type="boolean" id="status" name="status" value="1" required>
                 </div>
-                @error('password') <span>{{ $message }}</span> @enderror
+                @error('image') <span>{{ $message }}</span> @enderror
                 <div class="input-group">
-                    <label for="password">Confirmar Senha</label>
-                    <input type="password" id="password_confirmation" name="password_confirmation">
+                    <label for="image">Imagem</label>
+                    <input type="string" id="image" name="image" value="Sua Imagem Aqui" required>
                 </div>
-                <button type="submit">Editar Perfil &nbsp;
+                @error('status') <span>{{ $message }}</span> @enderror
+
+                <button type="submit">Editar Tópico &nbsp;
                 <i class="fa-solid fa-pen-to-square"></i>
                 </button>
-            </form>
-            <form action="{{route('deleteUserByID', [$user->id])}}" method="post">
-                <!-- Área de excluir usuário -->
-                    @csrf <!--tag em php para o token funcionar-->
-                    @method('delete')
-
-                    <button class="delete" type="submit">Excluir Usuário &nbsp;
+                <button class="delete" type="submit">Excluir Tópico &nbsp;
                     <i class="fa-solid fa-delete-left"></i>
-                    </button>
-            </form>
-            {{--
-            <form action="{{ route('deleteUserByID', [$user->id]) }}" method="post">
-              @csrf <!--Tag em PHP para habilitar o Token de acesso-->
-              @method('delete')
-              <input type="submit" value="Excluir">
-              <!--<input type="submit" value="Excluir">-->
-            </form>
-            --}}
-            @else
-            <div>Esse usuário não foi encontrado!</div>
-            @endif
+                </button>
     </div>
     @endsection
     <style>

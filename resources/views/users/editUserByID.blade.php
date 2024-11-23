@@ -1,8 +1,8 @@
 @extends('layout.layout')
 
-@section('title', 'Perfil de Usuário')
+@section('title', 'Editar Usuário')
 
-@section('header', 'Perfil de  Usuário')
+@section('header', 'Editar Usuário')
 
 @section('content')
 <!--
@@ -13,11 +13,11 @@
     <link href="../forum.css" rel="stylesheet">
 </head>
 -->
-    <div class="login-container">
-    <h1>Perfil de Usuário</h1>
+    <div class="container">
+            <h2>Edição de Dados Cadastrais</h2>
             <span>{{ session('message') }}</span>
             @if($user != null)
-            <form action="{{ route('editUserByID', [$user->id]) }}" method="post">
+            <form action="{{ route('editTopicByID', [$topic->id]) }}" method="post">
               @csrf <!--Tag em PHP para habilitar o Token de acesso-->
               @method('put')
                 <div class="input-group">
@@ -26,7 +26,7 @@
                 </div>
                 @error('name') <span>{{ $message }}</span> @enderror
                 <div class="input-group">
-                    <label for="email">Email</label>
+                    <label for="email">email</label>
                     <input type="email" id="email" name="email" value="{{ $user->email }}" required>
                 </div>
                 @error('email') <span>{{ $message }}</span> @enderror
@@ -39,40 +39,37 @@
                     <label for="password">Confirmar Senha</label>
                     <input type="password" id="password_confirmation" name="password_confirmation">
                 </div>
-                <button type="submit">Editar Perfil &nbsp;
-                <i class="fa-solid fa-pen-to-square"></i>
-                </button>
+                <button type="submit">Editar registro</button>
             </form>
-            <form action="{{route('deleteUserByID', [$user->id])}}" method="post">
-                <!-- Área de excluir usuário -->
-                    @csrf <!--tag em php para o token funcionar-->
-                    @method('delete')
-
-                    <button class="delete" type="submit">Excluir Usuário &nbsp;
-                    <i class="fa-solid fa-delete-left"></i>
-                    </button>
-            </form>
-            {{--
-            <form action="{{ route('deleteUserByID', [$user->id]) }}" method="post">
+            <br />
+            <form action="{{ route('deleteTopicByID', [$topic->id]) }}" method="post">
               @csrf <!--Tag em PHP para habilitar o Token de acesso-->
               @method('delete')
-              <input type="submit" value="Excluir">
+              <button type="submit" value="Excluir">Excluir</button>
               <!--<input type="submit" value="Excluir">-->
             </form>
-            --}}
-            @else
-            <div>Esse usuário não foi encontrado!</div>
             @endif
     </div>
     @endsection
+    <!--
     <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+        }
+
         .login-container {
             background: linear-gradient(135deg, #6e8efb, #a777e3);
-            padding: 20px;
+            padding: 40px;
             border-radius: 15px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             width: 100%;
-            max-width: 777px;
+            max-width: 400px;
             text-align: center;
             color: #fff;
         }
@@ -123,3 +120,4 @@
             background-color: #0056b3;
         }
     </style>
+    -->

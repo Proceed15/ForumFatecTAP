@@ -1,6 +1,8 @@
 # Fórum Laravel Blade PHP
 Fórum desenvolvido por José Roberto Lisboa da Silva Filho durante as aulas de Técnicas Avançadas de Programação (TAP) com Laravel e PHP Blade no Visual Studio Code.
 
+Ponto de Reset Importante: git reset --hard 35ad1a22bffb8aee55628c740343d3827fd9f921
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">

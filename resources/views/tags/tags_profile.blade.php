@@ -1,38 +1,40 @@
 @extends('layout.layout')
 
-@section('title', 'Login de Usuário')
+@section('title', 'Perfil de Tag')
 
-@section('header', 'Login de  Usuário')
+@section('header', 'Perfil de  Tag')
 
 @section('content')
-<!DOCTYPE html>
-<html lang="pt-BR">
+<!--
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tela de Login</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <title>Tela de Perfil</title>
+    <link href="../forum.css" rel="stylesheet">
 </head>
-<body>
+-->
     <div class="login-container">
-        <div class="login-form">
-            <h1>Login</h1>
-            <form action="{{ route('loginUser') }}" method="post">
-              @csrf
+    <h1>Editar Tag</h1>
+            <form action="." method="post">
+              @csrf <!--Tag em PHP para habilitar o Token de acesso-->
+              @method('get')
                 <div class="input-group">
-                    <label for="username">Usuário</label>
-                    <input type="email" name="email" placeholder="E-mail" value="{{ old('email') }}" required>
-                    @error('email') <span>{{ $message }}</span> @enderror
+                    <label for="title">Título</label>
+                    <input type="text" id="title" name="title" value="Título do seu Tag para edição" required>
                 </div>
+                @error('title') <span>{{ $message }}</span> @enderror
                 <div class="input-group">
-                    <label for="password">Senha</label> 
-                    <input type="password" name="password" placeholder="Password" value="{{ old('password') }}" required>
-                    @error('password') <span>{{ $message }}</span> @enderror
+                    <label for="description">Descrição</label>
+                    <input type="text" id="email" name="email" value="Descrição do seu Tag: Tela de Edição de Tag não funcional." required>
                 </div>
-                <button type="submit">Entrar</button>
-            </form>
-        </div>
-        <a href="/register">Não possui uma conta? Criar Conta</a>
+                @error('description') <span>{{ $message }}</span> @enderror
+
+                <button type="submit">Editar Tag &nbsp;
+                <i class="fa-solid fa-pen-to-square"></i>
+                </button>
+                <button class="delete" type="submit">Excluir Tag &nbsp;
+                    <i class="fa-solid fa-delete-left"></i>
+                </button>
     </div>
     @endsection
     <style>

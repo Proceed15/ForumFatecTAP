@@ -1,68 +1,66 @@
 @extends('layout.layout')
 
-@section('title', 'Perfil de Usuário')
+@section('title', 'Perfil de Tópico')
 
-@section('header', 'Perfil de  Usuário')
+@section('header', 'Perfil de  Tópico')
 
 @section('content')
-<!--
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tela de Perfil</title>
+    <title>Tela de Tópico</title>
     <link href="../forum.css" rel="stylesheet">
 </head>
--->
+<body>
     <div class="login-container">
-    <h1>Perfil de Usuário</h1>
+        <div class="login-form">
+            <h2>Tópico</h2>
             <span>{{ session('message') }}</span>
-            @if($user != null)
-            <form action="{{ route('editUserByID', [$user->id]) }}" method="post">
+            @if($topic != null)
+            <form action="#" method="post">
+                <!-- Criar a ação do Controller: edit -->
               @csrf <!--Tag em PHP para habilitar o Token de acesso-->
               @method('put')
                 <div class="input-group">
-                    <label for="name">Usuário</label>
-                    <input type="text" id="name" name="name" value="{{ $user->name }}" required>
+                    <label for="title">Título</label>
+                    <input type="text" id="title" name="title" value="{{ $topic->title }}" required>
                 </div>
-                @error('name') <span>{{ $message }}</span> @enderror
+                @error('title') <span>{{ $message }}</span> @enderror
                 <div class="input-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" value="{{ $user->email }}" required>
+                    <label for="description">Descrição</label>
+                    <input type="text" id="description" name="description" value="{{ $topic->description }}" required>
                 </div>
-                @error('email') <span>{{ $message }}</span> @enderror
+                @error('description') <span>{{ $message }}</span> @enderror
                 <div class="input-group">
-                    <label for="password">Senha</label>
-                    <input type="password" id="password" name="password">
+                    <label for="status">Status</label>
+                    <input type="boolean" id="status" name="status">
                 </div>
-                @error('password') <span>{{ $message }}</span> @enderror
+                @error('status') <span>{{ $message }}</span> @enderror
                 <div class="input-group">
-                    <label for="password">Confirmar Senha</label>
-                    <input type="password" id="password_confirmation" name="password_confirmation">
+                    <label for="image">Imagem</label>
+                    <input type="string" id="image" name="image" required>
                 </div>
-                <button type="submit">Editar Perfil &nbsp;
+                @error('image') <span>{{ $message }}</span> @enderror
+                <!--<button type="submit">Editar Tópico</button>$_COOKIE-->
+                <button type="submit">Editar Tópico &nbsp;
                 <i class="fa-solid fa-pen-to-square"></i>
                 </button>
             </form>
-            <form action="{{route('deleteUserByID', [$user->id])}}" method="post">
-                <!-- Área de excluir usuário -->
-                    @csrf <!--tag em php para o token funcionar-->
-                    @method('delete')
-
-                    <button class="delete" type="submit">Excluir Usuário &nbsp;
-                    <i class="fa-solid fa-delete-left"></i>
-                    </button>
-            </form>
-            {{--
-            <form action="{{ route('deleteUserByID', [$user->id]) }}" method="post">
+            <br />
+            <form action="#" method="post">
+                <!--Criar a ação do Controller: delete-->
               @csrf <!--Tag em PHP para habilitar o Token de acesso-->
               @method('delete')
-              <input type="submit" value="Excluir">
+              <button class="delete" type="submit">Excluir Tópico &nbsp;
+                    <i class="fa-solid fa-delete-left"></i>
+            </button>
+              <!--<button type="submit" value="Excluir">Excluir</button>-->
               <!--<input type="submit" value="Excluir">-->
             </form>
-            --}}
-            @else
-            <div>Esse usuário não foi encontrado!</div>
             @endif
+        </div>
     </div>
     @endsection
     <style>
@@ -123,3 +121,5 @@
             background-color: #0056b3;
         }
     </style>
+</body>
+</html>

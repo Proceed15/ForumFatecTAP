@@ -1,8 +1,8 @@
 @extends('layout.layout')
 
-@section('title', 'Login de Usuário')
+@section('title', 'Perfil de Categoria')
 
-@section('header', 'Login de  Usuário')
+@section('header', 'Perfil de  Categoria')
 
 @section('content')
 <!DOCTYPE html>
@@ -10,35 +10,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tela de Login</title>
+    <title>Tela de Criação de Categoria</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="login-container">
         <div class="login-form">
-            <h1>Login</h1>
-            <form action="{{ route('loginUser') }}" method="post">
-              @csrf
+            <h2>Criar Categoria</h2>
+            <form action="{{ route('createCategory') }}" method="post">
+              @csrf <!--Tag em PHP para habilitar o Token de acesso-->
                 <div class="input-group">
-                    <label for="username">Usuário</label>
-                    <input type="email" name="email" placeholder="E-mail" value="{{ old('email') }}" required>
-                    @error('email') <span>{{ $message }}</span> @enderror
+                    <label for="name">Categoria</label>
+                    <input type="text" id="title" name="title" value="{{ old('title') }}" required>
                 </div>
+                @error('title') <span>{{ $message }}</span> @enderror
                 <div class="input-group">
-                    <label for="password">Senha</label> 
-                    <input type="password" name="password" placeholder="Password" value="{{ old('password') }}" required>
-                    @error('password') <span>{{ $message }}</span> @enderror
+                    <label for="description">Descrição</label>
+                    <input type="text" id="descripton" name="description" value="{{ old('description') }}" required>
                 </div>
-                <button type="submit">Entrar</button>
+                @error('description') <span>{{ $message }}</span> @enderror
+                <button type="submit">Postar</button>
             </form>
+            <button><a href="/categories">Cancelar</a></button>
         </div>
-        <a href="/register">Não possui uma conta? Criar Conta</a>
     </div>
     @endsection
     <style>
         .login-container {
             background: linear-gradient(135deg, #6e8efb, #a777e3);
-            padding: 20px;
+            padding: 40px;
             border-radius: 15px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             width: 100%;
@@ -93,3 +93,5 @@
             background-color: #0056b3;
         }
     </style>
+</body>
+</html>

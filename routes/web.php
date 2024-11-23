@@ -20,10 +20,82 @@ use App\Http\Controllers\HomeController;
 |
 */
 
-Route::match(['get', 'post'], '/', [HomeController::class, 'HomeForum'])->name('forum');
+//Route::match(['get', 'post'], '/', [HomeController::class, 'HomeForum'])->name('forum');
 
 Route::resource('categories', CategoryController::class);
 
+Route::match(['get', 'post'], '/', [TopicController::class, 'home'])->name('home');
+
+
+
+//Uso antigo, com é uma tela de login precisa ser match para ter post imbutido.
+//Route::get('/login', [AuthController::class, 'loginUser'])->name('loginUser');
+
+
+Route::match(
+    ['get', 'post'],
+    '/login',
+    [AuthController::class, 'loginUser']
+)->name('loginUser');
+
+Route::match(
+    ['get', 'post'],
+    '/register',
+    [UserController::class, 'register']
+)->name('register');
+
+Route::get('/topics', [TopicController::class, 'listAllTopics'])->name('listAllTopics');
+Route::get('/tags', [TagController::class, 'listAllTags'])->name('listAllTags');
+Route::get('/categories', [CategoryController::class, 'listAllCategories'])->name('listAllCategories');
+
+
+Route::match(
+    ['get', 'post'],
+    '/create',
+    [TopicController::class, 'create']
+)->name('create');
+
+Route::match(
+    ['get', 'post'],
+    '/createtag',
+    [TagController::class, 'createtag']
+)->name('createtag');
+
+Route::match(
+    ['get', 'post'],
+    '/createCategory',
+    [CategoryController::class, 'createCategory']
+)->name('createCategory');
+
+Route::middleware('auth')->group(function() {
+    Route::get('/users', [UserController::class, 'listAllUsers'])->name('listAllUsers');
+    Route::get('/users/{uid}', [UserController::class, 'listUsersByID'])->name('listUsersByID');
+    /*Route::get('/users/edit', [UserController::class, 'editUserByID'])->name('editUserByID'););*/
+    Route::get('/users/profile', [UserController::class, 'editUserByID'])->name('editUserByID');//Edição é aqui
+
+    // Route::get('/topics/{uid}', [TopicController::class, 'listTopicsByID'])->name('listTopicsByID');
+    Route::get('/topics/{uid}', [TopicController::class, 'listTopicsByID'])->name('edit_topic');//Aqui
+    //Criar uma nova rota com PUT para pegar o ID e direcionar a função de edição.
+    Route::get('topics_profile', [TopicController::class, 'topics_profile'])->name('topics_profile');
+    
+    Route::get('/tags/{uid}', [TagController::class, 'listTagsByID'])->name('edit_tag');//Aqui
+    Route::put('/tags/{uid}', [TagController::class, 'editTagByID'])->name('edit_tag');//Aqui
+    /*Route::get('/search', [UserController::class, 'listUsersByID'])->name('listUsersByID');*/
+    Route::get('/category/{uid}', [CategoryController::class, 'listCategoryByID'])->name('edit_category');//Aqui
+    Route::put('/category/{uid}', [CategoryController::class, 'editCategoryByID'])->name('editCategoryByID');//Aqui
+
+
+
+    Route::get('/logout', [AuthController::class, 'logoutUser'])->name('logoutUser');
+    Route::match(
+        ['put', 'get', 'post'],'/users/{uid}/edit', 
+        [UserController::class, 'editUserByID'])->name('editUserByID');
+    Route::delete('/users/{uid}/delete', [UserController::class, 'deleteUserByID'])->name('deleteUserByID');
+
+    Route::delete('/tags/{uid}/delete', [TagController::class, 'deleteTagByID'])->name('deleteTagByID');
+
+    Route::delete('/categories/{uid}/delete', [CategoryController::class, 'deleteCategoryByID'])->name('deleteCategoryByID');  
+});
 /*
 Route::resource('/category', CategoryController::class)->names[(
     'index' => 'category.index',
