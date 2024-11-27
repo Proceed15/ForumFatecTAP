@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+//use Validator;
 use App\Models\User;
 //use App\Http\Controllers\UserController;
 use TopicController;
@@ -41,15 +42,17 @@ class UserController extends Controller
             $request->validate([
                 'name' => 'required|string|max:255',
                 'email' => 'required|string|email|max:255|unique:users',
-                'password' => 'required|string|min:8|confirmed'
+                'password' => 'required|string|min:8|confirmed',
+                'photo' => 'image|mimes:jpeg,png,jpg,gif|max:2048'
             ]);
-
+            $imageFile = $request->file('photo')->store('images', 'public');
             $user = User::create([
                 'name' => $request->name,
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
+                'photo' => $imageFile,
             ]);
-
+            
             Auth::login($user);
 
             return redirect()
@@ -76,14 +79,17 @@ class UserController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255',
-            'password' => 'confirmed'
+            'password' => 'string|min:3|nullable',
+            'photo' => 'image|mimes:jpeg,png,jpg,gif|max:2048'
         ]);
+        return ("ok");
         $user->name = $request->name;
         $user->email = $request->email;
         if($request->password != '')
         {
             $user->password = Hash::make($request->password);
         }
+        $imageFile = $request->file('photo')->store('img', 'public');
         $user->save();
         $user_id = Auth::id();
         return redirect()->route('listAllUsers', [$user->id])->with('message', 'Atualizado com sucesso!');
@@ -118,6 +124,7 @@ class UserController extends Controller
         if ($request->password != '') {
             $user->password = Hash::make($request->password);
         }
+        $imageFile = $request->file('photo')->store('img', 'public');
         $user->save();
         return redirect()->route('ListUser', [$user->id])
                 ->with('message', 'Atualizado com sucesso!');
@@ -139,15 +146,17 @@ class UserController extends Controller
             $request->validate([
                 'name' => 'required|string|max:255',
                 'email' => 'required|string|email|max:255|unique:users',
-                'password' => 'required|string|min:8|confirmed'
+                'password' => 'required|string|min:8|confirmed',
+                'photo' => 'image|mimes:jpeg,png,jpg,gif|max:2048'
             ]);
-
+            $imageFile = $request->file('photo');
             $user = User::create([
                 'name' => $request->name,
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
+                'photo' => $imageFile,
             ]);
-
+            
             Auth::login($user);
 
             return redirect()

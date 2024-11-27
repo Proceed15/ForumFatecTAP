@@ -22,7 +22,7 @@
               @method('put')
                 <div class="input-group">
                     <label for="name">Usuário</label>
-                    <input type="text" id="name" name="name" value="{{ $user->name }}" required>
+                    <input type="string" id="name" name="name" value="{{ $user->name }}" required>
                 </div>
                 @error('name') <span>{{ $message }}</span> @enderror
                 <div class="input-group">
@@ -38,6 +38,11 @@
                 <div class="input-group">
                     <label for="password">Confirmar Senha</label>
                     <input type="password" id="password_confirmation" name="password_confirmation">
+                </div>
+                @error('password') <span>{{ $message }}</span> @enderror
+                <div class="input-group">
+                    <label for="photo">Foto de Perfil</label>
+                    <input type="file" id="photo" name="photo">
                 </div>
                 <button type="submit">Editar Perfil &nbsp;
                 <i class="fa-solid fa-pen-to-square"></i>

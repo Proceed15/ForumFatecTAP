@@ -21,7 +21,7 @@
               @csrf <!--Tag em PHP para habilitar o Token de acesso-->
                 <div class="input-group">
                     <label for="name">Usuário</label>
-                    <input type="text" id="name" name="name" value="{{ old('name') }}" required>
+                    <input type="string" id="name" name="name" value="{{ old('name') }}" required>
                 </div>
                 @error('name') <span>{{ $message }}</span> @enderror
                 <div class="input-group">
@@ -37,6 +37,11 @@
                 <div class="input-group">
                     <label for="password">Confirmar Senha</label>
                     <input type="password" id="password_confirmation" name="password_confirmation" required>
+                </div>
+                @error('password') <span>{{ $message }}</span> @enderror
+                <div class="input-group">
+                    <label for="photo">Foto de Perfil</label>
+                    <input type="file" id="photo" name="photo">
                 </div>
                 <button type="submit">Registrar</button>
             </form>

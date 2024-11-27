@@ -22,7 +22,7 @@
               @method('put')
                 <div class="input-group">
                     <label for="name">Usuário</label>
-                    <input type="text" id="name" name="name" value="{{ $user->name }}" required>
+                    <input type="string" id="name" name="name" value="{{ $user->name }}" required>
                 </div>
                 @error('name') <span>{{ $message }}</span> @enderror
                 <div class="input-group">
@@ -39,10 +39,14 @@
                     <label for="password">Confirmar Senha</label>
                     <input type="password" id="password_confirmation" name="password_confirmation">
                 </div>
+                <div class="input-group">
+                    <label for="photo">Foto de Perfil</label>
+                    <input type="photo" id="photo" name="photo">
+                </div>
                 <button type="submit">Editar registro</button>
             </form>
             <br />
-            <form action="{{ route('deleteTopicByID', [$topic->id]) }}" method="post">
+            <form action="{{ route('deleteUserByID', [$user->id]) }}" method="post">
               @csrf <!--Tag em PHP para habilitar o Token de acesso-->
               @method('delete')
               <button type="submit" value="Excluir">Excluir</button>
