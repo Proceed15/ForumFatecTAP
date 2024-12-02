@@ -1,5 +1,5 @@
 # Fórum Laravel Blade PHP
-Fórum desenvolvido por José Roberto Lisboa da Silva Filho durante as aulas de Técnicas Avançadas de Programação (TAP) com Laravel e PHP Blade no Visual Studio Code.
+Fórum desenvolvido por José Roberto Lisboa da Silva Filho durante as aulas de Técnicas Avançadas de Programação (TAP) com Laravel PHP Blade no Visual Studio Code.
 
 Ponto de Reset Importante: git reset --hard 35ad1a22bffb8aee55628c740343d3827fd9f921
 

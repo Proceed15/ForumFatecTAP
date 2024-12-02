@@ -1,7 +1,7 @@
 /* Reset de CSS para garantir consistência entre navegadores */
 * {
-    margin: 0;
-    padding: 0;
+    margin: 1;
+    padding: 1;
     box-sizing: border-box;
 }
 
