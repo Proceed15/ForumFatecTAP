@@ -13,9 +13,9 @@ class Topic extends Post
         'title',
         'description',
         'status',
-        'category_id'
+        'category_id',
+        'user_id',
     ];
-
     // Relacionamento Polimórfico
     public function post()
     {
@@ -39,6 +39,10 @@ class Topic extends Post
 
     public function tags()
     {
-        return $this->belongsToMany(Tag::class);
+        return $this->belongsToMany(Tag::class,  'topic_tags');
+    }
+
+    public function user() {
+        return $this->belongsTo(User::class);
     }
 }

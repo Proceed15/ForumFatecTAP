@@ -255,3 +255,4 @@ $user = [
     'phone' => '1511223344'
 ];
 $notificationService->notify($user, "<br />Bem vindo ao sistema!<hr />");
+?>

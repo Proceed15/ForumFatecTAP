@@ -10,7 +10,9 @@ class Comment extends Post
     use HasFactory;
 
     protected $fillable = [
-        'content'
+        'content',
+        'topic_id', 
+        'user_id'
     ];
 
     // Relacionamento Polimórfico
@@ -23,4 +25,8 @@ class Comment extends Post
     {
         return $this->belongsTo(Topic::class);
     }
+    public function likes()
+{
+    return $this->hasMany(CommentLike::class);
+}
 }

@@ -13,13 +13,13 @@ class Post extends Model
         'image',
         'user_id'
     ];
-
     // Relacionamento Polimórfico
     public function postable()
     {
         return $this->morphTo();
     }
 
+    // Relacionamento Tradicional
     // public function topic()
     // {
     //     return $this->hasOne(Topic::class, 'id');
