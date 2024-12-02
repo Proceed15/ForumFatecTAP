@@ -28,6 +28,7 @@ class AuthController extends Controller
     }
 
     public function logoutUser(Request $request) {
+        //if($request->method() === 'POST'){} --> Erro de Get para POST resolvido
         Auth::logout();
         return redirect()->intended('/')->with('success', 'Logout realizado com sucesso.');
     }

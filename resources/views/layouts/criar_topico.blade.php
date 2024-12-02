@@ -103,7 +103,7 @@
 </head>
 <body>
     <nav class="navbar">
-        <div class="brand">For1</div>
+    <a href="{{ url('/') }}" class="brand">Home</a>
         <div class="menu">
             <a href="Tópicos.html">Tópicos</a>
             <a href="Perfil.html">Perfil</a>

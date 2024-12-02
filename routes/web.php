@@ -24,12 +24,12 @@ Route::get('/', function () {
 
 // AuthController
 Route::match(['get', 'post'], '/login', [AuthController::class, 'loginUser'])->name('login');
-Route::post('/logout', [AuthController::class, 'logoutUser'])->name('logout');
+Route::match(['get', 'post'], '/logout', [AuthController::class, 'logoutUser'])->name('logout');
 
 // UserController
 Route::match(['get', 'post'], '/register', [UserController::class, 'registerUser'])->name('register');
 
-// Controlar o usuário
+// Gerenciar o usuário
 Route::middleware('auth')->group(function () {
     Route::get('/users', [UserController::class, 'listAllUsers'])->name('ListAllUsers');
     Route::get('/users/{uid}', [UserController::class, 'listUser'])->name('ListUser');
@@ -37,7 +37,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/users/{uid}/delete', [UserController::class, 'deleteUser'])->name('DeleteUser');
 });
 
-// Rotas Estáticas
+// Rotas Estáticas sem Middleware
 Route::get('/criar_topico', function () {
     return view('layouts.criar_topico');
 });
@@ -53,7 +53,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/categories', [CategoryController::class, 'listAllCategory'])->name('listCategories');
 });
 
-// Category
+// Categorias
 
 // Visualização sem auth
 Route::get('/category', [CategoryController::class, 'listAllCategory'])->name('ListAllCategory');
@@ -92,23 +92,23 @@ Route::group(['prefix' => 'topics', 'middleware' => ['auth']], function() {
 });
 
 
-// comment
+// Tópicos e comentários sem estar logado
 
 Route::get('/topics/{topic}/comments', [CommentController::class, 'index'])->name('comments.index');
 Route::post('/topics/{topic}/comments', [CommentController::class, 'store'])->name('comments.store');
-Route::delete('/comments/{comment}', [CommentController::class, 'destroy'])->name('comments.destroy');
-Route::get('/comments/{comment}/edit', [CommentController::class, 'edit'])->name('comments.edit');
-Route::put('/comments/{comment}', [CommentController::class, 'update'])->name('comments.update');
-Route::delete('/comments/{id}', [CommentController::class, 'destroy'])->name('comments.destroy');
-Route::post('/comments', [CommentController::class, 'store'])->name('comments.store');
 Route::get('/topics/{id}', [TopicController::class, 'show'])->name('topics.show');
 Route::post('/comments', [CommentController::class, 'store'])->name('comments.store');
 
-// like e deslike
-
-Route::post('/comments/{id}/like', [CommentController::class, 'like'])->name('comments.like');
-Route::post('/comments/{id}/dislike', [CommentController::class, 'dislike'])->name('comments.dislike');
-
+// Comentários, like e deslike
+Route::middleware('auth')->group(function(){
+    Route::post('/comments', [CommentController::class, 'store'])->name('comments.store');
+    Route::delete('/comments/{comment}', [CommentController::class, 'destroy'])->name('comments.destroy');
+    Route::get('/comments/{comment}/edit', [CommentController::class, 'edit'])->name('comments.edit');
+    Route::put('/comments/{comment}', [CommentController::class, 'update'])->name('comments.update');
+    Route::delete('/comments/{id}', [CommentController::class, 'destroy'])->name('comments.destroy');
+    Route::post('/comments/{id}/like', [CommentController::class, 'like'])->name('comments.like');
+    Route::post('/comments/{id}/dislike', [CommentController::class, 'dislike'])->name('comments.dislike');
+});
 //rota welcome
 
 Route::get('/', [TopicController::class, 'showAllTopics'])->name('home');

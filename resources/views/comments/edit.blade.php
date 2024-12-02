@@ -1,4 +1,4 @@
-<!-- resources/views/comments/edit.blade.php -->
+<!-- resources/views/comments/edit.blade.php Funcional -->
 @extends('comments.app2')
 
 @section('content')

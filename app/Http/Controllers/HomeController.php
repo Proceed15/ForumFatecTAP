@@ -12,17 +12,17 @@ class HomeController extends Controller
 {
     public function index(Request $request)
     {
-        // Inicializa a variável $query como uma string vazia
+        // Função com Query para pesquisas
         $query = $request->input('query', ''); // Se não houver input, será uma string vazia
         $topics = [];
 
-        // Se houver uma consulta, faça a busca
+        // Se houver uma consulta, faz a busca
         if ($query) {
             $topics = Topic::where('title', 'LIKE', "%{$query}%")
                            ->orWhere('description', 'LIKE', "%{$query}%")
                            ->get();
         } else {
-            // Se não houver consulta, obtenha todos os tópicos
+            // Se não houver consulta vai mostrar todos os tópicos
             $topics = Topic::all();
         }
 

@@ -7,18 +7,25 @@ use Illuminate\Support\facades\Auth;
 use Illuminate\Support\facades\Hash;
 use Illuminate\Support\facades\Validator;
 use App\Models\User;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\TopicController;
 
 class UserController extends Controller
 {
-    //listAllUsers ou list_all_users
+    public function home() {
+        //Essa função seria um Controller próprio para gerenciar o ID do usuário logado.
+        $user_id = Auth::id();
+        return view('home', ['authUser' => $user_id]);
+    }
     public function listAllUsers(Request $request) {
-        // Lógica
-        return view('users.listAllUsers');
+        $users = User:: all();
+        //Lógica pasta.nomedapagina
+        return view('users.listAllUsers', ['users' => $users]);
     }
 
     public function listUser(Request $request, $uid) {
         $user = User::where('id', $uid)->first();
-        $message;
+        //$message;
         return view('users.id.listUserById', ['user' => $user]);
     }
 

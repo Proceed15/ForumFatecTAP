@@ -19,7 +19,7 @@ class Post extends Model
         return $this->morphTo();
     }
 
-    // Relacionamento Tradicional
+    // Versão Antiga com Relacionamento Tradicional
     // public function topic()
     // {
     //     return $this->hasOne(Topic::class, 'id');

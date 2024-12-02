@@ -1,16 +1,16 @@
 {{-- resources/views/topics/show.blade.php --}}
-@extends('topics.app')
+@extends('topics.StylesShow')
 
 @section('content')
 <div class="container">
-    <h1>{{ $topic->title }}</h1>
-    <p>{{ $topic->description }}</p>
+    <h2>{{ $topic->title }}</h2>
+    <p><strong>Descrição:</strong> {{ $topic->description }}</strong></p>
     <p><strong>Status:</strong> {{ $topic->status ? 'Ativo' : 'Inativo' }}</p>
     <p><strong>Criado em:</strong> {{ $topic->created_at }}</p>
     <p><strong>Atualizado em:</strong> {{ $topic->updated_at }}</p <hr>
 
      <!-- Exibindo Tags -->
-     <p>Tags: 
+     <p><strong>Tags: 
                     @if($topic->tags && $topic->tags->isNotEmpty())
                         @foreach ($topic->tags as $tag)
                             <span class="badge badge-info">{{ $tag->title }}</span>
@@ -18,7 +18,7 @@
                     @else
                         <span class="text-muted">Nenhuma tag</span>
                     @endif
-                </p>
+    </strong></p>
 
     {{-- Exibindo a categoria --}}
                 <p><strong>Categoria:</strong> 
@@ -33,7 +33,7 @@
     {{-- Exibindo a imagem do post associado --}}
     @if ($topic->post && $topic->post->image)
         <div class="mb-3">
-            <img src="{{ asset('storage/' . $topic->post->image) }}" alt="Imagem do Post" class="img-fluid">
+            <img src="{{ asset('storage/app/public/images/posts' . $topic->post->image) }}" alt="Imagem do Post">
         </div>
     @else
         <p>Não há imagem para este tópico.</p>

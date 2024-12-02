@@ -1,123 +1,99 @@
+@extends('layouts.layout');
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Início</title>
-
-    <!-- Bootstrap CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Fonts -->
-    <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-
-    <!-- Styles -->
+    <title>Forum Mith</title>
     <style>
         body {
-            font-family: 'Nunito', sans-serif;
-            background-color: #f0f4f8;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #717CA3;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100px;
         }
         .container {
-            margin-top: 80px;
-        }
-        .topic {
-            background-color: #f8f9fa;
+            background-color: #D9D9D9;
             padding: 20px;
-            margin-top: 20px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 800px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 120px;
+        }
+        .topic-header {
+            margin-bottom: 20px;
+        }
+        .topic-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .topic-content {
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .topic-meta {
+            margin-bottom: 10px;
+            color: #666;
+        }
+        .topic-text {
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+        .button.edit {
+            background-color: #656E8F;
+        }
+        .button.like {
+            background-color: #3498db;
+            margin-left: 10px;
+        }
+        .button.dislike {
+            background-color: #e74c3c;
+            margin-left: 10px;
+        }
+        .button.comment {
+            background-color: #656E8F;
+        }
+        .comment {
+            background-color: #EFEFEF;
+            padding: 10px;
+            margin-top: 10px;
             border-radius: 8px;
-            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
         }
-        .topic:hover {
-            background-color: #e9ecef;
+        .comment p {
+            margin-bottom: 5px;
         }
-        .topic h2 {
-            margin: 0 0 5px;
-            font-size: 18px;
-            color: #007bff;
-        }
-        .topic p {
-            margin: 5px 0;
-            color: #495057;
-        }
-        .meta {
-            text-align: right;
-            font-size: 14px;
-            color: #6c757d;
-        }
-        .badge {
-            margin-right: 5px;
+        textarea {
+            width: 100%;
+            border-radius: 5px;
+            padding: 10px;
+            box-sizing: border-box;
+            resize: none;
         }
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <a class="navbar-brand" href="#">For1</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/') }}">Página Inicial</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="tagsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Tags
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="tagsDropdown">
-                        <a class="dropdown-item" href="{{ route('listAllTags') }}">Ver Tags</a>
-                        <a class="dropdown-item" href="{{ route('CreateTag') }}">Criar Tag</a>
-                    </div>
-                </ li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="categoriesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Categorias
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="categoriesDropdown">
-                        <a class="dropdown-item" href="{{ route('listCategories') }}">Ver Categorias</a>
-                        <a class="dropdown-item" href="{{ route('createCategory') }}">Criar Categoria</a>
-                    </div>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="topicsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Tópicos
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="topicsDropdown">
-                        <a class="dropdown-item" href="{{ route('topics.index') }}">Ver Tópicos</a>
-                        <a class="dropdown-item" href="{{ route('CreateTopic') }}">Criar Tópico</a>
-                    </div>
-                </li>
-            </ul>
-            <ul class="navbar-nav ml-auto">
-                @auth
-                    <li class="nav-item">
-                        <span class="navbar-text mr-3">Bem-vindo(a): {{ Auth::user()->name }}</span>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('ListUser', ['uid' => Auth::user()->id]) }}">Perfil</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Sair</a>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                            @csrf
-                        </form>
-                    </li>
-                @else
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}">Entrar</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('register') }}">Registrar</a>
-                    </li>
-                @endauth
-            </ul>
-        </div>
-    </nav>
-
     <div class="container">
-        <h1>Tópicos Registrados</h1>
+        <h1 class="header-title">Tópicos Em Destaque</h1>
 
-        <!-- Formulário de Pesquisa -->
+        <!-- Pesquisar Tópicos -->
         <form action="{{ route('home') }}" method="GET" class="mb-4">
             <input type="text" name="query" class="form-control" placeholder="Pesquisar tópicos..." value="{{ old('query', $query) }}" required>
             <button type="submit" class="btn btn-primary mt-2">Pesquisar</button>
@@ -130,7 +106,7 @@
                     <p>{{ $topic->description }}</p>
                                         <!-- Exibindo a categoria -->
                                         <div>
-                        <strong>Categoria:</strong> {{ $topic->category->title ?? 'Sem Categoria' }}
+                        <strong>Categoria:</strong> <span class="badge badge-info">{{ $topic->category->title ?? 'Sem Categoria' }}</span>
                     </div>
                                         <!-- Exibindo as tags -->
                                         <div>

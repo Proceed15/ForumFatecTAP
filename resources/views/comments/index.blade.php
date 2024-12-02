@@ -1,4 +1,5 @@
 @extends('comments.app')
+@extends('layours.layout');
 
 @section('content')
     <h1>Comentários</h1>
