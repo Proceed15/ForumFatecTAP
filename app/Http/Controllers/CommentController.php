@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Comment;
 use App\Models\Topic;
 use Illuminate\Http\Request;
-use App\Models\CommentLike;
+use App\Models\Rate;
 use Illuminate\Support\Facades\Auth;
 
 class CommentController extends Controller
@@ -101,24 +101,26 @@ public function like(Request $request, $commentId)
 {
     // Verifica se o comentário existe
     $comment = Comment::find($commentId);
+    $topicId = $comment->topic_id;
     if (!$comment) {
         return back()->with('error', 'Comentário não encontrado.');
     }
 
-    $commentLike = CommentLike::where('comment_id', $commentId)
+    $Rate = Rate::where('comment_id', $commentId)
         ->where('user_id', auth()->id())
         ->first();
 
-    if ($commentLike) {
+    if ($Rate) {
         // Se já existe um like, altera para dislike
-        $commentLike->is_like = !$commentLike->is_like;
-        $commentLike->save();
+        $Rate->vote = !$Rate->vote;
+        $Rate->save();
     } else {
         // Cria um novo like
-        CommentLike::create([
+        Rate::create([
+            'post_id' => $topicId,
             'comment_id' => $commentId,
             'user_id' => auth()->id(),
-            'is_like' => true,
+            'vote' => true,
         ]);
     }
 
@@ -127,19 +129,22 @@ public function like(Request $request, $commentId)
 
 public function dislike(Request $request, $commentId)
 {
-    $commentLike = CommentLike::where('comment_id', $commentId)
+    $comment = Comment::find($commentId);
+    $topicId = $comment->topic_id;
+    $Rate = Rate::where('comment_id', $commentId)
         ->where('user_id', auth()->id())
         ->first();
 
-    if ($commentLike) {
-        // Se já existe um dislike, remove
-        $commentLike->delete();
+    if ($Rate) {
+        // Se já existe um dislike, remove-o
+        $Rate->delete();
     } else {
         // Cria um novo dislike
-        CommentLike::create([
+        Rate::create([
+            'post_id' => $topicId,
             'comment_id' => $commentId,
             'user_id' => auth()->id(),
-            'is_like' => false,
+            'vote' => false,
         ]);
     }
 

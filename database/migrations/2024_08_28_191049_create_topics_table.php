@@ -15,11 +15,14 @@ return new class extends Migration
     {
         Schema::create('topics', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('category_id');
             $table->string('title');
             $table->text('description');
             $table->boolean('status')->default(true);
-            $table->foreign('category_id')->references('id')->on('categories');
+            // Definindo a chave estrangeira para user_id e category_id
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->timestamps();
         });
     }

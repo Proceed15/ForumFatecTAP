@@ -9,9 +9,12 @@ class Rate extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'vote'
-    ];
+    protected $fillable = ['comment_id', 'user_id', 'vote', 'post_id'];
+
+    public function comment()
+    {
+        return $this->belongsTo(Comment::class);
+    }
 
     public function user()
     {

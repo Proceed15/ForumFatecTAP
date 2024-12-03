@@ -64,6 +64,10 @@
         padding: 15px;
         font-size: 15px;
     }
+    .aspx {
+        padding: 10px;
+        font-size: 27px;
+    }
 </style>
 </head>
 <body>
@@ -82,7 +86,9 @@
             <p></p>
             <input type="submit" value="Logar" id="submit-button">
         </form>
-    </div>
+        <div class="aspx"><a href="/register">Cadastre-se</a></div>
+        
+</div>
 </div>
 </body>
 </html>

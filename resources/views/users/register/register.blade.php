@@ -49,6 +49,10 @@
         button:hover, input[type="submit"]:hover {
             background-color: #505A7B;
         }
+        .aspx {
+            padding: 10px;
+            font-size: 27px;
+        }
     </style>
 </head>
 <body>
@@ -72,6 +76,7 @@
         <input type="password" id="password_confirmation" name="password_confirmation" placeholder="Senha de Confirmação" required>
         <p></p>
         <input type="submit" value="Cadastrar" id="submit-button">
+        <div class="aspx"><a href="/login">Logar</a></div>
     </form>
 </div>
 </body>

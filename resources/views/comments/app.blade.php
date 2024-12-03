@@ -8,7 +8,6 @@
 </head>
 <body>
     <div class="container">
-        <h1 class="mt-4">Sistema de Comentários</h1>
         @yield('content')
     </div>
 </body>

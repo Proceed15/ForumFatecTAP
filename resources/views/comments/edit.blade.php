@@ -1,6 +1,7 @@
 <!-- resources/views/comments/edit.blade.php Funcional -->
-@extends('comments.app2')
 
+@extends('comments.app')
+@extends('layouts.layout')
 @section('content')
     <h2>Editar Comentário</h2>
 

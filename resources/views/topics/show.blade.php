@@ -54,8 +54,8 @@
 
                     {{-- Exibindo o número de likes e dislikes --}}
                     <div>
-                        <span>{{ $comment->likes()->where('is_like', true)->count() }} Likes</span>
-                        <span>{{ $comment->likes()->where('is_like', false)->count() }} Dislikes</span>
+                        <span>{{ $comment->likes()->where('vote', true)->count() }} Likes</span>
+                        <span>{{ $comment->likes()->where('vote', false)->count() }} Dislikes</span>
                     </div>
 
                     {{-- Agrupando os botões de ação --}}

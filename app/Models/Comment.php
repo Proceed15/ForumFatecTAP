@@ -27,6 +27,6 @@ class Comment extends Post
     }
     public function likes()
 {
-    return $this->hasMany(CommentLike::class);
+    return $this->hasMany(Rate::class);
 }
 }

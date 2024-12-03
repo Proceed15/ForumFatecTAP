@@ -13,12 +13,12 @@ use App\Http\Controllers\TopicController;
 class UserController extends Controller
 {
     public function home() {
-        //Essa função seria um Controller próprio para gerenciar o ID do usuário logado.
+        //Essa função é um Controller próprio para gerenciar o ID do usuário logado.
         $user_id = Auth::id();
         return view('home', ['authUser' => $user_id]);
     }
     public function listAllUsers(Request $request) {
-        $users = User:: all();
+        $users = User::all();
         //Lógica pasta.nomedapagina
         return view('users.listAllUsers', ['users' => $users]);
     }
