@@ -29,11 +29,11 @@ class TopicController extends Controller
         return view('topics.edit', compact('topic', 'tags'));
     }
 
-    // Método para mostrar o formulário de criação de tópicos
+    // Criação de tópicos
     public function create()
     {
-        $categories = Category::all(); // Recupera todas as categorias
-        $tags = Tag::all(); // Recupera todas as tags
+        $categories = Category::all();
+        $tags = Tag::all();
         return view('topics.create', compact('categories', 'tags'));
     }
 
