@@ -1,9 +1,5 @@
 @extends('layouts.layout')
 
-@section('title', 'Listar Todos os Usuários')
-
-@section('header', 'Listar Todos os Usuários')
-
 @section('content')
 <div class="container">
     <h1>Listar Todos os Usuários

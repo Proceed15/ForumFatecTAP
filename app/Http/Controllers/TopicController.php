@@ -14,14 +14,15 @@ class TopicController extends Controller
 {
     public function index()
     {
-        $topics = Topic::with('tags')->get(); // Carrega as tags associadas
+        //$topics = Topic::with('tags')->post();
+        $topics = Topic::with('tags')->get(); // Carrega as tags de cada tópico
         return view('topics.list', compact('topics'));
     }
 
     public function edit($id)
     {
         $topic = Topic::with(['comments', 'tags'])->findOrFail($id); // Carrega as tags associadas
-        // Verifica se o usuário autenticado é o autor do tópico
+        // Verificando se o usuário autenticado é o autor do tópico
         if (Auth::user()->id !== $topic->user_id) {
             return redirect()->back()->with('error', 'Você não tem permissão para editar este tópico.');
         }
@@ -65,9 +66,10 @@ class TopicController extends Controller
             'topic_id' => $topic->id,
         ];
 
-        // Lidar com o upload da imagem
+        // Lidar com o upload da imagem, verificar se salva na pasta certa
         if ($request->hasFile('image')) {
             $postData['image'] = $this->uploadImage($request->file('image')); // Usando método separado
+            //->store('images', 'public')
         }
 
         $topic->post()->create($postData); // Cria o post
@@ -150,7 +152,7 @@ class TopicController extends Controller
     // Método para fazer upload da imagem
     private function uploadImage($image)
     {
-        return $image->store('images/posts', 'public'); // Armazena a imagem na pasta public/images/posts
+        return $image->store('/images/posts', 'public'); // Armazena a imagem na pasta public/images/posts V
     }
 
     public function show($id)

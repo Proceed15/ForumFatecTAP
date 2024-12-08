@@ -77,9 +77,9 @@ Route::middleware('auth')->group(function () {
 Route::get('/tag', [TagController::class, 'listAllTags'])->name('ListAllTags');
 Route::get('/tag/{tid}', [TagController::class, 'showTag'])->name('showTag');
 
+Route::match(['get', 'post'], '/topics', [TopicController::class, 'index'])->name('topics.index'); // Rota para listar tópicos
 
 Route::group(['prefix' => 'topics', 'middleware' => ['auth']], function() {
-    Route::get('/', [TopicController::class, 'index'])->name('topics.index'); // Rota para listar tópicos
     Route::get('/create', [TopicController::class, 'create'])->name('CreateTopic'); 
     Route::post('/', [TopicController::class, 'store'])->name('topics.store'); 
     Route::get('/{id}/edit', [TopicController::class, 'edit'])->name('topics.edit');

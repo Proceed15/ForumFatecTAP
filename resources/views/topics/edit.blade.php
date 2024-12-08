@@ -6,7 +6,7 @@
 
     @if ($topic->post && $topic->post->image)
         <div class="mb-3">
-            <img src="{{ asset('storage/app/public/images/posts' . $topic->post->image) }}" alt="Imagem Atual do Post" class="img-fluid mb-2">
+            <img src="{{ asset('/storage/' . $topic->post->image) }}" alt="Imagem Atual do Post" class="img-fluid mb-2">
             <p><strong>Imagem Atual</strong></p>
         </div>
     @else
