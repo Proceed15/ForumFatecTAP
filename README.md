@@ -2,7 +2,8 @@
 Fórum desenvolvido por José Roberto Lisboa da Silva Filho durante as aulas de Técnicas Avançadas de Programação (TAP) com Laravel PHP Blade no Visual Studio Code.
 
 # Comandos Antes de Usar
-php artisan migrate |
+php artisan migrate & Marcar Y |
+rm public/storage & Marcar Sim |
 php artisan storage:link |
 php artisan serve
 
