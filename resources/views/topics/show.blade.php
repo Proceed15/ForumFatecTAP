@@ -33,7 +33,7 @@
     {{-- Exibindo a imagem do post associado --}}
     @if ($topic->post && $topic->post->image)
         <div class="mb-3">
-            <img src="{{ asset('/storage/' . $topic->post->image) }}" alt="Imagem do Post">
+            <img src="{{ url('/storage/' . $topic->post->image) }}" alt="Imagem do Post">
         </div>
     @else
         <p>Não há imagem para este tópico.</p>
