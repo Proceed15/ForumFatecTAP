@@ -9,7 +9,6 @@
         <h2 class="header-title">Todos os Tópicos</h2>
         <a href="{{ route('CreateTopic') }}" class="btn btn-primary">Criar Novo Tópico</a>
     </div>
-
     @if($topics->isEmpty())
         <div class="alert alert-warning" role="alert">
             Nenhum tópico encontrado.

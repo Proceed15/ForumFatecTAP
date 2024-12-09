@@ -108,7 +108,7 @@ class TopicController extends Controller
         $topic->status = $request->input('status');
         $topic->save(); // Salvar as alterações no tópico
 
-        // Atualizar o post relacionado ao tópico
+        // Atualiza o post relacionado ao tópico
         if ($topic->post) {
             // Verificando se uma nova imagem foi enviada
             if ($request->hasFile('image')) {

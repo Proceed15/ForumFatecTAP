@@ -1,18 +1,15 @@
 @extends('layouts.layout')
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+@extends('layouts.app')
+@section('content')
 <title>Tela de Perfil</title>
 <style>
     .profile-container {
         background: linear-gradient(135deg, #f0f4f8, #a777e3);
         position: absolute;
-        top: 50%;
+        top: 66%;
         left: 50%;
         transform: translate(-50%, -50%);
-        padding: 30px;
+        padding: 37px;
         border-radius: 15px;
         color: #0744f9;
         display: flex;
@@ -22,9 +19,9 @@
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
     .profile-header .user-icon {
-        width: 80px;
-        height: 80px;
-        border-radius: 50%;
+        width: 222px;
+        height: 222px;
+        border-radius: 100%;
         background-color: #D0C9C9;
         display: flex;
         justify-content: center;
@@ -42,7 +39,7 @@
     }
     .profile-fields {
         margin-top: 5px;
-        width: 100%;
+        width: 90%;
     }
     label {
         display: block;
@@ -109,7 +106,7 @@
             background-color: darkblue;
             color: #D9D9D9;
             padding: 0;
-            font-size: 16px;
+            font-size: 18px;
         }
     }
     body {
@@ -117,7 +114,7 @@
             background-color: #f0f4f8;
         }
         .container {
-            margin-top: 80px;
+            margin-top: 70px;
         }
         .topic {
             background-color: #f8f9fa;
@@ -147,27 +144,42 @@
             margin-right: 5px;
         }
 </style>
-</head>
 <body>
     <div class="profile-container">
         <h1>Perfil</h1>
         <span>{{ session('message') }}</span>
         @if($user != null)
-        <form id="registration-form" action="{{ route('UpdateUser', [$user->id]) }}" method="post">
+        <form id="registration-form" action="{{ route('UpdateUser', [$user->id]) }}" method="post" enctype="multipart/form-data">
             @csrf
             @method('put')
             <div class="profile-fields">
+            @if ($user->photo)
+                <div class="profile-header">
+                    <p><strong>Imagem Atual</strong></p>
+                    <img src="{{ url('/storage/' . $user->photo) }}" alt="Imagem de Perfil Atual" class="user-icon">
+                </div>
+                @else
+                    <p>Sem Foto de Perfil</p>
+                @endif
+
                 <label for="name">Nome</label>
                 <input type="text" id="name" name="name" placeholder="Nome" value="{{ $user->name}}" required>
                 @error('name') <span class="error">{{ $message }} </span> @enderror
 
-                <label for="email">E-mail</label>
+                <label for="email">E-Mail</label>
                 <input type="email" id="email" name="email" placeholder="E-mail" value="{{ $user->email}}" required>
                 @error('email') <span class="error">{{ $message }} </span> @enderror
 
-                <label for="password">Senha</label>
+                <label for="photo">Nova Imagem (opcional)</label>
+                <input type="file" name="photo" class="form-control-file" accept="image/*">
+
+                <label for="password">Nova Senha (opcional)</label>
                 <input type="password" id="password" name="password" placeholder="Senha">
                 @error('password') <span class="error">{{ $message }} </span> @enderror
+
+                <label for="password_confirmation">Confirmar a Nova Senha (opcional)</label>
+                <input type="password" id="password_confirmation" name="password_confirmation" placeholder="Senha de Confirmação" required>
+                @error('password') <span class="error">{{ $message }}</span> @enderror
             </div>
             <div class="action-buttons">
                 <form id="edit-form" action="{{ route('UpdateUser', [$user->id]) }}" method="post">
@@ -187,3 +199,4 @@
 </div>
 </body>
 </html>
+@endsection
