@@ -1,4 +1,5 @@
 @extends('tag.app')
+@extends('layouts.style')
 
 @section('title', 'Listar Tags')
 

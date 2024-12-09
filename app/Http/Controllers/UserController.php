@@ -20,9 +20,8 @@ class UserController extends Controller
     public function listAllUsers(Request $request) {
         $users = User::all();
         //Lógica pasta.nomedapagina
-        return view('users.listAllUsers', ['users' => $users]);
+        return view('users.listAllUsers', compact('users'));
     }
-
     public function listUser(Request $request, $uid) {
         $user = User::where('id', $uid)->first();
         //$message;

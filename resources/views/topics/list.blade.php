@@ -1,14 +1,19 @@
 @extends('topics.app')
+@extends('layouts.styles')
 
-@section('title', 'Listar Tópicos')
+@section('title', 'Listar os Tópicos')
 
 @section('content')
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <div class="container">
+    <!--
     <a>a</a>
     <p>a</p>
+-->
+    <div class="header-container">
     <h2 class="header-title">Todos os Tópicos</h2>
-    <a href="{{ route('CreateTopic') }}" class="btn btn-primary mb-3">Criar Novo Tópico</a>
+    </div>
+    <a href="{{ route('CreateTopic') }}" class="custom-btn">Criar Novo Tópico</a>
     @if($topics->isEmpty())
         <div class="alert alert-warning" role="alert">
             Nenhum tópico encontrado.
