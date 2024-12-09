@@ -5,7 +5,10 @@
 @section('content')
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <div class="container">
-    <h2 class="header-title">Lista de Tópicos</h2>
+    <a>a</a>
+    <p>a</p>
+    <h2 class="header-title">Todos os Tópicos</h2>
+    <a href="{{ route('CreateTopic') }}" class="btn btn-primary mb-3">Criar Novo Tópico</a>
     @if($topics->isEmpty())
         <div class="alert alert-warning" role="alert">
             Nenhum tópico encontrado.
@@ -55,8 +58,6 @@
             </div>
         @endforeach
     @endif
-    <p></p>
-    <a href="{{ route('CreateTopic') }}" class="btn btn-primary mb-3">Criar Novo Tópico</a>
 </div>
 
 
