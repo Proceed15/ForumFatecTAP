@@ -1,12 +1,11 @@
 @extends('users.app')
 
 @section('content')
-<div class="container">
-    <h1>Listar Todos os Usuários
-    <br></br>
-    <a href="{{ route('ListUser', Auth::user()->id) }}">Edite seu Perfil</a>
-    </h1>
-    <table border="10">
+<div class="container mt-5">
+    <h1 class="header-title">Todos os Usuários</h1>
+    <a href="{{ route('ListUser', Auth::user()->id) }}" class="btn btn-primary">Edite seu Perfil</a>
+    <a href="{{ route('register', Auth::user()->id) }}" class="btn btn-primary">Cadastre um Usuário</a>
+    <table border="10" class="table table-striped">
         <thead>
             <tr>
                 <th>Nome</th>
@@ -28,4 +27,9 @@
         </tbody>
     </table>
 </div>
+<style>
+    .bg-purple {
+        background-color: #6f42c1 !important; /* Cor roxa */
+    }
+</style>
 @endsection
