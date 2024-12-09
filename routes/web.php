@@ -33,7 +33,7 @@ Route::match(['get', 'post'], '/register', [UserController::class, 'registerUser
 Route::middleware('auth')->group(function () {
     Route::get('/users', [UserController::class, 'listAllUsers'])->name('ListAllUsers');
     Route::get('/users/{uid}', [UserController::class, 'listUser'])->name('ListUser');
-    Route::put('/users/{uid}/edit', [UserController::class, 'updateUser'])->name('UpdateUser');
+    Route::match(['get', 'put'], '/users/{uid}/edit', [UserController::class, 'updateUser'])->name('UpdateUser');
     Route::delete('/users/{uid}/delete', [UserController::class, 'deleteUser'])->name('DeleteUser');
 });
 
