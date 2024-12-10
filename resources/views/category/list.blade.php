@@ -4,7 +4,6 @@
 
 @section('content')
 
-<div class="container">
     <h2 class="header-title">Lista de Categorias</h2>
     @if($categories->isEmpty())
         <div class="alert alert-warning" role="alert">
@@ -29,7 +28,6 @@
             </div>
         @endforeach
     @endif
-</div>
 
 <style>
     .container {

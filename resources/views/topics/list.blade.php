@@ -1,12 +1,11 @@
 @extends('topics.app')
-@extends('layouts.styles')
+@extends('layouts.style')
 
 @section('title', 'Listar os Tópicos')
 
 @section('content')
-<div class="container mt-5">
+<h1 class="header-title">Todos os Tópicos</h1>
     <div class="header-container mb-4">
-        <h2 class="header-title">Todos os Tópicos</h2>
         <a href="{{ route('CreateTopic') }}" class="btn btn-primary">Criar Novo Tópico</a>
     </div>
     @if($topics->isEmpty())
@@ -54,7 +53,6 @@
             @endforeach
         </div>
     @endif
-</div>
 
 <style>
     .bg-purple {

@@ -1,10 +1,8 @@
 @extends('layouts.layout')
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tela de Cadastro</title>
+@extends('users.app')
+
+@section('content')
+<title>Tela de Cadastro</title>
     <style>
         body {
             font-family: Arial, Helvetica, sans-serif;
@@ -54,7 +52,6 @@
             font-size: 27px;
         }
     </style>
-</head>
 <body>
     <div class="form-container">
     <h1>Cadastrar-se</h1>
@@ -84,4 +81,4 @@
     </form>
 </div>
 </body>
-</html>
+@endsection

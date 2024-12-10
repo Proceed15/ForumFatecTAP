@@ -4,7 +4,6 @@
 @section('title', 'Listar Tags')
 
 @section('content')
-<div class="container">
     <h2 class="header-title">Lista de Tags</h2>
     @if($tags->isEmpty())
         <div class="alert alert-warning" role="alert">
@@ -27,7 +26,6 @@
             </div>
         @endforeach
     @endif
-</div>
 
 <style>
     .container {

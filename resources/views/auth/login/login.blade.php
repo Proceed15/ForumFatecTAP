@@ -1,33 +1,30 @@
 @extends('layouts.layout')
+@extends('auth.app')
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Login</title>
+@section('content')
+<title>Tela de Login</title>
 <style>
     body {
-            font-family: Arial, Helvetica, sans-serif;
-            background-color: #717CA3;
-            margin: 0;
-        }
-        .login-container {
-            background: linear-gradient(135deg, #f0f4f8, #a777e3);
-            position: absolute;
-            top: 53%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            padding: 30px;
-            border-radius: 15px;
-            color: #000;
-        }
-        label {
-            display: block;
-            margin-bottom: 5px;
-            font-size: 14px;
-        }
-        input {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: #717CA3;
+        margin: 0;
+    }
+    .login-container {
+        background: linear-gradient(135deg, #f0f4f8, #a777e3);
+        position: absolute;
+        top: 53%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 30px;
+        border-radius: 15px;
+        color: #000;
+    }
+    label {
+        display: block;
+        margin-bottom: 5px;
+        font-size: 14px;
+    }
+    input {
         padding: 15px;
         border: none;
         outline: none;
@@ -50,28 +47,13 @@
     button:hover, input[type="submit"]:hover {
         background-color: #505A7B;
     }
-    .action-buttons {
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-        margin-top: 10px;
-    }
-    .action-buttons form {
-        flex: 1;
-        margin: 0 5px;
-    }
-    .action-buttons input[type="submit"] {
-        padding: 15px;
-        font-size: 15px;
-    }
     .aspx {
         padding: 10px;
         font-size: 27px;
     }
 </style>
-</head>
-<body>
-    <div class="login-container">
+
+<div class="login-container">
     <h1>Login</h1>
     <div class="login-form">
         <form id="login-form" action="{{ route('login') }}" method="post">
@@ -87,8 +69,6 @@
             <input type="submit" value="Logar" id="submit-button">
         </form>
         <div class="aspx"><a href="/register">Cadastre-se</a></div>
-        
+    </div>
 </div>
-</div>
-</body>
-</html>
+@endsection
