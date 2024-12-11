@@ -3,8 +3,6 @@
 @section('title', 'Cadastrar Categoria')
 
 @section('content')
-<p>Espaço</p>
-<a>Espaço</a>
 <div class="container">
     <h1 class="my-4 text-center">Cadastrar Categoria</h1>
 

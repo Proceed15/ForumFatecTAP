@@ -8,6 +8,7 @@ body { font-family: Arial, Helvetica, sans-serif; background-color: white; margi
 .search-form button { padding: 10px 20px; border: none; border-radius: 5px; background-color: #3498db; color: white; cursor: pointer; transition: background-color 0.3s ease; }
 .search-form button:hover { background-color: #2980b9; }
 .topic { margin-bottom: 30px; padding: 20px; background-color: rgba(255, 255, 255, 0.1); border-radius: 10px; transition: transform 0.3s ease; }
+.topic-description {    display: -webkit-box;    -webkit-line-clamp: 4; /* Mostra as primiras duas linhas do Conteúdo */    -webkit-box-orient: vertical;    overflow: hidden; text-overflow: ellipsis; /* Adiciona reticências quando o texto é cortado */ }
 .topic:hover { transform: scale(1.05); }
 .topic-title { font-size: 24px; font-weight: bold; margin-bottom: 10px; color: white; }
 .topic-content { margin-bottom: 10px; color: white; }

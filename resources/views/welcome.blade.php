@@ -15,7 +15,7 @@
             <div class="topic">
                 <a href="{{ route('topics.show', $topic->id) }}">
                     <h2>{{ $topic->title }}</h2>
-                    <p>{{ $topic->description }}</p>
+                    <p class="topic topic-description">{{ $topic->description }}</p>
                     <!-- Exibindo a categoria -->
                     <div>
                         <strong>Categoria:</strong> <span class="badge badge-info">{{ $topic->category->title ?? 'Sem Categoria' }}</span>

@@ -3,6 +3,8 @@
 @extends('comments.app')
 @extends('layouts.layout')
 @section('content')
+<p>Espaço</p>
+<p>Espaço</p>
     <h2>Editar Comentário</h2>
 
     @if(session('success'))

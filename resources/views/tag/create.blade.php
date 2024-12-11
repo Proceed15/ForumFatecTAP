@@ -4,8 +4,6 @@
 @section('title', 'Criar Tag')
 
 @section('content')
-<p>Espaço</p>
-<a>Espaço</a>
 <div class="form-container">
     <h1>Cadastrar Tag</h1>
     <form id="registration-form" action="{{ route('CreateTagPost') }}" method="post">

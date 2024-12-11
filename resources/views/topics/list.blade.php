@@ -22,7 +22,7 @@
                                 <h5 class="card-title">
                                     <a href="{{ route('topics.show', $topic->id) }}" class="text-white">{{ $topic->title }}</a>
                                 </h5>
-                                <p class="card-text">Descrição: {{ $topic->description }}</p> <!-- Mantendo a descrição -->
+                                <p class="card-text description">Descrição: {{ $topic->description }}</p> <!-- Mantendo a descrição -->
                                 <p class="card-text">Status: <strong>{{ $topic->status ? 'Ativo' : 'Inativo' }}</strong></p>
                             </div>
                             <div class="text-right"> <!-- Alinhando à direita -->
@@ -41,11 +41,11 @@
                             </div>
                         </div>
                         <div class="mt-auto d-flex justify-content-center"> <!-- Centralizando os botões -->
-                            <a href="{{ route('topics.edit', $topic->id) }}" class="btn btn-warning mx-2">Editar</a>
-                            <form action="{{ route('topics.destroy', $topic->id) }}" method="POST" class="mx-8">
+                            <a href="{{ route('topics.edit', $topic->id) }}" class="btn-editar">Editar</a>
+                            <form action="{{ route('topics.destroy', $topic->id) }}" method="POST" class="d-inline">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger btn-sm" style="width: 100px;" onclick="return confirm('Tem certeza que deseja excluir este tópico?');">Excluir</button>
+                                <button type="submit" class="btn-deletar" onclick="return confirm('Tem certeza que deseja excluir este tópico?');">Excluir</button>
                             </form>
                         </div>
                     </div>
@@ -58,5 +58,45 @@
     .bg-purple {
         background-color: #6f42c1 !important; /* Cor roxa */
     }
+    .card-text.description {
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Limita a duas linhas */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis; /* Adiciona reticências quando o texto é cortado */
+    }
+    /* Classe base para os botões no card */
+    .card-body .btn {
+    width: 100px;
+    height: 37px; /* Ajuste a altura dos botões */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, opacity 0.3s ease; /* Transição suave para a mudança de cor e transparência */
+    }
+
+    /* Botão de Editar */
+    .btn-editar {
+    background-color: #f39c12; /* Cor laranja */
+    color: white; /* Texto branco */
+    }
+
+    /* Botão de Excluir */
+    .btn-deletar {
+    background-color: #e74c3c; /* Cor vermelha */
+    color: white; /* Texto branco */
+    }
+
+/* Efeito de transformação ao passar o mouse nos botões */
+    .btn-editar:hover {
+    background-color: #e67e22; /* Laranja mais escuro */
+    opacity: 0.8; /* Tornar o botão um pouco transparente */
+    }
+
+    .btn-deletar:hover {
+    background-color: #c0392b; /* Vermelho mais escuro */
+    opacity: 0.8; /* Tornar o botão um pouco transparente */
+    }
+
 </style>
 @endsection
